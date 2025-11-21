@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Services | Smart Auto Electrics – ECU Remap, Diagnostics, Security</title>
+  <meta name="description" content="Professional ECU tuning, vehicle diagnostics, auto locksmith, security upgrades, and performance solutions.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { 
+            primary: "#19D8F8", 
+            accent: "#013E75", 
+            dark: "#000000", 
+            light: "#F8FAFC" 
+          },
+          fontFamily: { sans: ["'Space Grotesk'", "system-ui"] },
+          boxShadow: { 
+            glass: '0 8px 32px 0 rgba(31, 38, 135, 0.37)', 
+            neon: '0 0 20px rgba(25, 216, 248, 0.5)' 
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'scan': 'scan 2s linear infinite',
+            'code': 'code 1.5s steps(20) infinite',
+            'line-grow': 'lineGrow 1.5s ease-out forwards',  // Added
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            scan: {
+              '0%': { transform: 'translateY(-100%)' },
+              '100%': { transform: 'translateY(100%)' },
+            },
+            code: {
+              '0%': { backgroundPosition: '0% 50%' },
+              '100%': { backgroundPosition: '100% 50%' },
+            },
+            lineGrow: {  // Added
+              '0%': { height: '0%' }, 
+              '100%': { height: '100%' } 
+            },
+          }
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+</head>
+<body class="bg-dark text-light min-h-screen">
+
+ <div include-html="components/header.html"></div>
+ <div include-html="components/whatsapp-button.html"></div>
+
+  <section class="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-[max(env(safe-area-inset-top,1.5rem),5rem)] pb-10 md:pt-0">
+    <div class="absolute inset-0 -z-10 opacity-10">
+      <div class="h-full w-full bg-gradient-to-t from-transparent via-primary/20 to-transparent"></div>
+    </div>
+    <div id="particles-js" class="absolute inset-0 z-5"></div>
+
+    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90"></div>
+
+    <div class="container mx-auto px-6 md:px-0 md:pl-[6.5rem] md:pr-[3.5rem] relative z-10 text-center">
+      
+      <h1 data-aos="fade-up" class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-cyan-300 animate-pulse leading-tight">Premium Performance Delivered</span>
+        </h1>
+        <p data-aos="fade-up" data-aos-delay="100" class="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90 text-white">
+          ECU Remapping • Diagnostics • Security Upgrades • UK-Wide Service
+        </p>
+      <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col sm:flex-row gap-5 justify-center items-center mt-12">
+        <a href="#ecu" class="inline-flex items-center px-10 py-5 bg-primary text-dark font-bold rounded-full text-lg hover:bg-cyan-400 hover:shadow-neon transition-all duration-300 transform hover:scale-105">
+          Explore Services
+        </a>
+        <a href="contact.html" class="inline-flex items-center px-10 py-5 bg-transparent border-2 border-primary text-primary font-bold rounded-full text-lg hover:bg-primary/20 hover:border-cyan-300 transition-all duration-300">
+          Book Now
+        </a>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-8 mt-16 text-sm text-gray-400">
+        <div data-aos="fade-up" data-aos-delay="300" class="flex items-center gap-2">
+          <span class="text-primary">Check</span> 5,000+ Vehicles Tuned
+        </div>
+        <div data-aos="fade-up" data-aos-delay="400" class="flex items-center gap-2">
+          <span class="text-primary">Check</span> Advanced Diagnostics
+        </div>
+        <div data-aos="fade-up" data-aos-delay="500" class="flex items-center gap-2">
+          <span class="text-primary">Check</span> Insurance Approved
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-70"></div>
+  </section>
+
+  <section class="py-20 container mx-auto px-6 md:px-0 md:pl-[6.5rem] md:pr-[3.5rem]">
+    <h1 class="text-5xl md:text-6xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-primary to-cyan-300">
+      Premium Automotive Services
+    </h1>
+    <p class="text-center max-w-3xl mx-auto mb-16 opacity-90">
+      We deliver performance, reliability, and security with cutting-edge tools and certified expertise.
+    </p>
+
+    <div id="electrical" class="grid md:grid-cols-2 gap-12 mb-20 items-center" data-aos="fade-right">
+      <div class="relative order-first md:order-first">
+        <div class="relative w-full h-64 md:h-80 bg-gradient-to-br from-primary/30 to-black/60 backdrop-blur-md rounded-xl overflow-hidden border border-primary/30 shadow-glass flex items-center justify-center">
+          <svg class="w-2/3 h-2/3 text-primary opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2m-6 12v2m6-2v2M5 9h2m-2 6h2m10-6h2m-2 6h2M7 17h10a2 2 0 002-2V9a2 2 0 00-2-2H7a2 2 0 00-2 2v6a2 2 0 002 2z"/>
+          </svg>
+          <div class="absolute inset-0 bg-primary/10 opacity-50 animate-pulse-slow"></div>
+        </div>
+      </div>
+      <div class="order-last md:order-last">
+        <h2 class="text-3xl font-bold mb-4 text-primary">Electrical Repairs</h2>
+        <p class="mb-4">Expert diagnosis and repair of complex vehicle electrical faults for cars and vans, covering wiring, fuses, relays, and more.</p>
+        <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-300">
+          <li>Wiring and circuit fault finding</li>
+          <li>Component testing and replacement</li>
+          <li>For all makes and models</li>
+        </ul>
+        <a href="contact.html?service=Electrical+Repairs" class="inline-flex items-center bg-primary text-dark px-6 py-3 rounded-full font-bold hover:shadow-neon transition">
+          Book Electrical Service
+        </a>
+      </div>
+    </div>
+
+    <hr class="border-primary/20">
+
+    <div id="locksmith" class="grid md:grid-cols-2 gap-12 mb-20 items-center" data-aos="fade-left">
+      <div class="order-last md:order-first">
+        <h2 class="text-3xl font-bold mb-4 text-primary">Auto Locksmith</h2>
+        <p class="mb-4">We provide solutions for **lost keys**, spare keys, and remote programming. We can often offer faster service if you can send a picture of your lost key/lock.</p>
+        <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-300">
+          <li>New keys cut and programmed</li>
+          <li>Emergency vehicle entry</li>
+          <li>Immobiliser system resets</li>
+        </ul>
+        <a href="contact.html?service=Auto+Locksmith" class="inline-flex items-center bg-primary text-dark px-6 py-3 rounded-full font-bold hover:shadow-neon transition">
+          Book Locksmith Service
+        </a>
+      </div>
+      <div class="relative order-first md:order-last">
+        <div class="relative w-full h-64 md:h-80 bg-black/70 backdrop-blur-md rounded-xl overflow-hidden border border-primary/30 shadow-glass p-6 flex items-center justify-center">
+          <svg class="w-2/3 h-2/3 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2v4a2 2 0 01-2 2H9a2 2 0 01-2-2V9a2 2 0 012-2h6zm-2 0V5a2 2 0 00-2-2v0a2 2 0 00-2 2v2m7 5l-2 2m0 0l-2-2m2 2v-4"/>
+          </svg>
+          <div class="absolute w-40 h-40 border-4 border-cyan-300 rounded-full opacity-30 animate-ping"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-primary/20">
+
+    <div id="sensors" class="grid md:grid-cols-2 gap-12 mb-20 items-center" data-aos="fade-right">
+      <div class="relative order-first md:order-first">
+        <div class="relative w-full h-64 md:h-80 bg-gradient-to-br from-accent/30 to-black/60 backdrop-blur-md rounded-xl overflow-hidden border border-primary/30 shadow-glass flex items-center justify-center">
+          <svg class="w-2/3 h-2/3 text-primary opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.558 4.558a2 2 0 010 2.828l-1.414 1.414a2 2 0 01-2.828 0L10 15m0 0l-4.558 4.558a2 2 0 01-2.828 0l-1.414-1.414a2 2 0 010-2.828L5 10m0 0V5a2 2 0 012-2h10a2 2 0 012 2v5"/>
+          </svg>
+          <div class="absolute w-48 h-48 bg-primary/20 rounded-full opacity-30 animate-pulse"></div>
+        </div>
+      </div>
+      <div class="order-last md:order-last">
+        <h2 class="text-3xl font-bold mb-4 text-primary">Camera & Parking Sensor Installation</h2>
+        <p class="mb-4">Professional installation of reverse cameras, dashcams, and parking sensors for safety and convenience.</p>
+        <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-300">
+          <li>Flush-mount sensor installation</li>
+          <li>High-definition camera systems</li>
+          <li>Integration with existing displays</li>
+        </ul>
+        <a href="contact.html?service=Camera+Sensor+Installation" class="inline-flex items-center bg-primary text-dark px-6 py-3 rounded-full font-bold hover:shadow-neon transition">
+          Book Installation
+        </a>
+      </div>
+    </div>
+
+    <hr class="border-primary/20">
+
+    <div id="ecu" class="grid md:grid-cols-2 gap-12 mb-20 items-center" data-aos="fade-left">
+
+  <div class="order-last md:order-first">
+    <h2 class="text-3xl font-bold mb-4 text-primary">ECU Tuning: Stage 1, 2, 3, & Pops and Banks</h2>
+    <p class="mb-4">
+      Safe, custom tunes for <strong>20–40 %</strong> gains in power & torque. 
+      We offer Stage 1, Stage 2, and Stage 3 tuning, including Pops and Bangs / Burbles map solutions.
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-300">
+      <li>Performance Tuning (Stage 1, 2, 3)</li>
+      <li>Pops and Bangs / Burbles available</li>
+      <li>Reversible & warranty-safe files</li>
+    </ul>
+
+    <a href="contact.html?service=ECU+Remap" 
+       class="inline-flex items-center bg-primary text-dark px-6 py-3 rounded-full font-bold hover:shadow-neon transition">
+      Book ECU Remap
+    </a>
+  </div>
+
+  <div class="relative order-first md:order-last">
+    <div class="relative w-full h-64 md:h-80 bg-gradient-to-br from-accent/30 to-black/60 backdrop-blur-md rounded-xl overflow-hidden border border-primary/30 shadow-glass">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-32 h-32 md:w-40 md:h-40 bg-primary/20 rounded-lg border-2 border-primary/50 animate-pulse-slow">
+          <div class="w-full h-full flex items-center justify-center text-4xl md:text-5xl font-bold text-primary">
+            ECU
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-8 left-8 text-xs font-mono text-cyan-300 opacity-60 animate-code bg-gradient-to-r from-transparent via-cyan-300 to-transparent bg-clip-text">
+          0x1A2B: BOOST +35% | TORQUE +42%
+        </div>
+        <div class="absolute bottom-8 right-8 text-xs font-mono text-cyan-300 opacity-60 animate-code delay-500 bg-gradient-to-r from-transparent via-cyan-300 to-transparent bg-clip-text">
+          FUEL MAP OPTIMIZED | STAGE 3 READY
+        </div>
+      </div>
+
+      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-70 animate-scan"></div>
+    </div>
+  </div>
+
+</div>
+
+
+    <hr class="border-primary/20">
+
+    <div id="emissions" class="grid md:grid-cols-2 gap-12 mb-20 items-center" data-aos="fade-right">
+
+  <div class="relative order-first md:order-first">
+    <div class="relative w-full h-64 md:h-80 bg-black/70 backdrop-blur-md rounded-xl overflow-hidden border border-primary/30 shadow-glass p-6 flex items-center justify-center">
+      <svg class="w-2/3 h-2/3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      <div class="absolute text-3xl font-bold text-red-500/80 animate-pulse">FAULT</div>
+    </div>
+  </div>
+
+  <div class="order-last md:order-last">
+    <h2 class="text-3xl font-bold mb-4 text-primary">DPF, EGR, and AdBlue Solutions</h2>
+    <p class="mb-4">
+      Specialist services to diagnose and resolve common Diesel Particulate Filter (DPF), 
+      Exhaust Gas Recirculation (EGR), and <strong>AdBlue</strong> system issues, 
+      along with other engine module programming.
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-300">
+      <li>DPF forced regeneration and solutions</li>
+      <li>EGR valve cleaning and module solutions</li>
+      <li>AdBlue system fault diagnosis and programming</li>
+    </ul>
+
+    <a href="contact.html?service=DPF+EGR+AdBlue" 
+       class="inline-flex items-center bg-primary text-dark px-6 py-3 rounded-full font-bold hover:shadow-neon transition">
+      Book Emission Solution
+    </a>
+  </div>
+
+</div>
+<hr class="border-primary/20">
+
+   <div id="cloning" class="grid md:grid-cols-2 gap-12 mb-20 items-center" data-aos="fade-left">
+
+  <div class="order-last md:order-first">
+    <h2 class="text-3xl font-bold mb-4 text-primary">Module Cloning & Programming</h2>
+    <p class="mb-4">
+      Professional Electronic Control Unit (ECU), transmission, and other module cloning and programming services.
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-300">
+      <li>Transfer data to replacement units (Cloning)</li>
+      <li>Component protection removal</li>
+      <li>Coding for retrofits and upgrades</li>
+    </ul>
+
+    <a href="contact.html?service=Module+Cloning" 
+       class="inline-flex items-center bg-primary text-dark px-6 py-3 rounded-full font-bold hover:shadow-neon transition">
+      Book Programming
+    </a>
+  </div>
+
+  <div class="relative order-first md:order-last">
+    <div class="relative w-full h-64 md:h-80 bg-gradient-to-br from-accent/30 to-black/60 backdrop-blur-md rounded-xl overflow-hidden border border-primary/30 shadow-glass flex items-center justify-center">
+      <svg class="w-2/3 h-2/3 text-primary opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v2m-6 6l-3-3m0 0l-3 3m3-3v8m9 0V9a2 2 0 00-2-2h-4"/>
+      </svg>
+      <div class="absolute text-xs font-mono text-cyan-300 opacity-70 animate-code">
+        DATA TRANSFER IN PROGRESS
+      </div>
+    </div>
+  </div>
+
+</div>
+<hr class="border-primary/20">
+    
+    <div id="restoration" class="grid md:grid-cols-2 gap-12 mb-20 items-center" data-aos="fade-right">
+
+  <div class="relative order-first md:order-first">
+    <div class="relative w-full h-64 md:h-80 bg-black/70 backdrop-blur-md rounded-xl overflow-hidden border border-primary/30 shadow-glass p-6 flex items-center justify-center">
+      <div class="w-2/3 h-32 bg-yellow-300/50 rounded-full blur-xl opacity-70 animate-pulse-slow"></div>
+      <svg class="absolute w-1/3 h-1/3 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.364 7.364l-.707-.707M12 20v-1m4.636-5.636l.707-.707M12 12a3 3 0 110-6 3 3 0 010 6z"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="order-last md:order-last">
+    <h2 class="text-3xl font-bold mb-4 text-primary">Servicing, Headlights & Modules</h2>
+    <p class="mb-4">
+      Comprehensive vehicle servicing, repairs, professional restoration of cloudy headlights, 
+      and <strong>headlight module cloning/programming</strong>.
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-300">
+      <li>Oil and filter changes and full servicing</li>
+      <li>Headlight module cloning and programming</li>
+      <li>Headlight clarity restoration and safety improvement</li>
+    </ul>
+
+    <a href="contact.html?service=Servicing+Restoration" 
+       class="inline-flex items-center bg-primary text-dark px-6 py-3 rounded-full font-bold hover:shadow-neon transition">
+      Book Servicing
+    </a>
+  </div>
+
+</div>
+
+    
+    <hr class="border-primary/20">
+
+    <div id="diagnostics" class="grid md:grid-cols-2 gap-12 mb-20 items-center" data-aos="fade-left">
+      <div class="order-last md:order-first">
+        <h2 class="text-3xl font-bold mb-4 text-primary">Diagnostics</h2>
+        <p class="mb-4">Full OBD-II diagnostic capability – fast, accurate fault detection and coding without the need for mobile service.</p>
+        <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-300">
+          <li>All major makes supported</li>
+          <li>Live data & component coding</li>
+          <li>Transparent pricing</li>
+        </ul>
+        <a href="contact.html?service=Diagnostics" class="inline-flex items-center bg-primary text-dark px-6 py-3 rounded-full font-bold hover:shadow-neon transition">
+          Book Diagnostics
+        </a>
+      </div>
+      <div class="relative order-first md:order-last">
+        <div class="relative w-full h-64 md:h-80 bg-black/70 backdrop-blur-md rounded-xl overflow-hidden border border-primary/30 shadow-glass p-6">
+          <div class="h-full flex flex-col justify-between font-mono text-xs md:text-sm">
+            <div class="text-green-400 animate-pulse">OBD-II CONNECTED</div>
+            <div class="space-y-1 text-cyan-300">
+              <div>P0300: Random Misfire <span class="text-red-400">ACTIVE</span></div>
+              <div>P0420: Catalyst Efficiency <span class="text-yellow-400">PENDING</span></div>
+              <div>Live RPM: <span class="text-primary">2850</span></div>
+              <div>Boost: <span class="text-primary">1.8 bar</span></div>
+            </div>
+            <div class="flex justify-between text-gray-500">
+              <span>SCANNING...</span>
+              <span class="text-primary animate-pulse">●●●</span>
+            </div>
+          </div>
+          <div class="absolute bottom-4 right-4 text-primary animate-pulse">_</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-primary/20">
+
+    <div id="security" class="grid md:grid-cols-2 gap-12 mb-20 items-center" data-aos="fade-right">
+      <div class="relative order-first md:order-first">
+        <div class="relative w-full h-64 md:h-80 bg-gradient-to-br from-red-900/30 to-black/60 backdrop-blur-md rounded-xl overflow-hidden border border-red-500/40 shadow-glass flex items-center justify-center">
+          <div class="relative">
+            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-red-500/60 animate-pulse-slow flex items-center justify-center">
+              <svg class="w-16 h-16 md:w-20 md:h-20 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-48 h-48 md:w-56 md:h-56 border-2 border-red-500/30 rounded-full animate-ping"></div>
+            </div>
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold animate-bounce">
+              SECURED
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="order-last md:order-last">
+        <h2 class="text-3xl font-bold mb-4 text-primary">Ghost Immobiliser <span class="text-lg text-red-400">(Coming Soon)</span></h2>
+        <p class="mb-4">Industry-leading anti-theft protection – undetectable and unbeatable. Check back soon for availability.</p>
+        <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-300">
+          <li>Authorised Autowatch installer</li>
+          <li>Key-cloning protection</li>
+          <li>Insurance-approved</li>
+        </ul>
+        <a href="contact.html?service=Ghost+Immobiliser" class="inline-flex items-center bg-primary text-dark px-6 py-3 rounded-full font-bold hover:shadow-neon transition">
+          Book Security Upgrade
+        </a>
+      </div>
+    </div>
+
+    <hr class="border-primary/20">
+
+    <div class="mt-24 max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold mb-8 text-center text-primary">Frequently Asked Questions</h3>
+      <div class="space-y-4">
+        <details class="bg-gradient-to-br from-accent/20 to-black/50 backdrop-blur-md border border-primary/20 rounded-xl p-4 cursor-pointer" data-aos="fade-up">
+          <summary class="font-semibold text-lg">Is remapping safe for my engine?</summary>
+          <p class="mt-2 text-gray-300">Yes. All files are dyno-tested and respect OEM safety limits. We have tuned over 5,000 vehicles without a single failure.</p>
+        </details>
+        <details class="bg-gradient-to-br from-accent/20 to-black/50 backdrop-blur-md border border-primary/20 rounded-xl p-4 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+          <summary class="font-semibold text-lg">Do you offer a mobile service?</summary>
+          <p class="mt-2 text-gray-300">We primarily conduct services at our fully-equipped workshop to ensure the highest quality control for all advanced diagnostics and tuning.</p>
+        </details>
+        <details class="bg-gradient-to-br from-accent/20 to-black/50 backdrop-blur-md border border-primary/20 rounded-xl p-4 cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+          <summary class="font-semibold text-lg">Will a Ghost immobiliser affect my warranty?</summary>
+          <p class="mt-2 text-gray-300">No. The system is completely hidden and does not modify any factory ECU parameters.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-gradient-to-r from-primary via-cyan-500 to-primary text-dark">
+    <div class="container mx-auto px-6 md:px-0 md:pl-[6.5rem] md:pr-[3.5rem] text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to experience peak performance?</h2>
+      <p class="text-lg mb-8 max-w-2xl mx-auto">Join 500+ drivers who trust Smart Auto Electrics.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="inline-block px-10 py-5 bg-black text-primary font-bold rounded-full text-lg hover:bg-gray-900 hover:shadow-neon transition-all duration-300">
+          Book Now
+        </a>
+        <a href="contact.html#quote" class="inline-block px-10 py-5 bg-transparent border-2 border-black text-black font-bold rounded-full text-lg hover:bg-black/20 transition-all duration-300">
+          Request a Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div include-html="components/footer.html"></div>
+  <div include-html="scripts.html"></div>
+  <script src="js/include.js"></script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<script src="js/animation.js" defer></script>
+<script src="js/particles-hero.js" defer></script>
+
+  <style>
+    #particles-js {
+      z-index: 5 !important;
+    }
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, #19D8F8, #013E75);
+      transform: translateX(-50%);
+      height: 0;
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(25, 216, 248, 0.6);
+      animation: lineGrow 1.5s ease-out forwards;
+    }
+    @media (max-width: 768px) { 
+      .timeline-line { display: none; } 
+    }
+  </style>
+  </body>
+</html>

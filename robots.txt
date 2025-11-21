@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://Smart Auto Electrics.co.uk/sitemap.xml
