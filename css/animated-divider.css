@@ -1,0 +1,26 @@
+/* In your animated-divider.css */
+.animated-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #D61F26, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Add will-change for smoother performance */
+  will-change: transform;
+}
+
+.animated-divider.animate {
+  transform: scaleX(1);
+}
+
+/* Reduced motion fallback */
+.animated-divider.reduced-motion {
+  transform: scaleX(1) !important;
+  background: linear-gradient(to right, transparent, #e5e7eb, transparent) !important;
+}
+
+/* <!-- Example: Between sections -->
+<div class="animated-divider my-16 max-w-2xl mx-auto"></div>
+
+<!-- Or full width -->
+<div class="animated-divider my-20 w-full"></div> */
