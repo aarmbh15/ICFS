@@ -1,131 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            icfs: {
-              red: '#D61F26',
-              black: '#000000',
-            }
-          },
-          fontFamily: {
-            sans: ['Poppins', 'sans-serif'],
-          }
+          colors: { icfs: { red: '#D61F26', dark: '#0f172a' }},
+          fontFamily: { sans: ['"Space Grotesk"', 'system-ui'] },
         }
       }
     }
   </script>
-    <style>
-      /* Temporary style for better visual of the dark footer background */
-      body {
-        background-color: #0d0d0d; 
-      }
-    </style>
-  </head>
-  <body>
-    <!-- footer.html - Modern Tailwind CSS Version -->
-<footer class="bg-gray-900 text-white">
-  <div class="container mx-auto px-6 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <style>
+    body { background: #0f0f0f; }
+    .footer-border { border-top: 1px solid rgba(255,255,255,0.08); }
+  </style>
+</head>
+<body class="min-h-screen">
 
-      <!-- Column 1: Quick Links -->
-      <div class="lg:col-span-4">
-        <h3 class="text-2xl font-bold text-red-600 mb-6">Quick Links</h3>
-        <ul class="space-y-3 text-gray-300">
-          <li><a href="index.html" class="hover:text-red-500 transition">Home</a></li>
-          <li><a href="about-indo-spark.html" class="hover:text-red-500 transition">Our Company</a></li>
-          <li><a href="history.html" class="hover:text-red-500 transition">Our History</a></li>
-          <li><a href="pull-out-test.html" class="hover:text-red-500 transition">Services</a></li>
-          <li><a href="achievement-and-approvals.html" class="hover:text-red-500 transition">Our Achievements</a></li>
-          <li><a href="https://career.indospark.com/" target="_blank" class="hover:text-red-500 transition">Career</a></li>
-          <li><a href="news-and-videos.html" class="hover:text-red-500 transition">News & Videos</a></li>
-          <li><a href="contact.html" class="hover:text-red-500 transition">Contact Us</a></li>
-          <li><a href="https://blog.indospark.com/" target="_blank" class="hover:text-red-500 transition">Blog</a></li>
-          <li><a href="enquiry.php" class="hover:text-red-500 transition">Enquiry</a></li>
-          <li><a href="sitemap.html" class="hover:text-red-500 transition">Sitemap</a></li>
+<footer class="bg-icfs-dark text-gray-300">
+  <div class="h-1 bg-gradient-to-r from-icfs-red via-icfs-red/50 to-transparent"></div>
+  
+  <div class="container mx-auto px-6 py-16 lg:py-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-16">
+
+      <!-- 1. Brand -->
+      <div class="lg:col-span-3">
+        <a href="index.html" class="flex items-center mb-4 w-auto">
+            <img 
+              src="assets/logo.jpg" 
+              alt="IFCS" 
+              class="h-auto w-3/4 max-w-[180px]" > 
+        </a>
+        <h2 class="text-3xl font-bold text-white mb-4">
+          <span class="text-icfs-red">ICFS</span>
+        </h2>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          India's most trusted name in construction fastening systems.<br>
+          <span class="text-icfs-red font-medium">Precision. Strength. Trust.</span>
+        </p>
+      </div>
+
+      <!-- 2. Company Links -->
+      <div class="lg:col-span-2">
+        <h3 class="text-lg font-semibold text-white mb-6 tracking-wider uppercase">Company</h3>
+        <ul class="space-y-3 text-gray-400 text-sm">
+          <li><a href="index.html" class="hover:text-icfs-red transition">Home</a></li>
+          <li><a href="about-indo-spark.html" class="hover:text-icfs-red transition">About Us</a></li>
+          <li><a href="history.html" class="hover:text-icfs-red transition">Our Legacy</a></li>
+          <li><a href="achievement-and-approvals.html" class="hover:text-icfs-red transition">Achievements</a></li>
+          <li><a href="https://career.indospark.com" target="_blank" class="hover:text-icfs-red transition">Careers</a></li>
         </ul>
       </div>
 
-      <!-- Column 2: Contact Information -->
-      <div class="lg:col-span-5 space-y-8">
-        <h3 class="text-2xl font-bold text-red-600 mb-6">Contact Us</h3>
-        <div class="text-gray-300 space-y-6 text-base leading-relaxed">
-          <div>
-            <p class="font-bold text-white">Indo-Spark Construction Services</p>
-          </div>
-          <div>
-            <p class="font-semibold text-white">Head Office (Kolhapur)</p>
-            <p>198 E, Tararani Chowk, Near Geeta Mandir,<br>Kolhapur - 416 003, Maharashtra, India</p>
-            <p class="mt-2">
-              <span class="font-semibold">Toll Free:</span> 
-              <a href="tel:1800123500023" class="underline hover:text-red-500">1800 1235 00023</a>
-            </p>
-          </div>
-          <div>
-            <p class="font-semibold text-white">Pune Branch</p>
-            <p>H.No. - 128, Telephone Exchange, Opposite Matoshri Medical,<br>Near Unity Complex, Ambegaon Budruk,<br>Pune - 411 046, Maharashtra, India</p>
-            <p class="mt-2">
-              <span class="font-semibold">Toll Free:</span> 
-              <a href="tel:1800123500023" class="underline hover:text-red-500">1800 1235 00023</a>
-            </p>
-          </div>
-          <div>
-            <p class="font-semibold text-white">Mumbai Branch</p>
-            <p>Resident Engineer at Goregaon (West),<br>Mumbai - 400 104, Maharashtra, India</p>
-            <p class="mt-2">
-              <span class="font-semibold">Toll Free:</span> 
-              <a href="tel:1800123500023" class="underline hover:text-red-500">1800 1235 00023</a>
-            </p>
-          </div>
-        </div>
+      <!-- 3. Resources -->
+      <div class="lg:col-span-2">
+        <h3 class="text-lg font-semibold text-white mb-6 tracking-wider uppercase">Resources</h3>
+        <ul class="space-y-3 text-gray-400 text-sm">
+          <li><a href="news-and-videos.html" class="hover:text-icfs-red transition">News & Videos</a></li>
+          <li><a href="https://blog.indospark.com" target="_blank" class="hover:text-icfs-red transition">Blog</a></li>
+          <li><a href="enquiry.php" class="hover:text-icfs-red transition">Enquiry</a></li>
+          <li><a href="contact.html" class="hover:text-icfs-red transition">Contact</a></li>
+        </ul>
       </div>
 
-      <!-- Column 3: Social Media + Google Review -->
+      <!-- 4. Contact Info (Compact & Beautiful) -->
       <div class="lg:col-span-3">
-        <h3 class="text-2xl font-bold text-red-600 mb-6">Social Media</h3>
+        <h3 class="text-lg font-semibold text-white mb-6 tracking-wider uppercase">Get in Touch</h3>
         
-        <div class="flex space-x-4 text-4xl mb-8">
-          <a href="https://www.facebook.com/people/Indo-spark-construction-services/100063719566813/" target="_blank" class="hover:text-red-500 transition">
-            FB
-          </a>
-          <a href="https://www.linkedin.com/company/indo-spark" target="_blank" class="hover:text-red-500 transition">
-            LN
-          </a>
-          <a href="https://www.youtube.com/@indospark/videos" target="_blank" class="hover:text-red-500 transition">
-            YT
-          </a>
-          <a href="https://www.instagram.com/icfs_official" target="_blank" class="hover:text-red-500 transition">
-            IG
-          </a>
-          <a href="https://x.com/ashutoshch39241" target="_blank" class="hover:text-red-500 transition">
-            <img src="images/twitter-grey.jpg" alt="Twitter" class="h-10 w-10">
-          </a>
+        <div class="space-y-4 text-sm text-gray-400">
+          <div class="flex items-start gap-3">
+            <i class="fas fa-map-marker-alt text-icfs-red mt-0.5"></i>
+            <div>
+              <p class="font-medium text-white">Head Office</p>
+              <p>198 E, Tararani Chowk, Kolhapur<br>Maharashtra 416003, India</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-3">
+            <i class="fas fa-phone-alt text-icfs-red mt-0.5"></i>
+            <a href="tel:1800123500023" class="text-white hover:text-icfs-red font-medium">1800 1235 00023</a>
+          </div>
+          
+          <div class="flex items-start gap-3">
+            <i class="fas fa-envelope text-icfs-red mt-0.5"></i>
+            <a href="mailto:mail@indospark.com" class="hover:text-icfs-red">mail@indospark.com</a>
+          </div>
         </div>
 
-        <!-- Google Review Button (exact same as original) -->
-        <a id="gReview" 
-           href="https://www.google.com/search?hl=en-IN&gl=in&q=RS+Number+12+A,+Indo+Spark+Construction+Services+(ICFS+-+Indo+Construction+Fastening+Systems),+Plot+Number+8/9,+near+KMT+Petrol+Pump,+Shiroli,+Kolhapur,+Maharashtra+416122&ludocid=17470717207660559839&lsig=AB86z5UJKo5Au1PULaf1Mj2XsUQo&hl=en&gl=IN#lrd=0x3bc1006cd02fb82b:0xf27474bc8de97ddf,3,,,,"
+        <!-- Social Icons -->
+        <div class="flex gap-5 mt-8 text-2xl">
+          <a href="https://www.facebook.com/people/Indo-spark-construction-services/100063719566813/" target="_blank" class="hover:text-icfs-red transition"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/company/indo-spark" target="_blank" class="hover:text-icfs-red transition"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@indospark/videos" target="_blank" class="hover:text-icfs-red transition"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.instagram.com/icfs_official" target="_blank" class="hover:text-icfs-red transition"><i class="fab fa-instagram"></i></a>
+          <a href="https://x.com/ashutoshch39241" target="_blank" class="hover:text-icfs-red transition"><i class="fab fa-x-twitter"></i></a>
+        </div>
+
+        <!-- Google Review Button -->
+        <!-- <a href="https://www.google.com/search?hl=en-IN&gl=in&q=RS+Number+12+A,+Indo+Spark+Construction+Services+(ICFS+-+Indo+Construction+Fastening+Systems),+Plot+Number+8/9,+near+KMT+Petrol+Pump,+Shiroli,+Kolhapur,+Maharashtra+416122&ludocid=17470717207660559839&lsig=AB86z5UJKo5Au1PULaf1Mj2XsUQo&hl=en&gl=IN#lrd=0x3bc1006cd02fb82b:0xf27474bc8de97ddf,3,,,,"
            target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-3 bg-white text-gray-900 font-bold px-6 py-4 rounded-lg hover:bg-gray-100 transition shadow-xl">
-          <img src="images/google-review-1.png" alt="Google Reviews" class="h-8">
-          <span>Tap to leave a quick review</span>
+           class="inline-flex items-center gap-3 mt-8 bg-white hover:bg-gray-100 text-gray-900 font-semibold px-6 py-3 rounded-full transition shadow-lg hover:shadow-icfs-red/30">
+          <img src="images/google-review-1.png" alt="Google" class="h-5">
+          <span>Leave a Review</span>
+        </a> -->
+        <!-- Google Review Button – NO IMAGE NEEDED -->
+        <a href="https://www.google.com/search?hl=en-IN&gl=in&q=RS+Number+12+A,+Indo+Spark+Construction+Services+(ICFS+-+Indo+Construction+Fastening+Systems),+Plot+Number+8/9,+near+KMT+Petrol+Pump,+Shiroli,+Kolhapur,+Maharashtra+416122&ludocid=17470717207660559839&lsig=AB86z5UJKo5Au1PULaf1Mj2XsUQo&hl=en&gl=IN#lrd=0x3bc1006cd02fb82b:0xf27474bc8de97ddf,3,,,,"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 mt-8 bg-white hover:bg-gray-50 text-gray-900 font-semibold px-6 py-3 rounded-full transition-all duration-200 shadow-lg hover:shadow-icfs-red/30 hover:scale-105">
+
+          <!-- Official Google "G" icon -->
+          <i class="fab fa-google text-lg"></i>
+          
+          <span>Leave a Review</span>
         </a>
       </div>
-    </div>
 
-    <!-- Bottom Credits -->
-    <div class="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
-      <p>
-        <a href="https://www.maharashtradirectory.com" target="_blank" class="underline hover:text-red-500">Designed by : MID</a> &nbsp;|&nbsp;
-        <a href="https://www.gujaratdirectory.com" target="_blank" class="underline hover:text-red-500">Hosted by : GID</a> &nbsp;|&nbsp;
-        <a href="https://www.punebusinessdirectory.com" target="_blank" class="underline hover:text-red-500">Promoted by : PBD</a>
-      </p>
+      <!-- 5. Branches (Bottom – Clean & Balanced) -->
+      <div class="lg:col-span-2 text-sm text-gray-500 border-t border-gray-800 pt-8 mt-8 lg:mt-0 lg:border-t-0 lg:pt-0">
+        <h4 class="text-white mb-4 text-sm font-semibold tracking-wider uppercase">Our Locations</h4>
+        <ul class="space-y-4 text-sm text-gray-400">
+          <li>
+            <div class="flex items-start gap-3">
+            <i class="fas fa-map-marker-alt text-icfs-red mt-0.5"></i>
+            <div>
+              <p class="font-medium text-white">Head Office</p>
+              <p>198 E, Tararani Chowk, Kolhapur<br>Maharashtra 416003, India</p>
+            </div>
+          </div>
+          </li>
+          <li>
+            <div class="flex items-start gap-3">
+            <i class="fas fa-map-marker-alt text-icfs-red mt-0.5"></i>
+            <div>
+              <p class="font-medium text-white">Pune Branch</p>
+              <p>H.No. - 128, Telephone Exchange, Opposite Matoshri Medical, Ambegaon Budruk,<br>Pune - 411 046, Maharashtra, India</p>
+            </div>
+          </div>
+          </li>
+          <li>
+            <div class="flex items-start gap-3">
+            <i class="fas fa-map-marker-alt text-icfs-red mt-0.5"></i>
+            <div>
+              <p class="font-medium text-white">Mumbai Branch</p>
+              <p>Resident Engineer at Goregaon (West),<br>Mumbai - 400 104, Maharashtra, India</p>
+            </div>
+          </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
+  <!-- Bottom bar -->
+    <div class="text-sm text-gray-500 text-center mt-5 pt-4 border-t border-icfs-red/50">
+      <p>© 2025 Indo-Spark Construction Services. All rights reserved.</p>
+    </div>
 </footer>
+
 </body>
 </html>
