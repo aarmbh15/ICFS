@@ -65,7 +65,16 @@
 <body class="font-sans text-icfs-black antialiased">
 
   <!-- Header Include -->
-  <div include-html="components/header.html"></div>
+  <div include-html="../components/header.html"></div>
+
+  <!-- Hero Section (Adapted without Video for About Page) -->
+  <section class="relative h-screen bg-cover bg-center" style="background-image: url('images/about-hero-bg.jpg');"> <!-- Replace with an actual about-themed image -->
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">About Indo-Spark Construction Services</h1>
+      <p class="text-lg md:text-2xl max-w-4xl">Over 45 years of excellence in chemical anchors, PU foams, and construction solutions.</p>
+    </div>
+  </section>
 
   <!-- Main Content Section -->
   <main class="bg-gray-50">
@@ -79,9 +88,9 @@
   </main>
 
   <!-- Footer Include -->
-  <div include-html="components/footer.html"></div>
+  <div include-html="../components/footer.html"></div>
 
   <!-- Include HTML Script -->
-  <script src="js/include.js"></script>
+  <script src="../js/include.js"></script>
 </body>
 </html>

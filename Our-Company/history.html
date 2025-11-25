@@ -3,46 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Indo-Spark Construction Services</title>
-  <meta name="description" content="India’s leading manufacturer of PU foams, chemical anchors & fasteners. Over 45 years of quality, certified products & trusted sealing solutions." />
-  <meta name="keywords" content="Chemical Anchors, Chemical Anchor Studs - CAS, Chemical Mortars, Chemical Guns, Caulking Guns, Chemical Capsule - Supercap, Mechanical Anchor Bolts, Wedge Anchor Bolts, Nylon Frame Anchors, Heavy Duty Anchors - HVE, PU Foams, Diamond Core Bits, Anchor Fasteners, Rebaring Chemicals, Rebar Chemicals, Mechanical Anchors, Construction Chemicals, Chemical Anchors, Manufacturer, Supplier, Exporter, Kolhapur, Pune, Mumbai, Islampur, Maharashtra, India" />
+  <title>Our History – Over 45 Years of Excellence | Indo-Spark Construction Services</title>
+  <meta name="description" content="Journey of Indo-Spark Construction Services since 1978 – from fuel injection workshops to India’s leading manufacturer of ETA-approved chemical anchors, mechanical fasteners & specialized demolition services." />
+  <meta name="keywords" content="Indo-Spark History, Chemical Anchors Manufacturer India, Construction Fastening Systems, Rebaring Services, ETA Approved Anchors, Kolhapur Maharashtra" />
 
-  <!-- Geo Tags -->
   <meta name="geo.region" content="IN-MH" />
   <meta name="geo.placename" content="Kolhapur" />
   <meta name="geo.position" content="16.705923;74.247841" />
   <meta name="ICBM" content="16.705923, 74.247841" />
 
-  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Indo-Spark Construction Services",
-      "url": "https://www.chemicalanchors.in/index.html",
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+91-1800 1235 00023",
-        "contactType": "customer service"
-      }]
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Indo-Spark Construction Services",
+    "url": "https://www.chemicalanchors.in/history.html",
+    "logo": "https://www.chemicalanchors.in/images/indo-spark-logo-new.jpg",
+    "foundingDate": "1978",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-1800 1235 00023",
+      "contactType": "customer service"
     }
+  }
   </script>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="business.business">
-  <meta property="og:title" content="Indo-Spark Construction Services">
-  <meta property="og:url" content="https://www.chemicalanchors.in/index.html">
-  <meta property="og:site_name" content="Indo-Spark Construction Services">
-  <meta property="og:image" content="https://www.chemicalanchors.in/images/indo-spark-logo-new.jpg">
-  <meta property="business:contact_data:street_address" content="198 E, Tararani Chowk, Near Geeta Mandir">
-  <meta property="business:contact_data:locality" content="Kolhapur">
-  <meta property="business:contact_data:region" content="Maharashtra">
-  <meta property="business:contact_data:postal_code" content="416003">
-  <meta property="business:contact_data:country_name" content="India">
+  <meta property="og:title" content="Our History – Over 45 Years of Excellence | Indo-Spark" />
+  <meta property="og:description" content="From a small workshop in 1978 to ETA-approved chemical anchor manufacturer and leader in vibration-free demolition services across India." />
+  <meta property="og:image" content="https://www.chemicalanchors.in/images/indo-spark-logo-new.jpg" />
+  <meta property="og:url" content="https://www.chemicalanchors.in/history.html" />
+  <meta property="og:type" content="website" />
 
-  <link rel="canonical" href="https://www.chemicalanchors.in/index.html"/>
+  <link rel="canonical" href="https://www.chemicalanchors.in/history.html"/>
 
-  <!-- Tailwind CSS CDN + Custom Config -->
+  <!-- Tailwind + Custom Config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -51,46 +45,151 @@
           colors: {
             icfs: {
               red: '#D61F26',
-              black: '#000000',
+              dark: '#111111',
+              gray: '#1f2937',
             }
           },
-          fontFamily: { sans: ["'Space Grotesk'", "system-ui"] },
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+          },
         }
       }
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    .hover-lift{transition:all .5s cubic-bezier(.25,.8,.25,1)}.hover-lift:hover{transform:translateY(-15px);box-shadow:0 30px 60px -12px rgba(0,0,0,.3)}
+    .hero-parallax{background-attachment:fixed;background-position:center;background-repeat:no-repeat;background-size:cover}
+  </style>
+
+  <link rel="stylesheet" href="../css/animated-divider.css">
 </head>
 
-<body class="font-sans text-icfs-black antialiased">
+<body class="font-sans text-icfs-dark antialiased overflow-x-hidden">
 
-  <!-- Header Include -->
-  <div include-html="components/header.html"></div>
+  <div include-html="../components/header.html"></div>
 
-  <!-- Hero Section (Adapted without Video for About Page) -->
-  <section class="relative h-screen bg-cover bg-center" style="background-image: url('images/about-hero-bg.jpg');"> <!-- Replace with an actual about-themed image -->
-    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-    <div class="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white">
-      <h1 class="text-4xl md:text-6xl font-bold mb-6">About Indo-Spark Construction Services</h1>
-      <p class="text-lg md:text-2xl max-w-4xl">Over 45 years of excellence in chemical anchors, PU foams, and construction solutions.</p>
+  <!-- HERO -->
+  <section class="relative h-screen flex items-center justify-center hero-parallax" style="background-image:url('images/about-hero-bg.jpg')" data-aos="fade">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/90"></div>
+    <div class="relative text-center text-white px-6 max-w-6xl mx-auto" data-aos="zoom-out" data-aos-delay="300">
+      <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">Our Journey Since 1978</h1>
+      <p class="text-xl md:text-3xl font-medium opacity-95">From a Small Workshop to India’s Trusted Name in Construction Fastening & Specialized Civil Solutions</p>
     </div>
   </section>
 
-  <!-- Main Content Section -->
-  <main class="bg-gray-50">
-    <div class="container mx-auto px-6 py-16">
-      <!-- Dynamic Content Goes Here -->
-      <!-- Placeholder for Page-specific Content (like products, about, etc.) -->
-      <div id="dynamic-content">
-        <!-- This will be replaced with page-specific content like product grid, text, etc. -->
+  <!-- TIMELINE HISTORY SECTION -->
+  <section class="py-24 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-6xl font-bold text-icfs-dark" data-aos="fade-up">Milestones That Built Our Legacy</h2>
+        <p class="mt-8 text-lg md:text-xl text-icfs-gray max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Over <span class="font-bold text-icfs-red">45 years</span> of relentless innovation, diversification, and customer trust.
+        </p>
+      </div>
+
+      <div class="space-y-16 max-w-4xl mx-auto">
+        <div class="relative pl-10 border-l-4 border-icfs-red" data-aos="fade-up" data-aos-delay="200">
+          <div class="absolute -left-4 top-0 w-8 h-8 bg-icfs-red rounded-full flex items-center justify-center text-white font-bold">78</div>
+          <p class="text-2xl font-bold text-icfs-dark">1978</p>
+          <p class="mt-2 text-lg text-icfs-gray">Beginning of a small workshop for testing Fuel Injection equipment in the automotive industry.</p>
+        </div>
+
+        <div class="relative pl-10 border-l-4 border-icfs-red" data-aos="fade-up" data-aos-delay="300">
+          <div class="absolute -left-4 top-0 w-8 h-8 bg-icfs-red rounded-full flex items-center justify-center text-white font-bold">83</div>
+          <p class="text-2xl font-bold text-icfs-dark">1983</p>
+          <p class="mt-2 text-lg text-icfs-gray">Recognized as an Authorized Fuel Injection workshop.</p>
+        </div>
+
+        <div class="relative pl-10 border-l-4 border-icfs-red" data-aos="fade-up" data-aos-delay="400">
+          <div class="absolute -left-4 top-0 w-8 h-8 bg-icfs-red rounded-full flex items-center justify-center text-white font-bold">91</div>
+          <p class="text-2xl font-bold text-icfs-dark">1991 – 1996</p>
+          <p class="mt-2 text-lg text-icfs-gray">Expansion with new workshops in Kolhapur & Islampur, followed by diversification into Power Tools sales & service.</p>
+        </div>
+
+        <div class="relative pl-10 border-l-4 border-icfs-red" data-aos="fade-up" data-aos-delay="500">
+          <div class="absolute -left-4 top-0 w-8 h-8 bg-icfs-red rounded-full flex items-center justify-center text-white font-bold">01</div>
+          <p class="text-2xl font-bold text-icfs-dark">2001 – 2007</p>
+          <p class="mt-2 text-lg text-icfs-gray">Entry into Construction Services and Telecommunication sectors. Heavy investments in vibration-free concrete cutting technology.</p>
+        </div>
+
+        <div class="relative pl-10 border-l-4 border-icfs-red" data-aos="fade-up" data-aos-delay="600">
+          <div class="absolute -left-4 top-0 w-8 h-8 bg-icfs-red rounded-full flex items-center justify-center text-white font-bold">13</div>
+          <p class="text-2xl font-bold text-icfs-dark">2013</p>
+          <p class="mt-2 text-lg text-icfs-gray">Launch of our flagship brand <strong>ICFS – Indo Construction Fastening Systems</strong>.</p>
+        </div>
+
+        <div class="relative pl-10 border-l-4 border-icfs-red" data-aos="fade-up" data-aos-delay="700">
+          <div class="absolute -left-4 top-0 w-8 h-8 bg-icfs-red rounded-full flex items-center justify-center text-white font-bold">14</div>
+          <p class="text-2xl font-bold text-icfs-dark">2014 – 2016</p>
+          <p class="mt-2 text-lg text-icfs-gray">First ETA approval for chemical anchors • Limca Book of Records for highest number of rebaring • ETA approval for mechanical anchors.</p>
+        </div>
+
+        <div class="relative pl-10 border-l-4 border-icfs-red" data-aos="fade-up" data-aos-delay="800">
+          <div class="absolute -left-4 top-0 w-8 h-8 bg-icfs-red rounded-full flex items-center justify-center text-white font-bold">19</div>
+          <p class="text-2xl font-bold text-icfs-dark">2019</p>
+          <p class="mt-2 text-lg text-icfs-gray">Milestone in 100% metal cutting using wire saw • Became member of European Demolition Association (EDA) • Expanded to Mumbai.</p>
+        </div>
+
+        <div class="relative pl-10 border-l-4 border-icfs-red" data-aos="fade-up" data-aos-delay="900">
+          <div class="absolute -left-4 top-0 w-8 h-8 bg-icfs-red rounded-full flex items-center justify-center text-white font-bold">20</div>
+          <p class="text-2xl font-bold text-icfs-dark">2020</p>
+          <p class="mt-2 text-lg text-icfs-gray">ETA approval for CM350VESF tropical injection mortar • Member of Indian Demolition Association (IDA).</p>
+        </div>
+      </div>
+
+      <!-- Limca Record Highlight -->
+      <div class="mt-24 text-center" data-aos="fade-up" data-aos-delay="1000">
+        <img src="../assets/limca-book-of-record.jpg" alt="Limca Book of Record - Highest Rebaring" class="mx-auto rounded-2xl shadow-2xl hover-lift w-full max-w-2xl">
+        <p class="mt-6 text-xl font-semibold text-icfs-red">Limca Book of Records – Highest Number of Rebaring in India (2015)</p>
+      </div>
+
+      <!-- Infrastructure & Strength -->
+      <div class="mt-32 grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+        <div class="bg-white p-10 rounded-2xl shadow-xl hover-lift" data-aos="fade-up">
+          <h3 class="text-3xl font-bold text-icfs-dark mb-6">Our Infrastructure</h3>
+          <ul class="space-y-4 text-lg text-icfs-gray">
+            <li class="flex items-start"><span class="text-icfs-red mr-3">•</span> 5,000 sq.ft. warehouse in Shiroli, Kolhapur</li>
+            <li class="flex items-start"><span class="text-icfs-red mr-3">•</span> 1,130 sq.ft. owned showroom at Tararani Chowk</li>
+            <li class="flex items-start"><span class="text-icfs-red mr-3">•</span> 7 dedicated delivery vans</li>
+            <li class="flex items-start"><span class="text-icfs-red mr-3">•</span> Fully computerized operations</li>
+            <li class="flex items-start"><span class="text-icfs-red mr-3">•</span> Offices in Kolhapur, Pune, and Mumbai</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-10 rounded-2xl shadow-xl hover-lift" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-3xl font-bold text-icfs-dark mb-6">Leadership</h3>
+          <ul class="space-y-6 text-lg text-icfs-gray">
+            <li><span class="text-icfs-red mr-3">•</span><strong>Mr. T.P. Ingale</strong> – B.E. (Mech.)<br>Over 50 years of experience</li>
+            <li><span class="text-icfs-red mr-3">•</span><strong>Mr. Sandeep Ingale</strong> – D.M.E.<br>Over 30 years driving growth & profitability</li>
+            <li><span class="text-icfs-red mr-3">•</span><strong>Total Strength:</strong> 110+ dedicated team members</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-20 text-center text-xl font-medium text-icfs-gray max-w-4xl mx-auto" data-aos="fade-up">
+        <p>Our group has experienced strong and sustained growth since 1978. Satisfied customers have always considered us a reliable partner — a trust that continues to inspire us to reach higher goals.</p>
       </div>
     </div>
-  </main>
+  </section>
 
-  <!-- Footer Include -->
-  <div include-html="components/footer.html"></div>
+  <div include-html="../components/footer.html"></div>
 
-  <!-- Include HTML Script -->
-  <script src="js/include.js"></script>
+  <!-- Scripts -->
+  <script src="../js/include.js"></script>
+  <script src="../js/animation.js" defer></script>
+  <script src="../js/animated-divider.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- <script>
+    AOS.init({
+      once: true,
+      duration: 1200,
+      easing: 'ease-out-cubic',
+    });
+  </script> -->
 </body>
 </html>

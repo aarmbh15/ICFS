@@ -3,46 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Indo-Spark Construction Services</title>
-  <meta name="description" content="India’s leading manufacturer of PU foams, chemical anchors & fasteners. Over 45 years of quality, certified products & trusted sealing solutions." />
-  <meta name="keywords" content="Chemical Anchors, Chemical Anchor Studs - CAS, Chemical Mortars, Chemical Guns, Caulking Guns, Chemical Capsule - Supercap, Mechanical Anchor Bolts, Wedge Anchor Bolts, Nylon Frame Anchors, Heavy Duty Anchors - HVE, PU Foams, Diamond Core Bits, Anchor Fasteners, Rebaring Chemicals, Rebar Chemicals, Mechanical Anchors, Construction Chemicals, Chemical Anchors, Manufacturer, Supplier, Exporter, Kolhapur, Pune, Mumbai, Islampur, Maharashtra, India" />
+  <title>ICFS Anchor Fasteners | Chemical & Mechanical Anchors, PU Foam – Indo-Spark Construction Services</title>
+  <meta name="description" content="Manufacturer, Supplier & Exporter of ETA-approved Chemical Anchors, Mechanical Wedge Anchors, Nylon Frame Fixings, PU Foam & Specialized Fastening Solutions from Kolhapur, Maharashtra, India." />
+  <meta name="keywords" content="Chemical Anchor Studs CAS, Chemical Mortars CM350VESF CM585PE-PRO, Mechanical Wedge Anchors IWA TBA, Nylon Frame Plugs NFP NHF, PU Foam, Anchor Fasteners India, ETA Approved Anchors, Kolhapur Maharashtra" />
 
-  <!-- Geo Tags -->
   <meta name="geo.region" content="IN-MH" />
   <meta name="geo.placename" content="Kolhapur" />
   <meta name="geo.position" content="16.705923;74.247841" />
   <meta name="ICBM" content="16.705923, 74.247841" />
 
-  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Indo-Spark Construction Services",
-      "url": "https://www.chemicalanchors.in/index.html",
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+91-1800 1235 00023",
-        "contactType": "customer service"
-      }]
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Indo-Spark Construction Services",
+    "url": "https://www.chemicalanchors.in/indo-construction-fastening-systems.html",
+    "logo": "https://www.chemicalanchors.in/../assets/indo-spark-logo-new.jpg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-1800 1235 00023",
+      "contactType": "customer service"
     }
+  }
   </script>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="business.business">
-  <meta property="og:title" content="Indo-Spark Construction Services">
-  <meta property="og:url" content="https://www.chemicalanchors.in/index.html">
-  <meta property="og:site_name" content="Indo-Spark Construction Services">
-  <meta property="og:image" content="https://www.chemicalanchors.in/images/indo-spark-logo-new.jpg">
-  <meta property="business:contact_data:street_address" content="198 E, Tararani Chowk, Near Geeta Mandir">
-  <meta property="business:contact_data:locality" content="Kolhapur">
-  <meta property="business:contact_data:region" content="Maharashtra">
-  <meta property="business:contact_data:postal_code" content="416003">
-  <meta property="business:contact_data:country_name" content="India">
+  <meta property="og:title" content="ICFS Anchor Fasteners – Chemical & Mechanical Anchors | Indo-Spark" />
+  <meta property="og:description" content="ETA-approved Chemical Injection Mortars, Mechanical Anchors, Nylon Fixings & PU Foam – Trusted by India’s leading infrastructure projects." />
+  <meta property="og:image" content="https://www.chemicalanchors.in/../assets/indo-spark-logo-new.jpg" />
+  <meta property="og:url" content="https://www.chemicalanchors.in/indo-construction-fastening-systems.html" />
+  <meta property="og:type" content="website" />
 
-  <link rel="canonical" href="https://www.chemicalanchors.in/index.html"/>
+  <link rel="canonical" href="https://www.chemicalanchors.in/indo-construction-fastening-systems.html"/>
 
-  <!-- Tailwind CSS CDN + Custom Config -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -51,46 +44,244 @@
           colors: {
             icfs: {
               red: '#D61F26',
-              black: '#000000',
+              dark: '#111111',
+              gray: '#1f2937',
             }
           },
-          fontFamily: { sans: ["'Space Grotesk'", "system-ui"] },
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+          },
         }
       }
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    .hover-lift{transition:all .5s cubic-bezier(.25,.8,.25,1)}.hover-lift:hover{transform:translateY(-15px);box-shadow:0 30px 60px -12px rgba(0,0,0,.3)}
+    .hero-parallax{background-attachment:fixed;background-position:center;background-repeat:no-repeat;background-size:cover}
+  </style>
 </head>
 
-<body class="font-sans text-icfs-black antialiased">
+<body class="font-sans text-icfs-dark antialiased overflow-x-hidden">
 
-  <!-- Header Include -->
-  <div include-html="components/header.html"></div>
+  <div include-html="../components/header.html"></div>
 
-  <!-- Hero Section (Adapted without Video for About Page) -->
-  <section class="relative h-screen bg-cover bg-center" style="background-image: url('images/about-hero-bg.jpg');"> <!-- Replace with an actual about-themed image -->
-    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-    <div class="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white">
-      <h1 class="text-4xl md:text-6xl font-bold mb-6">About Indo-Spark Construction Services</h1>
-      <p class="text-lg md:text-2xl max-w-4xl">Over 45 years of excellence in chemical anchors, PU foams, and construction solutions.</p>
+  <!-- HERO -->
+  <section class="relative h-screen flex items-center justify-center hero-parallax" style="background-image:url('../assets/products-hero.jpg')" data-aos="fade">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/90"></div>
+    <div class="relative text-center text-white px-6 max-w-6xl mx-auto" data-aos="zoom-out" data-aos-delay="300">
+      <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">ICFS Anchor Fasteners</h1>
+      <p class="text-xl md:text-3xl font-medium opacity-95">ETA-Approved Chemical & Mechanical Fastening Systems Trusted Across India</p>
     </div>
   </section>
 
-  <!-- Main Content Section -->
-  <main class="bg-gray-50">
-    <div class="container mx-auto px-6 py-16">
-      <!-- Dynamic Content Goes Here -->
-      <!-- Placeholder for Page-specific Content (like products, about, etc.) -->
-      <div id="dynamic-content">
-        <!-- This will be replaced with page-specific content like product grid, text, etc. -->
+  <!-- MAIN PRODUCT SHOWCASE -->
+  <section class="py-24 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-7xl">
+      <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-6xl font-bold text-icfs-dark" data-aos="fade-up">Our Complete Range of Fastening Solutions</h2>
+        <p class="mt-8 text-lg md:text-xl text-icfs-gray max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          European Technical Assessment (ETA) certified chemical anchors, mechanical anchors, nylon fixings & professional PU foam – engineered for safety, durability and performance.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+
+        <!-- 1. Chemical Anchor Studs - CAS -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="100">
+          <img src="../assets/chemical-anchor-studs-cas.gif" alt="Chemical Anchor Studs - CAS" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Chemical Anchor Studs - CAS</h3>
+            <a href="../Products/chemical-anchor-studs-cas.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/category/chemical-anchor-studs" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 2. Chemical Mortars - CM350P -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="150">
+          <img src="../assets/chemical-mortars-cm350p.gif" alt="Chemical Mortars - CM350P" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Chemical Mortars - CM350P</h3>
+            <a href="../Products/Chemical-Mortars/chemical-mortars-cm350p.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/product/chemical-mortars/chemical-injection-mortar-cm350p-350-ml" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 3. Chemical Mortars - CM350/420VESF -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="200">
+          <img src="../assets/chemical-mortars-cm350vesf.gif" alt="Chemical Mortars - CM350VESF" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Chemical Mortars - CM350 / 420VESF</h3>
+            <a href="../Products/Chemical-Mortars/chemical-mortars-cm350vesf.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/product/chemical-mortars/350-ml-anchor-bolt-fixing-chemical-injection-mortar-cm350vesf-icfs" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 4. Chemical Mortars - CM360SH (New) -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="250">
+          <img src="../assets/chemical-mortars-cm360sh.jpg" alt="Chemical Mortars - CM360SH" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Chemical Mortars - CM360SH <span class="text-xs bg-red-600 text-white px-2 py-1 rounded">NEW</span></h3>
+            <a href="../Products/Chemical-Mortars/chemical-mortars-cm360sh.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/product/chemical-mortars/icfs-360-ml-anchor-bolt-fixing-chemical-injection-mortar-cm360sh-cm360sh" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 5. Chemical Mortar - AGNI420 (New) -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="300">
+          <img src="../assets/chemical-mortar-manufacturers-agni420.jpg" alt="Chemical Mortar - AGNI420" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Chemical Mortar - AGNI420 <span class="text-xs bg-red-600 text-white px-2 py-1 rounded">NEW</span></h3>
+            <a href="../Products/Chemical-Mortars/chemical-mortar-manufacturers-agni420.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a>
+          </div>
+        </div>
+
+        <!-- 6. Chemical Mortar - CM585PE-PRO -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="350">
+          <img src="../assets/chemical-mortar-manufacturers-cm585pe-pro.jpg" alt="Chemical Mortar - CM585PE-PRO" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Chemical Mortar - CM585PE-PRO</h3>
+            <a href="../Products/Chemical-Mortars/chemical-mortar-manufacturers-cm585pe-pro.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/product/chemical-mortars/pure-epoxy-chemical-mortar-cm585pe-585-ml-icfs" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 7. Chemical Guns / Caulking Guns -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="400">
+          <img src="../assets/chemical-guns-caulking-guns.gif" alt="Chemical Guns / Caulking Guns" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Chemical Guns / Caulking Guns</h3>
+            <a href="../Products/chemical-guns-caulking-guns.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/category/chemical-guns" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 8. Chemical Capsule - Supercap -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="450">
+          <img src="../assets/chemical-capsule-supercap.gif" alt="Chemical Capsule - Supercap" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Chemical Capsule - Supercap</h3>
+            <a href="../Products/chemical-capsule-supercap.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/product/chemical-capsiles/icfs-chemical-capsule" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 9. Indo Wedge Anchors - IWA -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="500">
+          <img src="../assets/indo-wedge-anchors-iwa.jpg" alt="Indo Wedge Anchors - IWA" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Indo Wedge Anchors - IWA</h3>
+            <a href="../Products/Mechanical-Wedge-Anchor-Bolts/indo-wedge-anchors-iwa.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/product/mechanical-anchor-bolts/wedge-anchor-bolt-10x100-mm-with-hex-nut-and-plain-washer-pack-of-10" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 10. Through Bolt Anchors - TBA -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="550">
+          <img src="../assets/through-bolt-anchors-tba.gif" alt="Through Bolt Anchors - TBA" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Through Bolt Anchors - TBA</h3>
+            <a href="../Products/Mechanical-Wedge-Anchor-Bolts/through-bolt-anchors-tba.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/product/mechanical-anchor-bolts/wedge-anchor-bolt-tba-8-x-75-mm-with-hex-nut-and-plain-washer-pack-of-10" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 11. Drop In Anchors - DIA -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="600">
+          <img src="../assets/drop-in-anchors-dia.gif" alt="Drop In Anchors - DIA" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Drop In Anchors - DIA</h3>
+            <a href="../Products/Mechanical-Wedge-Anchor-Bolts/drop-in-anchors-dia.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/product/mechanical-anchor-bolts/drop-in-anchor-m-12-x-50-mm-pack-of-50" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 12. Nylon Frame Plugs - NFP -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="650">
+          <img src="../assets/nylon-frame-plugs-nfp.gif" alt="Nylon Frame Plugs - NFP" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Nylon Frame Plugs - NFP</h3>
+            <a href="../Products/Nylon-Frame-Anchors/nylon-frame-plugs-nfp.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/product/nylon-frame-anchors/icfs-nylon-frame-plug-10x100-a2-stainless-steel-304-heavy-duty-anchors-for-secure-mounting-10x100-25-icfsnfp10100a2" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 13. Nylon Hammer Fixing Plugs - NHF -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="700">
+          <img src="../assets/nylon-hammer-fixing-plugs-nhf.gif" alt="Nylon Hammer Fixing Plugs - NHF" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Nylon Hammer Fixing Plugs - NHF</h3>
+            <a href="../Products/Nylon-Frame-Anchors/nylon-hammer-fixing-plugs-nhf.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/product/nylon-frame-anchors/nylon-hammer-fixing-plug-with-screw-5-x-40-mm-pack-of-25" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 14. Nylon Plugs - FD -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="750">
+          <img src="../assets/nylon-plugs-fd.gif" alt="Nylon Plug - FD" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Nylon Plug - FD</h3>
+            <a href="../Products/Nylon-Frame-Anchors/nylon-plugs-fd.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/product/nylon-frame-anchors/nylon-plugs-sleeve-6-x-30-mm-pack-of-100" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 15. Plastic Plug - PVC (New) -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="800">
+          <img src="../assets/plastic-plug-pvc.jpg" alt="Plastic Plug - PVC" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Plastic Plug - PVC <span class="text-xs bg-red-600 text-white px-2 py-1 rounded">NEW</span></h3>
+            <a href="../Products/Nylon-Frame-Anchors/plastic-plug-pvc.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/category/nylon-frame-anchors" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 16. Hex Head Screw (New) -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="850">
+          <img src="../assets/hex-head-screw.jpg" alt="Hex Head Screw" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Hex Head Screw <span class="text-xs bg-red-600 text-white px-2 py-1 rounded">NEW</span></h3>
+            <a href="../Products/Nylon-Frame-Anchors/hex-head-screw.html" class="text-icfs-red font-semibold hover:underline">READ MORE →</a><br>
+            <a href="https://www.indospark.com/product/nylon-frame-anchors/nylon-frame-plugs-with-screws-10-x-100-mm-pack-of-25" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+        <!-- 17. PU Foam Range -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="900">
+          <img src="../assets/1k-assembly-foam.jpg" alt="PU Foam Range" class="w-full h-64 object-cover">
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-bold text-icfs-dark mb-3">Professional PU Foam Range</h3>
+            <a href="../Products/pu-foam.html" class="text-icfs-red font-semibold hover:underline">View Full Range →</a><br>
+            <a href="https://www.indospark.com/category/pu-foam" target="_blank" class="block mt-4 bg-icfs-red text-white py-3 rounded-lg hover:bg-red-700 transition">Buy Online Now</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Full Catalog Download -->
+      <div class="mt-24 text-center" data-aos="fade-up">
+        <a href="downloads/all-product-range-anchor-fasteners.pdf" target="_blank" class="inline-block bg-icfs-red text-white px-12 py-6 rounded-full text-xl font-bold hover:bg-red-700 transition shadow-2xl hover-lift">
+          Download Complete ICFS Product Catalog (20 Pages) <span class="ml-2">→</span>
+        </a>
       </div>
     </div>
-  </main>
+  </section>
 
-  <!-- Footer Include -->
-  <div include-html="components/footer.html"></div>
+  <div include-html="../components/footer.html"></div>
 
-  <!-- Include HTML Script -->
-  <script src="js/include.js"></script>
+  <!-- Scripts -->
+  <script src="../js/include.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 1200,
+      easing: 'ease-out-cubic',
+    });
+  </script>
 </body>
 </html>

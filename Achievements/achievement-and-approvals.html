@@ -3,46 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Indo-Spark Construction Services</title>
-  <meta name="description" content="India’s leading manufacturer of PU foams, chemical anchors & fasteners. Over 45 years of quality, certified products & trusted sealing solutions." />
-  <meta name="keywords" content="Chemical Anchors, Chemical Anchor Studs - CAS, Chemical Mortars, Chemical Guns, Caulking Guns, Chemical Capsule - Supercap, Mechanical Anchor Bolts, Wedge Anchor Bolts, Nylon Frame Anchors, Heavy Duty Anchors - HVE, PU Foams, Diamond Core Bits, Anchor Fasteners, Rebaring Chemicals, Rebar Chemicals, Mechanical Anchors, Construction Chemicals, Chemical Anchors, Manufacturer, Supplier, Exporter, Kolhapur, Pune, Mumbai, Islampur, Maharashtra, India" />
+  <title>Exhibitions, Events & Achievements | Indo-Spark Construction Services</title>
+  <meta name="description" content="Explore Indo-Spark's journey through exhibitions, anniversaries, Limca Book of Records recognition, news features, and prestigious approvals (ETA, CE, WRAS, CSTB). Over 45 years of excellence in construction fastening & demolition services." />
+  <meta name="keywords" content="Indo-Spark Achievements, Limca Book of Records, Exhibitions, ICFS Anniversaries, ETA Approved Anchors, Construction Events India, Kolhapur Maharashtra" />
 
-  <!-- Geo Tags -->
   <meta name="geo.region" content="IN-MH" />
   <meta name="geo.placename" content="Kolhapur" />
   <meta name="geo.position" content="16.705923;74.247841" />
   <meta name="ICBM" content="16.705923, 74.247841" />
 
-  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Indo-Spark Construction Services",
-      "url": "https://www.chemicalanchors.in/index.html",
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+91-1800 1235 00023",
-        "contactType": "customer service"
-      }]
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Indo-Spark Construction Services",
+    "url": "https://www.chemicalanchors.in/achievement-and-approvals.html",
+    "logo": "https://www.chemicalanchors.in/../assets/indo-spark-logo-new.jpg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-1800 1235 00023",
+      "contactType": "customer service"
     }
+  }
   </script>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="business.business">
-  <meta property="og:title" content="Indo-Spark Construction Services">
-  <meta property="og:url" content="https://www.chemicalanchors.in/index.html">
-  <meta property="og:site_name" content="Indo-Spark Construction Services">
-  <meta property="og:image" content="https://www.chemicalanchors.in/images/indo-spark-logo-new.jpg">
-  <meta property="business:contact_data:street_address" content="198 E, Tararani Chowk, Near Geeta Mandir">
-  <meta property="business:contact_data:locality" content="Kolhapur">
-  <meta property="business:contact_data:region" content="Maharashtra">
-  <meta property="business:contact_data:postal_code" content="416003">
-  <meta property="business:contact_data:country_name" content="India">
+  <meta property="og:title" content="Exhibitions, Events & Achievements | Indo-Spark Construction Services" />
+  <meta property="og:description" content="From Limca Book of Records to international approvals and grand anniversaries – witness Indo-Spark's legacy of excellence." />
+  <meta property="og:image" content="https://www.chemicalanchors.in/../assets/indo-spark-logo-new.jpg" />
+  <meta property="og:url" content="https://www.chemicalanchors.in/achievement-and-approvals.html" />
+  <meta property="og:type" content="website" />
 
-  <link rel="canonical" href="https://www.chemicalanchors.in/index.html"/>
+  <link rel="canonical" href="https://www.chemicalanchors.in/achievement-and-approvals.html"/>
 
-  <!-- Tailwind CSS CDN + Custom Config -->
+  <!-- Tailwind + Custom Config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -51,46 +44,182 @@
           colors: {
             icfs: {
               red: '#D61F26',
-              black: '#000000',
+              dark: '#111111',
+              gray: '#1f2937',
             }
           },
-          fontFamily: { sans: ["'Space Grotesk'", "system-ui"] },
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+          },
         }
       }
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    .hover-lift { transition: all .5s cubic-bezier(.25,.8,.25,1); }
+    .hover-lift:hover { transform: translateY(-15px); box-shadow: 0 30px 60px -12px rgba(0,0,0,.3); }
+    .hero-parallax { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
+  </style>
 </head>
 
-<body class="font-sans text-icfs-black antialiased">
+<body class="font-sans text-icfs-dark antialiased overflow-x-hidden">
 
-  <!-- Header Include -->
-  <div include-html="components/header.html"></div>
+  <div include-html="../components/header.html"></div>
 
-  <!-- Hero Section (Adapted without Video for About Page) -->
-  <section class="relative h-screen bg-cover bg-center" style="background-image: url('images/about-hero-bg.jpg');"> <!-- Replace with an actual about-themed image -->
-    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-    <div class="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white">
-      <h1 class="text-4xl md:text-6xl font-bold mb-6">About Indo-Spark Construction Services</h1>
-      <p class="text-lg md:text-2xl max-w-4xl">Over 45 years of excellence in chemical anchors, PU foams, and construction solutions.</p>
+  <!-- HERO -->
+  <section class="relative h-screen flex items-center justify-center hero-parallax" style="background-image:url('../assets/about-hero-bg.jpg')" data-aos="fade">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/90"></div>
+    <div class="relative text-center text-white px-6 max-w-6xl mx-auto" data-aos="zoom-out" data-aos-delay="300">
+      <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">Exhibitions, Events & Achievements</h1>
+      <p class="text-xl md:text-3xl font-medium opacity-95">Celebrating Over 45 Years of Innovation, Trust & Excellence</p>
     </div>
   </section>
 
-  <!-- Main Content Section -->
-  <main class="bg-gray-50">
-    <div class="container mx-auto px-6 py-16">
-      <!-- Dynamic Content Goes Here -->
-      <!-- Placeholder for Page-specific Content (like products, about, etc.) -->
-      <div id="dynamic-content">
-        <!-- This will be replaced with page-specific content like product grid, text, etc. -->
+  <!-- MAIN CONTENT -->
+  <section class="py-24 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-7xl">
+
+      <!-- Exhibitions -->
+      <div class="text-center mb-20" data-aos="fade-up">
+        <h2 class="text-4xl md:text-6xl font-bold text-icfs-dark">Exhibitions</h2>
+        <div class="mx-auto mt-6 w-24 h-1 bg-icfs-red"></div>
       </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="200">
+        <img src="../assets/exhibitions.jpg" alt="Indo-Spark Exhibition" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/exhibitions-1.jpg" alt="Indo-Spark Exhibition" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/exhibitions-2.jpg" alt="Indo-Spark Exhibition" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/exhibitions-3.jpg" alt="Indo-Spark Exhibition" class="rounded-lg shadow-xl hover-lift w-full">
+      </div>
+
+      <!-- ICFS Anniversaries -->
+      <div class="text-center mt-32 mb-20" data-aos="fade-up">
+        <h2 class="text-4xl md:text-6xl font-bold text-icfs-dark">ICFS Anniversaries</h2>
+        <div class="mx-auto mt-6 w-24 h-1 bg-icfs-red"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="200">
+        <img src="../assets/40th-anniversary.jpg" alt="40th Anniversary Celebration" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/40th-anniversary-1.jpg" alt="40th Anniversary Cake" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/40th-anniversary-2.jpg" alt="40th Anniversary Event" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/41-anniversary.jpg" alt="41st Anniversary" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/41-anniversary-1.jpg" alt="41st Anniversary Celebration" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/45-anniversary-2.jpg" alt="45th Anniversary Event" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/45-anniversary-1.jpg" alt="45th Anniversary Cake" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/45-anniversary-3.jpg" alt="45th Anniversary Celebration" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/45-anniversary-4.jpg" alt="45th Anniversary Gifts" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/2017-anniversary.jpg" alt="2017 Anniversary" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/2018-anniversary.jpg" alt="2018 Anniversary" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/2018-anniversary-1.jpg" alt="2018 Anniversary Cake" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/2018-anniversary-2.jpg" alt="2018 Anniversary Event" class="rounded-lg shadow-xl hover-lift w-full">
+        <img src="../assets/2018-anniversary-3.jpg" alt="2018 Anniversary Celebration" class="rounded-lg shadow-xl hover-lift w-full">
+      </div>
+
+      <!-- Environment Days, Cricket, Limca, News, ICI, IIBE -->
+      <div class="space-y-32 mt-20">
+        <!-- Environment Day -->
+        <div class="text-center" data-aos="fade-up">
+          <h3 class="text-3xl md:text-5xl font-bold text-icfs-dark">ICFS Environment Days</h3>
+          <div class="mx-auto mt-4 w-20 h-1 bg-icfs-red"></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+            <img src="../assets/environment-day.jpg" alt="Environment Day" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/environment-day-1.jpg" alt="Environment Day" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/environment-day-2.jpg" alt="Environment Day" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/environment-day-3.jpg" alt="Environment Day" class="rounded-lg shadow-xl hover-lift">
+          </div>
+        </div>
+
+        <!-- Cricket -->
+        <div class="text-center" data-aos="fade-up">
+          <h3 class="text-3xl md:text-5xl font-bold text-icfs-dark">ICFS Cricket</h3>
+          <div class="mx-auto mt-4 w-20 h-1 bg-icfs-red"></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+            <img src="../assets/cricket.jpg" alt="ICFS Cricket Team" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/cricket-1.jpg" alt="ICFS Cricket Event" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/cricket-2.jpg" alt="ICFS Cricket Match" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/cricket-3.jpg" alt="ICFS Cricket Celebration" class="rounded-lg shadow-xl hover-lift">
+          </div>
+        </div>
+
+        <!-- Limca Book of Records -->
+        <div class="text-center" data-aos="fade-up">
+          <h3 class="text-3xl md:text-5xl font-bold text-icfs-dark">LIMCA Book of Records</h3>
+          <div class="mx-auto mt-4 w-20 h-1 bg-icfs-red"></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+            <img src="../assets/limca-book.jpg" alt="Limca Book of Records" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/limca-book-1.jpg" alt="Limca Recognition" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/limca-book-2.jpg" alt="Limca Certificate" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/limca-book-3.jpg" alt="Limca Event" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/limca-book-4.jpg" alt="Limca Celebration" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/limca-book-5.jpg" alt="Limca Achievement" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/limca-book-6.jpg" alt="Limca Record" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/limca-book-7.jpg" alt="Limca Book Entry" class="rounded-lg shadow-xl hover-lift">
+          </div>
+        </div>
+
+        <!-- ICFS News -->
+        <div class="text-center" data-aos="fade-up">
+          <h3 class="text-3xl md:text-5xl font-bold text-icfs-dark">ICFS News</h3>
+          <div class="mx-auto mt-4 w-20 h-1 bg-icfs-red"></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+            <img src="../assets/news3.jpg" alt="News Coverage" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/limca-book-of-records-news.jpg" alt="Limca News" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/limca-book-of-records-registration.jpg" alt="Limca Registration" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/limca-book-of-records.jpg" alt="Limca Feature" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/news.jpg" alt="Press Coverage" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/news-1.jpg" alt="Media Coverage" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/news-2.jpg" alt="News Article" class="rounded-lg shadow-xl hover-lift">
+          </div>
+        </div>
+
+        <!-- Pune ICI & IIBE -->
+        <div class="text-center" data-aos="fade-up">
+          <h3 class="text-3xl md:text-5xl font-bold text-icfs-dark">Pune ICI & IIBE</h3>
+          <div class="mx-auto mt-4 w-20 h-1 bg-icfs-red"></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+            <img src="../assets/ici.jpg" alt="Pune ICI Event" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/ici-1.jpg" alt="ICI Participation" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/ici-2.jpg" alt="ICI Exhibition" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/ici-3.jpg" alt="ICI Award" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/ici-4.jpg" alt="ICI Stall" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/ici-5.jpg" alt="ICI Moment" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/ici-6.jpg" alt="ICI Team" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/ici-7.jpg" alt="ICI Celebration" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/iibe.jpg" alt="Pune IIBE Event" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/iibe-1.jpg" alt="IIBE Participation" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/iibe-2.jpg" alt="IIBE Exhibition" class="rounded-lg shadow-xl hover-lift">
+            <img src="../assets/iibe-3.jpg" alt="IIBE Achievement" class="rounded-lg shadow-xl hover-lift">
+          </div>
+        </div>
+      </div>
+
+      <!-- Approvals Section -->
+      <div class="mt-32 text-center" data-aos="fade-up">
+        <h2 class="text-4xl md:text-6xl font-bold text-icfs-dark mb-12">APPROVALS BY</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+          <img src="../assets/itb.jpg" alt="ITB Approval" class="mx-auto hover-lift">
+          <img src="../assets/ce-1.jpg" alt="CE Marking" class="mx-auto hover-lift">
+          <img src="../assets/wras.jpg" alt="WRAS Approval" class="mx-auto hover-lift">
+          <img src="../assets/cstb-3.jpg" alt="CSTB Approval" class="mx-auto hover-lift">
+        </div>
+      </div>
+
     </div>
-  </main>
+  </section>
 
-  <!-- Footer Include -->
-  <div include-html="components/footer.html"></div>
+  <div include-html="../components/footer.html"></div>
 
-  <!-- Include HTML Script -->
-  <script src="js/include.js"></script>
+  <!-- Scripts -->
+  <script src="../js/include.js"></script>
+  <script src="../js/animation.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- <script>
+    AOS.init({
+      once: true,
+      duration: 1200,
+      easing: 'ease-out-cubic',
+    });
+  </script> -->
 </body>
 </html>

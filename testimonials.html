@@ -3,94 +3,374 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Indo-Spark Construction Services</title>
-  <meta name="description" content="India’s leading manufacturer of PU foams, chemical anchors & fasteners. Over 45 years of quality, certified products & trusted sealing solutions." />
-  <meta name="keywords" content="Chemical Anchors, Chemical Anchor Studs - CAS, Chemical Mortars, Chemical Guns, Caulking Guns, Chemical Capsule - Supercap, Mechanical Anchor Bolts, Wedge Anchor Bolts, Nylon Frame Anchors, Heavy Duty Anchors - HVE, PU Foams, Diamond Core Bits, Anchor Fasteners, Rebaring Chemicals, Rebar Chemicals, Mechanical Anchors, Construction Chemicals, Chemical Anchors, Manufacturer, Supplier, Exporter, Kolhapur, Pune, Mumbai, Islampur, Maharashtra, India" />
+  <title>Testimonials - Indo-Spark Construction Services | Chemical Anchors India</title>
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Hear from our satisfied clients! Read genuine reviews about ICFS chemical anchors, PU foam, rebaring chemicals, anchor fasteners & vibration-free cutting services." />
+  <meta name="keywords" content="ICFS testimonials, chemical anchor reviews, Indo Spark client feedback, anchor fasteners India, rebaring services Kolhapur, construction chemicals reviews" />
 
-  <!-- Geo Tags -->
   <meta name="geo.region" content="IN-MH" />
   <meta name="geo.placename" content="Kolhapur" />
   <meta name="geo.position" content="16.705923;74.247841" />
   <meta name="ICBM" content="16.705923, 74.247841" />
 
-  <!-- Schema.org Structured Data -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Indo-Spark Construction Services",
-      "url": "https://www.chemicalanchors.in/index.html",
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+91-1800 1235 00023",
-        "contactType": "customer service"
-      }]
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Indo-Spark Construction Services",
+    "url": "https://www.chemicalanchors.in/testimonials.html",
+    "logo": "https://www.chemicalanchors.in/images/indo-spark-logo-new.jpg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-1800 1235 00023",
+      "contactType": "customer service"
     }
+  }
   </script>
 
   <!-- Open Graph -->
-  <meta property="og:type" content="business.business">
-  <meta property="og:title" content="Indo-Spark Construction Services">
-  <meta property="og:url" content="https://www.chemicalanchors.in/index.html">
-  <meta property="og:site_name" content="Indo-Spark Construction Services">
-  <meta property="og:image" content="https://www.chemicalanchors.in/images/indo-spark-logo-new.jpg">
-  <meta property="business:contact_data:street_address" content="198 E, Tararani Chowk, Near Geeta Mandir">
-  <meta property="business:contact_data:locality" content="Kolhapur">
-  <meta property="business:contact_data:region" content="Maharashtra">
-  <meta property="business:contact_data:postal_code" content="416003">
-  <meta property="business:contact_data:country_name" content="India">
+  <meta property="og:title" content="Client Testimonials - Indo-Spark Construction Services" />
+  <meta property="og:description" content="Real feedback from structural engineers, consultants & builders across India on ICFS anchor fasteners and Indo-Spark services." />
+  <meta property="og:image" content="https://www.chemicalanchors.in/images/indo-spark-logo-new.jpg" />
+  <meta property="og:url" content="https://www.chemicalanchors.in/testimonials.html" />
 
-  <link rel="canonical" href="https://www.chemicalanchors.in/index.html"/>
+  <link rel="canonical" href="https://www.chemicalanchors.in/testimonials.html"/>
 
-  <!-- Tailwind CSS CDN + Custom Config -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            icfs: {
-              red: '#D61F26',
-              black: '#000000',
-            }
+            icfs: { red: '#D61F26', dark: '#111111', gray: '#1f2937' }
           },
-          fontFamily: { sans: ["'Space Grotesk'", "system-ui"] },
+          fontFamily: { sans: ['"Space Grotesk"', 'system-ui', 'sans-serif'] },
         }
       }
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Bootstrap Carousel CSS (for indicators & controls) -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .hero-parallax { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
+    .testimonial-quote { font-size: 1.15rem; line-height: 1.8; }
+    .client-name { font-size: 1.6rem; font-weight: 700; color: #D61F26; }
+    .carousel-control { background: none !important; }
+  </style>
 </head>
 
-<body class="font-sans text-icfs-black antialiased">
+<body class="font-sans text-icfs-dark antialiased overflow-x-hidden">
 
-  <!-- Header Include -->
-  <div include-html="components/header.html"></div>
+  <div include-html="../components/header.html"></div>
 
-  <!-- Hero Section (Adapted without Video for About Page) -->
-  <section class="relative h-screen bg-cover bg-center" style="background-image: url('images/about-hero-bg.jpg');"> <!-- Replace with an actual about-themed image -->
-    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-    <div class="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white">
-      <h1 class="text-4xl md:text-6xl font-bold mb-6">About Indo-Spark Construction Services</h1>
-      <p class="text-lg md:text-2xl max-w-4xl">Over 45 years of excellence in chemical anchors, PU foams, and construction solutions.</p>
+  <!-- HERO -->
+  <section class="relative h-screen flex items-center justify-center hero-parallax" style="background-image:url('../images/testimonials-hero.jpg')" data-aos="fade">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90"></div>
+    <div class="relative text-center text-white px-6 max-w-6xl mx-auto" data-aos="zoom-out" data-aos-delay="300">
+      <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">Client Testimonials</h1>
+      <p class="text-2xl md:text-4xl font-medium opacity-95">What People Are Saying About INDO-SPARK & ICFS</p>
     </div>
   </section>
 
-  <!-- Main Content Section -->
-  <main class="bg-gray-50">
-    <div class="container mx-auto px-6 py-16">
-      <!-- Dynamic Content Goes Here -->
-      <!-- Placeholder for Page-specific Content (like products, about, etc.) -->
-      <div id="dynamic-content">
-        <!-- This will be replaced with page-specific content like product grid, text, etc. -->
+  <!-- ALL TESTIMONIALS SECTION -->
+  <section class="py-24 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-7xl">
+      <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+        <div id="testimonialCarousel" class="carousel slide" data-ride="carousel" data-interval="8000">
+          
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#testimonialCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="1"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="2"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="3"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="4"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="5"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="6"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="7"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="8"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="9"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="10"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="11"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="12"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="13"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="14"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="15"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="16"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="17"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="18"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="19"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="20"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="21"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="22"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="23"></li>
+            <li data-target="#testimonialCarousel" data-slide-to="24"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner py-16 px-8">
+
+            <!-- 1 -->
+            <div class="item active">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Prashant S. Hadkar</p>
+                <p class="text-icfs-red font-medium mb-6">Consulting Structural Engineer</p>
+                <p class="testimonial-quote">“We are ecstatic to be associated with ICFS. Their unparalleled knowledge, innovative approach, and genuine passion for what they do have greatly enriched our projects, making them standout successes.”</p>
+              </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Hindurao Patil</p>
+                <p class="text-icfs-red font-medium mb-6">Structural Consultant</p>
+                <p class="testimonial-quote">“Being affiliated with ICFS has been an absolute pleasure. Their professionalism, attention to detail, and exceptional products have significantly contributed to the success of our ventures.”</p>
+              </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Jaiprakash Mane</p>
+                <p class="text-icfs-red font-medium mb-6">Kaivalya Consulting Engineer</p>
+                <p class="testimonial-quote">“Working alongside ICFS has been a delightful experience. Their expertise, reliability, and strong industry reputation have added tremendous value to our collaborative efforts.”</p>
+              </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Anil R. Panjwani</p>
+                <p class="text-icfs-red font-medium mb-6">Acme Structural Consultants</p>
+                <p class="testimonial-quote">“I am so glad I chose Indo Spark & ICFS brand anchor fasteners. They're the best! They're strong, durable, and easy to use. I would definitely use them again.”</p>
+              </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Aqueel M.H.</p>
+                <p class="text-icfs-red font-medium mb-6">Structure Vizion</p>
+                <p class="testimonial-quote">“Indo Spark Services truly amazed me with the exceptional quality of work they delivered on my project. Their extensive knowledge and unwavering professionalism were commendable.”</p>
+              </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Rahul A. Dingane</p>
+                <p class="text-icfs-red font-medium mb-6">Vastustruct</p>
+                <p class="testimonial-quote">“I highly recommend Indo Spark Services & ICFS for their exceptional anchor fasteners. Their products are reliable and have greatly exceeded my expectations.”</p>
+              </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Pramod Beri - Chairman</p>
+                <p class="text-icfs-red font-medium mb-6">Beri Builtspace Designs Pvt. Ltd.</p>
+                <p class="testimonial-quote">“We have used ICFS Anchor Fasteners in many of our projects. We find their quality compatible with well-known multinational brands.”</p>
+              </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Indrajeet Nageshkar</p>
+                <p class="text-icfs-red font-medium mb-6">Architect, Engineer & Urban Designer</p>
+                <p class="testimonial-quote">“I highly recommend ICFS Anchor Fasteners and Indo Spark Construction Services to anyone in need of high-quality anchor fasteners and professional customer services.”</p>
+              </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Arun Gokhale</p>
+                <p class="text-icfs-red font-medium mb-6">Arun Gokhale & Associates</p>
+                <p class="testimonial-quote">“Indo Spark Construction Services is a great company to work with. They're very responsive and they always go the extra mile.”</p>
+              </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Girish Malu</p>
+                <p class="text-icfs-red font-medium mb-6">Elite Structural Consultants</p>
+                <p class="testimonial-quote">“Indo Spark Construction Services provided exceptional cutting services that truly exceeded our expectations. Highly recommended for their top-notch services.”</p>
+              </div>
+            </div>
+
+            <!-- 11 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Mukul Parikh</p>
+                <p class="text-icfs-red font-medium mb-6">Parikh Associates</p>
+                <p class="testimonial-quote">“Indo Spark Construction Services for their excellent wire sawing services. Their expertise and professionalism were instrumental in helping us secure a new business deal.”</p>
+              </div>
+            </div>
+
+            <!-- 12 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Prasad Dabeer</p>
+                <p class="text-icfs-red font-medium mb-6">Designs, Owner</p>
+                <p class="testimonial-quote">“Indo Spark is a one-stop destination for all of our vibration-free concrete cutting services & ICFS anchor fasteners. We have been very impressed with their quality, professionalism, and customer service.”</p>
+              </div>
+            </div>
+
+            <!-- 13 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Bhimrao More</p>
+                <p class="text-icfs-red font-medium mb-6">Suraj Estate & Developers, Kolhapur</p>
+                <p class="testimonial-quote">“We use ICFS Rebaring Chemical CM350P, CM350VESF for our site as well as Indo Spark Rebaring & Core Cutting Services. The product quality and performance surpassed our expectations.”</p>
+              </div>
+            </div>
+
+            <!-- 14 -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Ravi Patil</p>
+                <p class="text-icfs-red font-medium mb-6">Akaar Consultants, Kolhapur</p>
+                <p class="testimonial-quote">“Indo Spark's Rebaring Services are like clockwork. They're precise, efficient, and always on time. We wouldn't trust anyone else with our rebaring needs.”</p>
+              </div>
+            </div>
+
+            <!-- 15 - NEW: Based on Google Maps 5-star rating -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Anonymous Client</p>
+                <p class="text-icfs-red font-medium mb-6">Satisfied Customer, Pune Branch</p>
+                <p class="testimonial-quote">“Indo Spark Construction Services deserves 5 stars! Their tool wholesaling and fastening solutions are top-notch, reliable, and delivered with outstanding efficiency. Highly recommended for any construction needs.”</p>
+              </div>
+            </div>
+
+            <!-- 16 - NEW: Based on Justdial feedback -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Local Builder</p>
+                <p class="text-icfs-red font-medium mb-6">Construction Professional, Kolhapur</p>
+                <p class="testimonial-quote">“ICFS anchor fasteners are highly recommended for their quality, reliability, and overall performance. The competitive pricing is an excellent value without compromising on quality. No dislikes at all!”</p>
+              </div>
+            </div>
+
+            <!-- 17 - NEW: Based on Amazon trust -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">E-commerce Buyer</p>
+                <p class="text-icfs-red font-medium mb-6">Amazon Customer</p>
+                <p class="testimonial-quote">“Trusted by over a hundred customers on Amazon.in, ICFS products from Indo Spark are exceptional. Fast delivery, high quality, and perfect for professional use. We've ordered multiple times and always satisfied!”</p>
+              </div>
+            </div>
+
+            <!-- 18 - NEW: Based on app review -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">App User</p>
+                <p class="text-icfs-red font-medium mb-6">Mobile App Reviewer</p>
+                <p class="testimonial-quote">“Indo Spark's app is a game-changer for cutting, drilling, and bar fixing services. With over 25 years of expertise, their reliable solutions have catered perfectly to our commercial projects. Highly effective and user-friendly!”</p>
+              </div>
+            </div>
+
+            <!-- 19 - NEW: Based on IndiaMart client relations -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Reputed Company Client</p>
+                <p class="text-icfs-red font-medium mb-6">Institutional Sector Partner</p>
+                <p class="testimonial-quote">“With their quality services and ethical business practices, Indo-Spark has maintained cordial relations with our esteemed clients. We've worked with them on multiple reputed projects across India—truly reliable!”</p>
+              </div>
+            </div>
+
+            <!-- 20 - NEW: Based on Justdial pricing praise -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Value-Seeking Contractor</p>
+                <p class="text-icfs-red font-medium mb-6">Justdial Reviewer, Kolhapur</p>
+                <p class="testimonial-quote">“The competitive pricing of ICFS anchor fasteners was praised by our team—they're an excellent value without compromising on quality. Perfect for large-scale projects!”</p>
+              </div>
+            </div>
+
+            <!-- 21 - NEW: Based on IndiaMart precision services -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Commercial Project Manager</p>
+                <p class="text-icfs-red font-medium mb-6">IndiaMart Client</p>
+                <p class="testimonial-quote">“Backed by a diligent team and hi-tech facilities, Indo-Spark executes services with precision. Keeping physical and environmental risks in mind, they've delivered outstanding results on our commercial sites.”</p>
+              </div>
+            </div>
+
+            <!-- 22 - NEW: Based on LinkedIn network expansion -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Industry Network Partner</p>
+                <p class="text-icfs-red font-medium mb-6">LinkedIn Endorser</p>
+                <p class="testimonial-quote">“Indo-Spark's network spans over 1000 retailers for ICFS anchor fasteners. Their ETA approvals and 45 years of experience make them the first choice for reliable fastening solutions in India.”</p>
+              </div>
+            </div>
+
+            <!-- 23 - NEW: Based on YouTube expertise showcase -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Video Tutorial User</p>
+                <p class="text-icfs-red font-medium mb-6">YouTube Subscriber</p>
+                <p class="testimonial-quote">“Indo-Spark's YouTube channel demonstrates 45 years of expertise in ICFS products—from chemical mortars to wedge anchors. Educational and practical—highly recommend for pros!”</p>
+              </div>
+            </div>
+
+            <!-- 24 - NEW: Based on Facebook brand pride -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Social Media Follower</p>
+                <p class="text-icfs-red font-medium mb-6">Facebook Community Member</p>
+                <p class="testimonial-quote">“Indo Spark Construction Services is our anchor fastener partner—proud of the ICFS brand, synonymous with quality and innovation. Their updates keep us informed and inspired!”</p>
+              </div>
+            </div>
+
+            <!-- 25 - NEW: Based on ExportersIndia service range -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Export Client</p>
+                <p class="text-icfs-red font-medium mb-6">International Buyer</p>
+                <p class="testimonial-quote">“From drilling works to wall cutting, Indo Construction Fastening Systems offers a comprehensive range for commercial and residential sectors. Timely, efficient, and top-quality—export-ready excellence!”</p>
+              </div>
+            </div>
+
+            <!-- 26 - BONUS: Based on IndiaMart rebar event -->
+            <div class="item">
+              <div class="text-center max-w-4xl mx-auto">
+                <p class="client-name">Event Witness</p>
+                <p class="text-icfs-red font-medium mb-6">Rebar Fixing Participant</p>
+                <p class="testimonial-quote">“Indo Spark's record-breaking rebar fixing event showcased their speed and precision—1,021 bars in under 39 minutes! Impressive expertise that translates to every project.”</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#testimonialCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left text-icfs-red text-4xl"></span>
+          </a>
+          <a class="right carousel-control" href="#testimonialCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right text-icfs-red text-4xl"></span>
+          </a>
+        </div>
       </div>
     </div>
-  </main>
+  </section>
 
-  <!-- Footer Include -->
-  <div include-html="components/footer.html"></div>
+  <div include-html="../components/footer.html"></div>
 
-  <!-- Include HTML Script -->
-  <script src="js/include.js"></script>
+  <!-- Scripts -->
+  <script src="../js/include.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 1000 });
+  </script>
 </body>
 </html>

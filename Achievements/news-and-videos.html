@@ -3,46 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Indo-Spark Construction Services</title>
-  <meta name="description" content="India’s leading manufacturer of PU foams, chemical anchors & fasteners. Over 45 years of quality, certified products & trusted sealing solutions." />
-  <meta name="keywords" content="Chemical Anchors, Chemical Anchor Studs - CAS, Chemical Mortars, Chemical Guns, Caulking Guns, Chemical Capsule - Supercap, Mechanical Anchor Bolts, Wedge Anchor Bolts, Nylon Frame Anchors, Heavy Duty Anchors - HVE, PU Foams, Diamond Core Bits, Anchor Fasteners, Rebaring Chemicals, Rebar Chemicals, Mechanical Anchors, Construction Chemicals, Chemical Anchors, Manufacturer, Supplier, Exporter, Kolhapur, Pune, Mumbai, Islampur, Maharashtra, India" />
+  <title>News & Videos | Indo-Spark Construction Services</title>
+  <meta name="description" content="Watch Indo-Spark's latest product demos, chemical anchoring installation guides, core cutting services, rebaring work, pull-out tests, and customer testimonials. Over 45 years of excellence in construction fastening and controlled demolition." />
+  <meta name="keywords" content="Indo-Spark Videos, Chemical Anchor Installation, Core Cutting Demo, Rebaring Work, Pull Out Test, Diamond Drilling, Construction Fastening India, Kolhapur Maharashtra" />
 
-  <!-- Geo Tags -->
   <meta name="geo.region" content="IN-MH" />
   <meta name="geo.placename" content="Kolhapur" />
   <meta name="geo.position" content="16.705923;74.247841" />
   <meta name="ICBM" content="16.705923, 74.247841" />
 
-  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Indo-Spark Construction Services",
-      "url": "https://www.chemicalanchors.in/index.html",
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+91-1800 1235 00023",
-        "contactType": "customer service"
-      }]
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Indo-Spark Construction Services",
+    "url": "https://www.chemicalanchors.in/news-and-videos.html",
+    "logo": "https://www.chemicalanchors.in/images/indo-spark-logo-new.jpg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-1800 1235 00023",
+      "contactType": "customer service"
     }
+  }
   </script>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="business.business">
-  <meta property="og:title" content="Indo-Spark Construction Services">
-  <meta property="og:url" content="https://www.chemicalanchors.in/index.html">
-  <meta property="og:site_name" content="Indo-Spark Construction Services">
-  <meta property="og:image" content="https://www.chemicalanchors.in/images/indo-spark-logo-new.jpg">
-  <meta property="business:contact_data:street_address" content="198 E, Tararani Chowk, Near Geeta Mandir">
-  <meta property="business:contact_data:locality" content="Kolhapur">
-  <meta property="business:contact_data:region" content="Maharashtra">
-  <meta property="business:contact_data:postal_code" content="416003">
-  <meta property="business:contact_data:country_name" content="India">
+  <meta property="og:title" content="News & Videos | Indo-Spark Construction Services" />
+  <meta property="og:description" content="Product demonstrations, installation guides, site work videos, customer testimonials and more from India's leading chemical anchor core cutting experts." />
+  <meta property="og:image" content="https://www.chemicalanchors.in/images/indo-spark-logo-new.jpg" />
+  <meta property="og:url" content="https://www.chemicalanchors.in/news-and-videos.html" />
+  <meta property="og:type" content="website" />
 
-  <link rel="canonical" href="https://www.chemicalanchors.in/index.html"/>
+  <link rel="canonical" href="https://www.chemicalanchors.in/news-and-videos.html"/>
 
-  <!-- Tailwind CSS CDN + Custom Config -->
+  <!-- Tailwind + Custom Config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -51,46 +44,151 @@
           colors: {
             icfs: {
               red: '#D61F26',
-              black: '#000000',
+              dark: '#111111',
+              gray: '#1f2937',
             }
           },
-          fontFamily: { sans: ["'Space Grotesk'", "system-ui"] },
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+          },
         }
       }
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    .hover-lift { transition: all .5s cubic-bezier(.25,.8,.25,1); }
+    .hover-lift:hover { transform: translateY(-15px); box-shadow: 0 30px 60px -12px rgba(0,0,0,.3); }
+    .hero-parallax { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; }
+  </style>
 </head>
 
-<body class="font-sans text-icfs-black antialiased">
+<body class="font-sans text-icfs-dark antialiased overflow-x-hidden">
 
-  <!-- Header Include -->
-  <div include-html="components/header.html"></div>
+  <div include-html="../components/header.html"></div>
 
-  <!-- Hero Section (Adapted without Video for About Page) -->
-  <section class="relative h-screen bg-cover bg-center" style="background-image: url('images/about-hero-bg.jpg');"> <!-- Replace with an actual about-themed image -->
-    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-    <div class="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white">
-      <h1 class="text-4xl md:text-6xl font-bold mb-6">About Indo-Spark Construction Services</h1>
-      <p class="text-lg md:text-2xl max-w-4xl">Over 45 years of excellence in chemical anchors, PU foams, and construction solutions.</p>
+  <!-- HERO -->
+  <section class="relative h-screen flex items-center justify-center hero-parallax" style="background-image:url('../assets/about-hero-bg.jpg')" data-aos="fade">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/90"></div>
+    <div class="relative text-center text-white px-6 max-w-6xl mx-auto" data-aos="zoom-out" data-aos-delay="300">
+      <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">News & Videos</h1>
+      <p class="text-xl md:text-3xl font-medium opacity-95">Real Projects • Live Demonstrations • Customer Success Stories</p>
     </div>
   </section>
 
-  <!-- Main Content Section -->
-  <main class="bg-gray-50">
-    <div class="container mx-auto px-6 py-16">
-      <!-- Dynamic Content Goes Here -->
-      <!-- Placeholder for Page-specific Content (like products, about, etc.) -->
-      <div id="dynamic-content">
-        <!-- This will be replaced with page-specific content like product grid, text, etc. -->
+  <!-- MAIN CONTENT - VIDEOS -->
+  <section class="py-24 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-7xl">
+
+      <div class="text-center mb-20" data-aos="fade-up">
+        <h2 class="text-4xl md:text-6xl font-bold text-icfs-dark">Our Latest Videos</h2>
+        <div class="mx-auto mt-6 w-24 h-1 bg-icfs-red"></div>
+        <p class="mt-8 text-lg text-gray-600 max-w-3xl mx-auto">
+          Watch product installation guides, on-site demonstrations, pull-out tests, core cutting, rebaring, and more from Indo-Spark Construction Services.
+        </p>
       </div>
+
+      <!-- Video Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" data-aos="fade-up" data-aos-delay="200">
+
+        <!-- Video 1 -->
+        <div class="hover-lift">
+          <div class="video-wrapper shadow-2xl rounded-xl overflow-hidden">
+            <iframe src="https://www.youtube.com/embed/cgpEaR99UR8" title="Indo-Spark Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="hover-lift">
+          <div class="video-wrapper shadow-2xl rounded-xl overflow-hidden">
+            <iframe src="https://www.youtube.com/embed/-JXcmSsxl_A" title="Indo-Spark Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="hover-lift">
+          <div class="video-wrapper shadow-2xl rounded-xl overflow-hidden">
+            <iframe src="https://www.youtube.com/embed/VtKWWlRL_ts?rel=0" title="Indo-Spark Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="hover-lift">
+          <div class="video-wrapper shadow-2xl rounded-xl overflow-hidden">
+            <iframe src="https://www.youtube.com/embed/txFXjhisnsY?rel=0" title="Indo-Spark Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <!-- Video 5 -->
+        <div class="hover-lift">
+          <div class="video-wrapper shadow-2xl rounded-xl overflow-hidden">
+            <iframe src="https://www.youtube.com/embed/0FZrDuFKi1U?rel=0" title="Indo-Spark Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <!-- Video6 -->
+        <div class="hover-lift">
+          <div class="video-wrapper shadow-2xl rounded-xl overflow-hidden">
+            <iframe src="https://www.youtube.com/embed/rV0BEpkUQZw?rel=0" title="Indo-Spark Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <!-- Video7 -->
+        <div class="hover-lift">
+          <div class="video-wrapper shadow-2xl rounded-xl overflow-hidden">
+            <iframe src="https://www.youtube.com/embed/VufCJNkh0ic?rel=0" title="Indo-Spark Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <!-- Video8 -->
+        <div class="hover-lift">
+          <div class="video-wrapper shadow-2xl rounded-xl overflow-hidden">
+            <iframe src="https://www.youtube.com/embed/wGExK5OTyrw?rel=0" title="Indo-Spark Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <!-- Video9 -->
+        <div class="hover-lift">
+          <div class="video-wrapper shadow-2xl rounded-xl overflow-hidden">
+            <iframe src="https://www.youtube.com/embed/ER5QGO2v-0w?rel=0" title="Indo-Spark Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <!-- Video10 -->
+        <div class="hover-lift">
+          <div class="video-wrapper shadow-2xl rounded-xl overflow-hidden">
+            <iframe src="https://www.youtube.com/embed/dvJHGcETgPo?rel=0" title="Indo-Spark Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Optional CTA -->
+      <div class="text-center mt-20">
+        <a href="https://www.youtube.com/@indospark/videos" target="_blank" class="inline-block bg-icfs-red text-white font-bold py-4 px-10 rounded-full hover:bg-red-700 transition transform hover:scale-105">
+          Watch All Videos on YouTube Channel
+        </a>
+      </div>
+
     </div>
-  </main>
+  </section>
 
-  <!-- Footer Include -->
-  <div include-html="components/footer.html"></div>
+  <div include-html="../components/footer.html"></div>
 
-  <!-- Include HTML Script -->
-  <script src="js/include.js"></script>
+  <!-- Scripts -->
+  <script src="../js/include.js"></script>
+  <script src="../js/animation.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- <script>
+    AOS.init({
+      once: true,
+      duration: 1200,
+      easing: 'ease-out-cubic',
+    });
+  </script> -->
 </body>
 </html>
