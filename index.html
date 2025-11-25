@@ -3,224 +3,394 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chemical Anchors – PU Foam & Anchor Fasteners Manufacturer</title>
+  <title>Chemical Anchors – PU Foam & Anchor Fasteners Manufacturer | Indo-Spark</title>
   <meta name="description" content="India’s leading manufacturer of PU foams, chemical anchors & fasteners. Over 45 years of quality, certified products & trusted sealing solutions." />
-  <meta name="keywords" content="Chemical Anchors, Chemical Anchor Studs - CAS, Chemical Mortars, Chemical Guns, Caulking Guns, Chemical Capsule - Supercap, Mechanical Anchor Bolts, Wedge Anchor Bolts, Nylon Frame Anchors, Heavy Duty Anchors - HVE, PU Foams, Diamond Core Bits, Anchor Fasteners, Rebaring Chemicals, Rebar Chemicals, Mechanical Anchors, Construction Chemicals, Chemical Anchors, Manufacturer, Supplier, Exporter, Kolhapur, Pune, Mumbai, Islampur, Maharashtra, India" />
+  <meta name="keywords" content="Chemical Anchors, Chemical Anchor Studs - CAS, Chemical Mortars, Chemical Guns, Caulking Guns, Chemical Capsule - Supercap, Mechanical Anchor Bolts, Wedge Anchor Bolts, Nylon Frame Anchors, Heavy Duty Anchors, PU Foams, Anchor Fasteners, Rebaring Chemicals, Construction Chemicals, Manufacturer, Kolhapur, Maharashtra, India" />
 
-  <!-- Geo & Schema same as before -->
   <meta name="geo.region" content="IN-MH" />
   <meta name="geo.placename" content="Kolhapur" />
   <meta name="geo.position" content="16.705923;74.247841" />
   <meta name="ICBM" content="16.705923, 74.247841" />
+
+  <link rel="icon" href="../assets/favicon.ico">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Indo-Spark Construction Services",
-    "url": "https://www.chemicalanchors.in/index.html",
+    "url": "https://www.chemicalanchors.in",
+    "logo": "https://www.chemicalanchors.in/assets/indo-spark-logo-new.jpg",
     "contactPoint": [{
       "@type": "ContactPoint",
       "telephone": "+91-1800 1235 00023",
-      "contactType": "customer service"
+      "contactType": "customer service",
+      "areaServed": "IN"
     }]
   }
   </script>
 
-  <!-- Open Graph same -->
   <meta property="og:type" content="business.business">
-  <meta property="og:title" content="Indo-Spark Construction Services">
-  <meta property="og:url" content="https://www.chemicalanchors.in/index.html">
-  <meta property="og:site_name" content="Indo-Spark Construction Services">
+  <meta property="og:title" content="Indo-Spark Construction Services – Premium Chemical Anchors">
+  <meta property="og:description" content="India’s most trusted manufacturer of chemical anchors, PU foam & construction fasteners for 45+ years.">
+  <meta property="og:url" content="https://www.chemicalanchors.in">
   <meta property="og:image" content="https://www.chemicalanchors.in/assets/indo-spark-logo-new.jpg">
 
-  <link rel="canonical" href="https://www.chemicalanchors.in/index.html"/>
+  <link rel="canonical" href="https://www.chemicalanchors.in/"/>
 
-  <!-- Tailwind + Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            icfs: { red: '#D61F26', black: '#000000' },
-          },
-          fontFamily: { sans: ["'Space Grotesk'", "system-ui"] },
+          colors: { icfs: { red: '#D61F26', black: '#000000' } },
+          fontFamily: { sans: ["'Space Grotesk'", "system-ui", "sans-serif"] },
+          boxShadow: {
+            'card': '0 20px 40px rgba(0,0,0,0.08)',
+            'card-hover': '0 35px 70px rgba(0,0,0,0.15)',
+          }
         }
       }
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
-  <!-- Swiper.js for Premium Carousel -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.93);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .video-overlay {
+      background: linear-gradient(135deg, rgba(0,0,0,0.78), rgba(0,0,0,0.45));
+    }
+    .hero-text-glow { text-shadow: 0 4px 30px rgba(0,0,0,0.7); }
+  </style>
 </head>
 
-<body class="font-sans text-icfs-black antialiased">
+<body class="font-sans text-icfs-black antialiased overflow-x-hidden">
 
-  <!-- Header Include -->
   <div include-html="components/header.html"></div>
 
-  <!-- Hero Video Section -->
+  <!-- Hero Video -->
   <section class="relative h-screen">
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-10">
       <source src="demo2-2.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
-    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="absolute inset-0 video-overlay"></div>
+
     <div class="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white">
-      <h1 class="text-4xl md:text-6xl font-bold mb-6">Chemical Anchors – PU Foam & Anchor Fasteners Manufacturer</h1>
-      <p class="text-lg md:text-2xl max-w-4xl mb-10">
-        India’s leading manufacturer of PU foams, chemical anchors & fasteners. Over 45 years of quality, certified products & trusted sealing solutions.
+      <h1 data-aos="fade-up" class="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 hero-text-glow leading-tight">
+        <br class="block sm:hidden"><br class="block sm:hidden">
+        Premium Chemical Anchors<br>& Anchor Fasteners
+      </h1>
+      <p data-aos="fade-up" data-aos-delay="200" class="text-lg md:text-2xl max-w-5xl mb-12 font-medium opacity-95 leading-relaxed">
+        India’s most trusted manufacturer of PU foams, chemical anchors & construction fasteners.<br>
+        <span class="text-icfs-red font-bold">45+ years</span> of certified quality and engineering excellence.
       </p>
-      <a href="contact.html" class="bg-icfs-red hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition">Request a Quote</a>
+      <a href="contact.html" data-aos="fade-up" data-aos-delay="400"
+         class="bg-icfs-red hover:bg-red-700 text-white font-bold py-5 px-12 rounded-xl text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-red-600/40">
+        Request a Quote
+      </a>
     </div>
   </section>
 
   <!-- Products Section -->
-  <section class="py-16 bg-gray-50">
+  <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-6">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold">Chemical Anchor Studs, Chemical Mortars, Anchor Fasteners and more</h2>
-        <p class="mt-4 text-lg text-gray-700 max-w-5xl mx-auto">
-          We are Manufacturer, Supplier, and Exporter of Chemical Anchor Studs, Chemical Mortars, Anchor Fasteners, Mechanical Anchors, PU Foams, and Construction Chemicals from Kolhapur, Maharashtra, India.
+      <div class="text-center mb-16">
+        <h2 data-aos="fade-up" class="text-4xl md:text-5xl font-bold">Engineered for Strength. Built to Last.</h2>
+        <p data-aos="fade-up" data-aos-delay="100" class="mt-6 text-xl text-gray-700 max-w-5xl mx-auto font-medium">
+          Manufacturer, Supplier & Exporter of Chemical Anchors, Mechanical Fasteners, PU Foams & Construction Chemicals from Kolhapur, Maharashtra, India.
         </p>
       </div>
 
-      <!-- Product Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        <a href="Products/chemical-anchor-studs-cas.html" class="block group">
-          <img src="../assets/chemical-anchor-studs-cas.jpg" alt="Chemical Anchor Studs - CAS" class="w-full rounded-lg shadow-lg group-hover:shadow-2xl transition">
-          <h3 class="mt-4 text-xl font-semibold text-icfs-red">Chemical Anchor Studs - CAS</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <a href="Products/chemical-anchor-studs-cas.html" class="block group" data-aos="fade-up">
+          <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
+            <img src="../assets/chemical-anchor-studs-cas.jpg" alt="Chemical Anchor Studs - CAS" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">Chemical Anchor Studs - CAS</h3>
         </a>
-        <a href="Products/chemical-mortars.html" class="block group">
-          <img src="../assets/chemical-mortars.jpg" alt="Chemical Mortars" class="w-full rounded-lg shadow-lg group-hover:shadow-2xl transition">
-          <h3 class="mt-4 text-xl font-semibold text-icfs-red">Chemical Mortars</h3>
+
+        <a href="Products/chemical-mortars.html" class="block group" data-aos="fade-up" data-aos-delay="100">
+          <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
+            <img src="../assets/chemical-mortars.jpg" alt="Chemical Mortars" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">Chemical Mortars</h3>
         </a>
-        <a href="Products/chemical-guns-caulking-guns.html" class="block group">
-          <img src="../assets/chemical-guns-caulking-guns.jpg" alt="Chemical Guns / Caulking Guns" class="w-full rounded-lg shadow-lg group-hover:shadow-2xl transition">
-          <h3 class="mt-4 text-xl font-semibold text-icfs-red">Chemical Guns / Caulking Guns</h3>
+
+        <a href="Products/chemical-guns-caulking-guns.html" class="block group" data-aos="fade-up" data-aos-delay="200">
+          <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
+            <img src="../assets/chemical-guns-caulking-guns.jpg" alt="Chemical Guns / Caulking Guns" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">Chemical Guns / Caulking Guns</h3>
         </a>
-        <a href="Products/chemical-capsule-supercap.html" class="block group">
-          <img src="../assets/chemical-capsule-supercap.jpg" alt="Chemical Capsule - Supercap" class="w-full rounded-lg shadow-lg group-hover:shadow-2xl transition">
-          <h3 class="mt-4 text-xl font-semibold text-icfs-red">Chemical Capsule - Supercap</h3>
+
+        <a href="Products/chemical-capsule-supercap.html" class="block group" data-aos="fade-up" data-aos-delay="300">
+          <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
+            <img src="../assets/chemical-capsule-supercap.jpg" alt="Chemical Capsule - Supercap" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">Chemical Capsule - Supercap</h3>
         </a>
-        <a href="Products/mechanical-wedge-anchor-bolts.html" class="block group">
-          <img src="../assets/mechanical-wedge-anchor-bolts.jpg" alt="Mechanical Wedge Anchor Bolts" class="w-full rounded-lg shadow-lg group-hover:shadow-2xl transition">
-          <h3 class="mt-4 text-xl font-semibold text-icfs-red">Mechanical / Wedge Anchor Bolts</h3>
+
+        <a href="Products/mechanical-wedge-anchor-bolts.html" class="block group" data-aos="fade-up" data-aos-delay="400">
+          <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
+            <img src="../assets/mechanical-wedge-anchor-bolts.jpg" alt="Mechanical Wedge Anchor Bolts" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">Mechanical / Wedge Anchor Bolts</h3>
         </a>
-        <a href="Products/nylon-frame-anchors.html" class="block group">
-          <img src="../assets/nylon-frame-anchors.jpg" alt="Nylon Frame Anchors" class="w-full rounded-lg shadow-lg group-hover:shadow-2xl transition">
-          <h3 class="mt-4 text-xl font-semibold text-icfs-red">Nylon Frame Anchors</h3>
+
+        <a href="Products/nylon-frame-anchors.html" class="block group" data-aos="fade-up" data-aos-delay="500">
+          <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
+            <img src="../assets/nylon-frame-anchors.jpg" alt="Nylon Frame Anchors" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">Nylon Frame Anchors</h3>
         </a>
-        <a href="Products/pu-foam.html" class="block group">
-          <img src="../assets/gun-and-foam-cleaner.jpg" alt="PU Foam Spray" class="w-full rounded-lg shadow-lg group-hover:shadow-2xl transition">
-          <h3 class="mt-4 text-xl font-semibold text-icfs-red">PU Foam</h3>
+
+        <a href="Products/pu-foam.html" class="block group" data-aos="fade-up" data-aos-delay="600">
+          <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
+            <img src="../assets/gun-and-foam-cleaner.jpg" alt="PU Foam Spray" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+          </div>
+          <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">PU Foam Spray</h3>
         </a>
       </div>
 
-      <!-- Our Products List Only -->
-      <div class="mt-16 max-w-3xl mx-auto">
-        <h3 class="text-2xl font-bold mb-6 text-icfs-red text-center">Our Product Range</h3>
-        <ul class="space-y-3 text-lg columns-1 md:columns-2 gap-8">
-          <li><a href="Products/chemical-anchor-studs-cas.html" class="hover:text-icfs-red">• Chemical Anchor Studs - CAS</a></li>
-          <li><a href="Products/chemical-mortars.html" class="hover:text-icfs-red">• Chemical Mortars</a></li>
-          <li><a href="Products/chemical-guns-caulking-guns.html" class="hover:text-icfs-red">• Chemical Guns / Caulking Guns</a></li>
-          <li><a href="Products/chemical-capsule-supercap.html" class="hover:text-icfs-red">• Chemical Capsule - Supercap</a></li>
-          <li><a href="Products/mechanical-wedge-anchor-bolts.html" class="hover:text-icfs-red">• Mechanical / Wedge Anchor Bolts</a></li>
-          <li><a href="Products/nylon-frame-anchors.html" class="hover:text-icfs-red">• Nylon Frame Anchors</a></li>
-          <li><a href="Products/pu-foam.html" class="hover:text-icfs-red">• PU Foam</a></li>
+      <!-- Product List -->
+      <div class="mt-20 max-w-4xl mx-auto text-center">
+        <h3 class="text-3xl font-bold mb-10 text-icfs-red">Complete Product Range</h3>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg font-medium">
+          <li>• <a href="Products/chemical-anchor-studs-cas.html" class="hover:text-icfs-red transition">Chemical Anchor Studs - CAS</a></li>
+          <li>• <a href="Products/chemical-mortars.html" class="hover:text-icfs-red transition">Chemical Mortars</a></li>
+          <li>• <a href="Products/chemical-guns-caulking-guns.html" class="hover:text-icfs-red transition">Chemical / Caulking Guns</a></li>
+          <li>• <a href="Products/chemical-capsule-supercap.html" class="hover:text-icfs-red transition">Chemical Capsule - Supercap</a></li>
+          <li>• <a href="Products/mechanical-wedge-anchor-bolts.html" class="hover:text-icfs-red transition">Mechanical Wedge Anchors</a></li>
+          <li>• <a href="Products/nylon-frame-anchors.html" class="hover:text-icfs-red transition">Nylon Frame Anchors</a></li>
+          <li>• <a href="Products/pu-foam.html" class="hover:text-icfs-red transition">PU Foam</a></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- PREMIUM TESTIMONIAL CAROUSEL (All 14 Reviews) -->
-  <section class="py-24 bg-gradient-to-br from-gray-100 via-white to-gray-50">
+  <!-- All 14 Testimonials – Premium Glassmorphic Carousel -->
+  <section class="py-32 bg-gradient-to-br from-gray-100 via-white to-gray-50">
     <div class="container mx-auto px-6">
-      <h2 data-aos="fade-up" class="text-4xl md:text-5xl font-bold text-center mb-16 text-icfs-black">
-        Trusted by India’s Top Engineers & Builders
+      <h2 data-aos="fade-up" class="text-5xl md:text-6xl font-bold text-center mb-20 leading-tight">
+        Trusted by India’s Leading Engineers & Builders
       </h2>
 
       <div class="swiper testimonialSwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"We are ecstatic to be associated with ICFS..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Prashant S. Hadkar</p><p class="text-sm text-gray-600">Consulting Structural Engineer</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"Being affiliated with ICFS has been an absolute pleasure..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Hindurao Patil</p><p class="text-sm text-gray-600">Structural Consultant</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"Working alongside ICFS has been a delightful experience..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Jaiprakash Mane</p><p class="text-sm text-gray-600">Kaivalya Consulting Engineer</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"I am so glad I chose Indo Spark & ICFS brand anchor fasteners..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Anil R. Panjwani</p><p class="text-sm text-gray-600">Acme Structural Consultants</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"Indo Spark Services truly amazed me with the exceptional quality of work..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Aqueel M.H.</p><p class="text-sm text-gray-600">Structure Vizion</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"I highly recommend Indo Spark Services & ICFS for their exceptional anchor fasteners..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Rahul A. Dingane</p><p class="text-sm text-gray-600">Vastustruct</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"We have used ICFS Anchor Fasteners in many of our projects..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Pramod Beri</p><p class="text-sm text-gray-600">Beri Builtspace Designs Pvt. Ltd.</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"I highly recommend ICFS Anchor Fasteners and Indo Spark Construction Services..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Indrajeet Nageshkar</p><p class="text-sm text-gray-600">Architect, Engineer & Urban Designer</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"Indo Spark Construction Services is a great company to work with..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Arun Gokhale</p><p class="text-sm text-gray-600">Arun Gokhale & Associates</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"Indo Spark Construction Services provided exceptional cutting services..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Girish Malu</p><p class="text-sm text-gray-600">Elite Structural Consultants</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"Indo Spark Construction Services for their excellent wire sawing services..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Mukul Parikh</p><p class="text-sm text-gray-600">Parikh Associates</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"Indo Spark is a one-stop destination for all of our vibration free concrete cutting services..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Prasad Dabeer</p><p class="text-sm text-gray-600">Designs, Owner</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"We use ICFS Rebaring Chemical CM350P, CM350VESF for our site..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Bhimrao More</p><p class="text-sm text-gray-600">Suraj Estate & Developers, Kolhapur</p></div></div>
-          <div class="swiper-slide"><div class="bg-white p-10 rounded-2xl shadow-2xl border border-gray-100 text-center hover:scale-105 transition duration-300"><p class="italic text-lg leading-relaxed text-gray-700">"Indo Spark's Rebaring Services are like clockwork..."</p><p class="mt-8 font-bold text-icfs-red text-xl">Ravi Patil</p><p class="text-sm text-gray-600">Akaar Consultants, Kolhapur</p></div></div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"We are ecstatic to be associated with ICFS..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Prashant S. Hadkar</p>
+              <p class="text-gray-600 font-medium">Consulting Structural Engineer</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"Being affiliated with ICFS has been an absolute pleasure..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Hindurao Patil</p>
+              <p class="text-gray-600 font-medium">Structural Consultant</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"Working alongside ICFS has been a delightful experience..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Jaiprakash Mane</p>
+              <p class="text-gray-600 font-medium">Kaivalya Consulting Engineer</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"I am so glad I chose Indo Spark & ICFS brand anchor fasteners..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Anil R. Panjwani</p>
+              <p class="text-gray-600 font-medium">Acme Structural Consultants</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"Indo Spark Services truly amazed me with the exceptional quality of work..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Aqueel M.H.</p>
+              <p class="text-gray-600 font-medium">Structure Vizion</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"I highly recommend Indo Spark Services & ICFS for their exceptional anchor fasteners..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Rahul A. Dingane</p>
+              <p class="text-gray-600 font-medium">Vastustruct</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"We have used ICFS Anchor Fasteners in many of our projects..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Pramod Beri</p>
+              <p class="text-gray-600 font-medium">Beri Builtspace Designs Pvt. Ltd.</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"I highly recommend ICFS Anchor Fasteners and Indo Spark Construction Services..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Indrajeet Nageshkar</p>
+              <p class="text-gray-600 font-medium">Architect, Engineer & Urban Designer</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"Indo Spark Construction Services is a great company to work with..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Arun Gokhale</p>
+              <p class="text-gray-600 font-medium">Arun Gokhale & Associates</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"Indo Spark Construction Services provided exceptional cutting services..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Girish Malu</p>
+              <p class="text-gray-600 font-medium">Elite Structural Consultants</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"Indo Spark Construction Services for their excellent wire sawing services..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Mukul Parikh</p>
+              <p class="text-gray-600 font-medium">Parikh Associates</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"Indo Spark is a one-stop destination for all of our vibration free concrete cutting services..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Prasad Dabeer</p>
+              <p class="text-gray-600 font-medium">Designs, Owner</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"We use ICFS Rebaring Chemical CM350P, CM350VESF for our site..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Bhimrao More</p>
+              <p class="text-gray-600 font-medium">Suraj Estate & Developers, Kolhapur</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="glass-card p-10 md:p-12 rounded-3xl shadow-2xl text-center hover:scale-105 transition duration-500 mx-4">
+              <p class="italic text-lg leading-relaxed text-gray-800">"Indo Spark's Rebaring Services are like clockwork..."</p>
+              <p class="mt-10 font-bold text-icfs-red text-2xl">Ravi Patil</p>
+              <p class="text-gray-600 font-medium">Akaar Consultants, Kolhapur</p>
+            </div>
+          </div>
+
         </div>
-
-        <div class="swiper-button-next text-icfs-red"></div>
-        <div class="swiper-button-prev text-icfs-red"></div>
-        <div class="swiper-pagination mt-10"></div>
+<!-- 
+        <div class="swiper-button-next text-icfs-red !w-14 !h-14"></div>
+        <div class="swiper-button-prev text-icfs-red !w-14 !h-14"></div> -->
+        <div class="swiper-pagination mt-12"></div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section class="py-16 bg-gray-50">
+  <!-- FAQ Section – All 4 Questions -->
+  <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-      <div class="space-y-6 max-w-4xl mx-auto">
-        <details class="bg-white p-6 rounded-lg shadow cursor-pointer">
-          <summary class="text-xl font-semibold flex justify-between items-center">1. What is a chemical anchor and how does it work? <span class="text-icfs-red ml-4 text-2xl">+</span></summary>
-          <p class="mt-4 text-gray-700">A chemical anchor is a robust fastening solution designed to secure steel rods, bolts, or rebars into concrete or masonry using a resin-based adhesive system...</p>
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+      <div class="space-y-8 max-w-5xl mx-auto">
+
+        <details class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg cursor-pointer border border-gray-100">
+          <summary class="text-xl md:text-2xl font-semibold flex justify-between items-center text-icfs-black">
+            1. What is a chemical anchor and how does it work?
+            <span class="text-icfs-red text-3xl transition-transform duration-300 plus">+
+          </summary>
+          <p class="mt-6 text-gray-700 text-lg leading-relaxed">
+            A chemical anchor is a robust fastening solution designed to secure steel rods, bolts, or rebars into concrete or masonry using a resin-based adhesive system...
+          </p>
         </details>
-        <details class="bg-white p-6 rounded-lg shadow cursor-pointer">
-          <summary class="text-xl font-semibold flex justify-between items-center">2. What are the advantages of chemical anchors over mechanical anchors? <span class="text-icfs-red ml-4 text-2xl">+</span></summary>
-          <p class="mt-4 text-gray-700">Chemical anchors provide higher load capacity, no expansion stress, vibration resistance, and work in damp or underwater conditions...</p>
+
+        <details class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg cursor-pointer border border-gray-100">
+          <summary class="text-xl md:text-2xl font-semibold flex justify-between items-center text-icfs-black">
+            2. What are the advantages of chemical anchors over mechanical anchors?
+            <span class="text-icfs-red text-3xl transition-transform duration-300 plus">+</span>
+          </summary>
+          <p class="mt-6 text-gray-700 text-lg leading-relaxed">
+            Chemical anchors provide higher load capacity, no expansion stress, vibration resistance, and work in damp or underwater conditions...
+          </p>
         </details>
-        <details class="bg-white p-6 rounded-lg shadow cursor-pointer">
-          <summary class="text-xl font-semibold flex justify-between items-center">3. Can chemical anchors be used in cracked concrete? <span class="text-icfs-red ml-4 text-2xl">+</span></summary>
-          <p class="mt-4 text-gray-700">Yes, our premium chemical mortars are ETA-approved for use in cracked and non-cracked concrete...</p>
+
+        <details class="bg-white/90 backdrop-blur-sm p-sm p-8 rounded-2xl shadow-lg cursor-pointer border border-gray-100">
+          <summary class="text-xl md:text-2xl font-semibold flex justify-between items-center text-icfs-black">
+            3. Can chemical anchors be used in cracked concrete?
+            <span class="text-icfs-red text-3xl transition-transform duration-300 plus">+</span>
+          </summary>
+          <p class="mt-6 text-gray-700 text-lg leading-relaxed">
+            Yes, our premium chemical mortars are ETA-approved for use in cracked and non-cracked concrete...
+          </p>
         </details>
-        <details class="bg-white p-6 rounded-lg shadow cursor-pointer">
-          <summary class="text-xl font-semibold flex justify-between items-center">4. What is the curing time for chemical anchors? <span class="text-icfs-red ml-4 text-2xl">+</span></summary>
-          <p class="mt-4 text-gray-700">Curing time varies from 20 minutes to 24 hours depending on temperature and resin type...</p>
+
+        <details class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg cursor-pointer border border-gray-100">
+          <summary class="text-xl md:text-2xl font-semibold flex justify-between items-center text-icfs-black">
+            4. What is the curing time for chemical anchors?
+            <span class="text-icfs-red text-3xl transition-transform duration-300 plus">+</span>
+          </summary>
+          <p class="mt-6 text-gray-700 text-lg leading-relaxed">
+            Curing time varies from 20 minutes to 24 hours depending on temperature and resin type...
+          </p>
         </details>
+
       </div>
     </div>
   </section>
 
-  <!-- Footer Include -->
   <div include-html="components/footer.html"></div>
 
-  <!-- Include HTML Script -->
+  <!-- Scripts -->
   <script src="js/include.js"></script>
   <script src="../js/animation.js" defer></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 1200, once: true, offset: 100 });
 
     const swiper = new Swiper('.testimonialSwiper', {
       loop: true,
-      autoplay: { delay: 4000, disableOnInteraction: false },
-      speed: 800,
+      autoplay: { delay: 4500, disableOnInteraction: false },
+      speed: 1000,
       centeredSlides: true,
       grabCursor: true,
-      slidesPerView: 1,
-      spaceBetween: 40,
+      slidesPerView: 1.1,
+      spaceBetween: 30,
       pagination: { el: '.swiper-pagination', clickable: true },
       navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
       breakpoints: {
+        640: { slidesPerView: 1.3 },
         768: { slidesPerView: 2 },
         1024: { slidesPerView: 3 }
       }
+    });
+
+    // + → − animation in FAQ
+    document.querySelectorAll('details').forEach(d => {
+      d.addEventListener('toggle', () => {
+        const span = d.querySelector('summary span');
+        span.textContent = d.open ? '−' : '+';
+      });
     });
   </script>
 </body>
