@@ -77,9 +77,9 @@
   <div include-html="components/header.html"></div>
 
   <!-- Hero Video -->
-  <section class="relative h-screen">
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-10">
-      <source src="demo2-2.mp4" type="video/mp4">
+  <!-- <section class="relative h-screen">
+    <video autoplay muted loop playsinline class="absolute w-full h-full object-cover -z-10" loading="lazy" data-src="assets/demo2-2.mp4">
+      <source type="video/mp4" />
     </video>
     <div class="absolute inset-0 video-overlay"></div>
 
@@ -97,10 +97,48 @@
         Request a Quote
       </a>
     </div>
-  </section>
+  </section> -->
+  
+  <!-- HERO SECTION – GUARANTEED TO WORK -->
+<!-- HERO SECTION – MOBILE-FIXED & PERFECT ON ALL DEVICES -->
+<section class="relative h-screen overflow-hidden">
+
+  <!-- Your own local image – 100% reliable -->
+  <img 
+    src="../assets/img1.jpg"
+    alt="Premium Chemical Anchors & Anchor Fasteners"
+    class="absolute inset-0 w-full h-full object-cover -z-[10]"
+    loading="eager"
+  >
+
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black/70 -z-[5]"></div>
+
+  <!-- Hero Content – NOW SAFE FROM HEADER OVERLAP -->
+  <div class="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white z-10
+              pt-24 md:pt-32 lg:pt-0">   <!-- This line fixes mobile overlap -->
+
+    <h1 data-aos="fade-up" 
+        class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 hero-text-glow leading-tight">
+      Premium Chemical Anchors<br class="hidden sm:block">& Anchor Fasteners
+    </h1>
+
+    <p data-aos="fade-up" data-aos-delay="200" 
+       class="text-lg md:text-2xl max-w-5xl mb-10 md:mb-12 font-medium opacity-95 leading-relaxed px-4">
+      India’s most trusted manufacturer of PU foams, chemical anchors & construction fasteners.<br>
+      <span class="text-icfs-red font-bold">45+ years</span> of certified quality and engineering excellence.
+    </p>
+
+    <a href="contact.html" 
+       data-aos="fade-up" data-aos-delay="400"
+       class="bg-icfs-red hover:bg-red-700 text-white font-bold py-4 px-10 md:py-5 md:px-12 rounded-xl text-lg md:text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-red-600/40">
+      Request a Quote
+    </a>
+  </div>
+</section>
 
   <!-- Products Section -->
-  <section class="py-20 bg-gray-50">
+  <!-- <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-6">
       <div class="text-center mb-16">
         <h2 data-aos="fade-up" class="text-4xl md:text-5xl font-bold">Engineered for Strength. Built to Last.</h2>
@@ -112,56 +150,56 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         <a href="Products/chemical-anchor-studs-cas.html" class="block group" data-aos="fade-up">
           <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
-            <img src="../assets/chemical-anchor-studs-cas.jpg" alt="Chemical Anchor Studs - CAS" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+            <img src="../assets/chemical-anchor-studs-cas.jpg" alt="Chemical Anchor Studs - CAS" class="w-full h-68 object-cover group-hover:scale-110 transition duration-700">
           </div>
           <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">Chemical Anchor Studs - CAS</h3>
         </a>
 
         <a href="Products/chemical-mortars.html" class="block group" data-aos="fade-up" data-aos-delay="100">
           <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
-            <img src="../assets/chemical-mortars.jpg" alt="Chemical Mortars" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+            <img src="../assets/chemical-mortars.jpg" alt="Chemical Mortars" class="w-full h-68 object-cover group-hover:scale-110 transition duration-700">
           </div>
           <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">Chemical Mortars</h3>
         </a>
 
         <a href="Products/chemical-guns-caulking-guns.html" class="block group" data-aos="fade-up" data-aos-delay="200">
           <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
-            <img src="../assets/chemical-guns-caulking-guns.jpg" alt="Chemical Guns / Caulking Guns" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+            <img src="../assets/chemical-guns-caulking-guns.jpg" alt="Chemical Guns / Caulking Guns" class="w-full h-68 object-cover group-hover:scale-110 transition duration-700">
           </div>
           <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">Chemical Guns / Caulking Guns</h3>
         </a>
 
         <a href="Products/chemical-capsule-supercap.html" class="block group" data-aos="fade-up" data-aos-delay="300">
           <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
-            <img src="../assets/chemical-capsule-supercap.jpg" alt="Chemical Capsule - Supercap" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+            <img src="../assets/chemical-capsule-supercap.jpg" alt="Chemical Capsule - Supercap" class="w-full h-68 object-cover group-hover:scale-110 transition duration-700">
           </div>
           <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">Chemical Capsule - Supercap</h3>
         </a>
 
         <a href="Products/mechanical-wedge-anchor-bolts.html" class="block group" data-aos="fade-up" data-aos-delay="400">
           <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
-            <img src="../assets/mechanical-wedge-anchor-bolts.jpg" alt="Mechanical Wedge Anchor Bolts" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+            <img src="../assets/mechanical-wedge-anchor-bolts.jpg" alt="Mechanical Wedge Anchor Bolts" class="w-full h-68 object-cover group-hover:scale-110 transition duration-700">
           </div>
           <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">Mechanical / Wedge Anchor Bolts</h3>
         </a>
 
         <a href="Products/nylon-frame-anchors.html" class="block group" data-aos="fade-up" data-aos-delay="500">
           <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
-            <img src="../assets/nylon-frame-anchors.jpg" alt="Nylon Frame Anchors" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+            <img src="../assets/nylon-frame-anchors.jpg" alt="Nylon Frame Anchors" class="w-full h-68 object-cover group-hover:scale-110 transition duration-700">
           </div>
           <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">Nylon Frame Anchors</h3>
         </a>
 
         <a href="Products/pu-foam.html" class="block group" data-aos="fade-up" data-aos-delay="600">
           <div class="overflow-hidden rounded-2xl shadow-card group-hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-4">
-            <img src="../assets/gun-and-foam-cleaner.jpg" alt="PU Foam Spray" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
+            <img src="../assets/gun-and-foam-cleaner.jpg" alt="PU Foam Spray" class="w-full h-68 object-cover group-hover:scale-110 transition duration-700">
           </div>
           <h3 class="mt-6 text-2xl font-bold text-icfs-red group-hover:text-red-700 transition">PU Foam Spray</h3>
         </a>
       </div>
 
       <!-- Product List -->
-      <div class="mt-20 max-w-4xl mx-auto text-center">
+      <!-- <div class="mt-20 max-w-4xl mx-auto text-center">
         <h3 class="text-3xl font-bold mb-10 text-icfs-red">Complete Product Range</h3>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg font-medium">
           <li>• <a href="Products/chemical-anchor-studs-cas.html" class="hover:text-icfs-red transition">Chemical Anchor Studs - CAS</a></li>
@@ -174,7 +212,219 @@
         </ul>
       </div>
     </div>
-  </section>
+  </section> -->
+
+  <section class="py-24 bg-gradient-to-b from-gray-50 to-white">
+  <div class="container mx-auto px-6">
+    <!-- Hero Heading -->
+    <div class="text-center mb-20">
+      <h2 data-aos="fade-up" class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+        Engineered for <span class="text-icfs-red">Strength</span>.<br class="hidden sm:block">
+        Built to <span class="text-icfs-red">Last</span>.
+      </h2>
+      <p data-aos="fade-up" data-aos-delay="300" class="mt-8 text-xl md:text-2xl text-gray-600 max-w-5xl mx-auto font-medium leading-relaxed">
+        Leading Manufacturer, Supplier & Exporter of Chemical Anchors, Mechanical Fasteners,<br class="hidden md:block">
+        PU Foams & Construction Chemicals from Kolhapur, Maharashtra, India.
+      </p>
+    </div>
+
+    <!-- Product Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 md:gap-10">
+      
+      <!-- Reusable Card (Copy this 7 times and just change content) -->
+      <!-- Card 1 -->
+      <a href="Products/chemical-anchor-studs-cas.html" class="group block" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+          <div class="aspect-[4/5] sm:aspect-square"> <!-- Perfect ratio for mobile & desktop -->
+            <img src="../assets/chemical-anchor-studs-cas.jpg" 
+                 alt="Chemical Anchor Studs - CAS" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            
+            <!-- Gradient + Title Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+            
+            <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-7 text-white">
+              <h3 class="text-lg sm:text-xl md:text-2xl font-bold leading-tight">
+                Chemical Anchor Studs - CAS
+              </h3>
+              <p class="mt-1 text-xs sm:text-sm opacity-90">High-performance resin fixing system</p>
+            </div>
+          </div>
+
+          <!-- Mobile-only visible title (backup for very small screens) -->
+          <div class="block sm:hidden mt-3 px-2">
+            <h4 class="text-base font-bold text-gray-800">Chemical Anchor Studs - CAS</h4>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="Products/chemical-mortars.html" class="group block" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+          <div class="aspect-[4/5] sm:aspect-square">
+            <img src="../assets/chemical-mortars.jpg" alt="Chemical Mortars" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-7 text-white">
+              <h3 class="text-lg sm:text-xl md:text-2xl font-bold leading-tight">Chemical Mortars</h3>
+              <p class="mt-1 text-xs sm:text-sm opacity-90">Pure epoxy & vinyl ester resins</p>
+            </div>
+          </div>
+          <div class="block sm:hidden mt-3 px-2">
+            <h4 class="text-base font-bold text-gray-800">Chemical Mortars</h4>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="Products/chemical-guns-caulking-guns.html" class="group block" data-aos="fade-up" data-aos-delay="300">
+        <div class="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+          <div class="aspect-[4/5] sm:aspect-square">
+            <img src="../assets/chemical-guns-caulking-guns.jpg" alt="Chemical Guns / Caulking Guns" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-7 text-white">
+              <h3 class="text-lg sm:text-xl md:text-2xl font-bold leading-tight">Chemical / Caulking Guns</h3>
+              <p class="mt-1 text-xs sm:text-sm opacity-90">Professional dispensing tools</p>
+            </div>
+          </div>
+          <div class="block sm:hidden mt-3 px-2">
+            <h4 class="text-base font-bold text-gray-800">Chemical / Caulking Guns</h4>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 4 -->
+      <a href="Products/chemical-capsule-supercap.html" class="group block" data-aos="fade-up" data-aos-delay="400">
+        <div class="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+          <div class="aspect-[4/5] sm:aspect-square">
+            <img src="../assets/chemical-capsule-supercap.jpg" alt="Chemical Capsule - Supercap" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-7 text-white">
+              <h3 class="text-lg sm:text-xl md:text-2xl font-bold leading-tight">Chemical Capsule - Supercap</h3>
+              <p class="mt-1 text-xs sm:text-sm opacity-90">Spin-in capsule anchoring system</p>
+            </div>
+          </div>
+          <div class="block sm:hidden mt-3 px-2">
+            <h4 class="text-base font-bold text-gray-800">Chemical Capsule - Supercap</h4>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 5 -->
+      <a href="Products/mechanical-wedge-anchor-bolts.html" class="group block" data-aos="fade-up" data-aos-delay="500">
+        <div class="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+          <div class="aspect-[4/5] sm:aspect-square">
+            <img src="../assets/mechanical-wedge-anchor-bolts.jpg" alt="Mechanical Wedge Anchors" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-7 text-white">
+              <h3 class="text-lg sm:text-xl md:text-2xl font-bold leading-tight">Mechanical Wedge Anchors</h3>
+              <p class="mt-1 text-xs sm:text-sm opacity-90">Heavy-duty expansion anchors</p>
+            </div>
+          </div>
+          <div class="block sm:hidden mt-3 px-2">
+            <h4 class="text-base font-bold text-gray-800">Mechanical Wedge Anchors</h4>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 6 -->
+      <a href="Products/nylon-frame-anchors.html" class="group block" data-aos="fade-up" data-aos-delay="600">
+        <div class="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+          <div class="aspect-[4/5] sm:aspect-square">
+            <img src="../assets/nylon-frame-anchors.jpg" alt="Nylon Frame Anchors" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-7 text-white">
+              <h3 class="text-lg sm:text-xl md:text-2xl font-bold leading-tight">Nylon Frame Anchors</h3>
+              <p class="mt-1 text-xs sm:text-sm opacity-90">Universal plug & screw system</p>
+            </div>
+          </div>
+          <div class="block sm:hidden mt-3 px-2">
+            <h4 class="text-base font-bold text-gray-800">Nylon Frame Anchors</h4>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 7 -->
+      <a href="Products/pu-foam.html" class="group block" data-aos="fade-up" data-aos-delay="700">
+        <div class="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+          <div class="aspect-[4/5] sm:aspect-square">
+            <img src="../assets/gun-and-foam-cleaner.jpg" alt="PU Foam Spray" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-7 text-white">
+              <h3 class="text-lg sm:text-xl md:text-2xl font-bold leading-tight">PU Foam Spray</h3>
+              <p class="mt-1 text-xs sm:text-sm opacity-90">Insulation & filling solutions</p>
+            </div>
+          </div>
+          <div class="block sm:hidden mt-3 px-2">
+            <h4 class="text-base font-bold text-gray-800">PU Foam Spray</h4>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Complete Product Range – Animated & Mobile-Friendly -->
+<section class="py-20 md:py-28 bg-pink-50">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12" 
+         data-aos="fade-down" 
+         data-aos-duration="1000">
+      <h3 class="text-4xl md:text-5xl font-extrabold text-icfs-red">
+        Complete Product Range
+      </h3>
+      <div class="mt-4 w-24 h-1 bg-icfs-red mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+      <!-- Repeat this block for each product -->
+      <a href="Products/chemical-anchor-studs-cas.html" 
+         class="group flex items-center space-x-4 p-5 md:p-6 bg-white rounded-2xl shadow-md hover:shadow-2xl hover:bg-icfs-red hover:text-white transition-all duration-400 transform hover:scale-105"
+         data-aos="zoom-in" 
+         data-aos-delay="100">
+        <div class="text-3xl md:text-4xl">⚓</div>
+        <span class="text-lg md:text-xl font-semibold">Chemical Anchor Studs - CAS</span>
+        <span class="ml-auto text-2xl opacity-70 group-hover:opacity-100 group-hover:translate-x-3 transition-all">→</span>
+      </a>
+
+      <a href="Products/chemical-mortars.html" class="group flex items-center space-x-4 p-5 md:p-6 bg-white rounded-2xl shadow-md hover:shadow-2xl hover:bg-icfs-red hover:text-white transition-all duration-400 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="200">
+        <div class="text-3xl md:text-4xl">🧪</div>
+        <span class="text-lg md:text-xl font-semibold">Chemical Mortars</span>
+        <span class="ml-auto text-2xl opacity-70 group-hover:opacity-100 group-hover:translate-x-3 transition-all">→</span>
+      </a>
+
+      <a href="Products/chemical-guns-caulking-guns.html" class="group flex items-center space-x-4 p-5 md:p-6 bg-white rounded-2xl shadow-md hover:shadow-2xl hover:bg-icfs-red hover:text-white transition-all duration-400 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="300">
+        <div class="text-3xl md:text-4xl">🔫</div>
+        <span class="text-lg md:text-xl font-semibold">Chemical / Caulking Guns</span>
+        <span class="ml-auto text-2xl opacity-70 group-hover:opacity-100 group-hover:translate-x-3 transition-all">→</span>
+      </a>
+
+      <a href="Products/chemical-capsule-supercap.html" class="group flex items-center space-x-4 p-5 md:p-6 bg-white rounded-2xl shadow-md hover:shadow-2xl hover:bg-icfs-red hover:text-white transition-all duration-400 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="400">
+        <div class="text-3xl md:text-4xl">💊</div>
+        <span class="text-lg md:text-xl font-semibold">Chemical Capsule - Supercap</span>
+        <span class="ml-auto text-2xl opacity-70 group-hover:opacity-100 group-hover:translate-x-3 transition-all">→</span>
+      </a>
+
+      <a href="Products/mechanical-wedge-anchor-bolts.html" class="group flex items-center space-x-4 p-5 md:p-6 bg-white rounded-2xl shadow-md hover:shadow-2xl hover:bg-icfs-red hover:text-white transition-all duration-400 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="500">
+        <div class="text-3xl md:text-4xl">🔩</div>
+        <span class="text-lg md:text-xl font-semibold">Mechanical Wedge Anchors</span>
+        <span class="ml-auto text-2xl opacity-70 group-hover:opacity-100 group-hover:translate-x-3 transition-all">→</span>
+      </a>
+
+      <a href="Products/nylon-frame-anchors.html" class="group flex items-center space-x-4 p-5 md:p-6 bg-white rounded-2xl shadow-md hover:shadow-2xl hover:bg-icfs-red hover:text-white transition-all duration-400 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="600">
+        <div class="text-3xl md:text-4xl">🪶</div>
+        <span class="text-lg md:text-xl font-semibold">Nylon Frame Anchors</span>
+        <span class="ml-auto text-2xl opacity-70 group-hover:opacity-100 group-hover:translate-x-3 transition-all">→</span>
+      </a>
+
+      <a href="Products/pu-foam.html" class="group flex items-center space-x-4 p-5 md:p-6 bg-white rounded-2xl shadow-md hover:shadow-2xl hover:bg-icfs-red hover:text-white transition-all duration-400 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="700">
+        <div class="text-3xl md:text-4xl">☁️</div>
+        <span class="text-lg md:text-xl font-semibold">PU Foam Spray</span>
+        <span class="ml-auto text-2xl opacity-70 group-hover:opacity-100 group-hover:translate-x-3 transition-all">→</span>
+      </a>
+    </div>
+  </div>
+</section>
 
   <!-- All 14 Testimonials – Premium Glassmorphic Carousel -->
   <section class="py-32 bg-gradient-to-br from-gray-100 via-white to-gray-50">

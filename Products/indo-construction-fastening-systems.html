@@ -12,6 +12,8 @@
   <meta name="geo.position" content="16.705923;74.247841" />
   <meta name="ICBM" content="16.705923, 74.247841" />
 
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -72,6 +74,7 @@
 
   <!-- HERO -->
   <section class="relative h-screen flex items-center justify-center hero-parallax" style="background-image:url('../assets/products-hero.jpg')" data-aos="fade">
+    <div id="particles-js" class="absolute inset-0 z-10"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/90"></div>
     <div class="relative text-center text-white px-6 max-w-6xl mx-auto" data-aos="zoom-out" data-aos-delay="300">
       <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">ICFS Anchor Fasteners</h1>
@@ -275,6 +278,7 @@
 
   <!-- Scripts -->
   <script src="../js/include.js"></script>
+  <script src="../js/particles-hero.js" defer></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({

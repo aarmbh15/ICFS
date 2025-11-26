@@ -14,6 +14,8 @@
 
   <link rel="icon" href="../assets/favicon.ico">
 
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,6 +87,7 @@
 
   <!-- HERO -->
   <section class="relative h-screen flex items-center justify-center hero-parallax" style="background-image:url('images/about-hero-bg.jpg')" data-aos="fade">
+    <div id="particles-js" class="absolute inset-0 z-10"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/90"></div>
     <div class="relative text-center text-white px-6 max-w-6xl mx-auto" data-aos="zoom-out" data-aos-delay="300">
       <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">Building Trust for Over 45 Years</h1>
@@ -215,6 +218,7 @@
 
   <!-- Scripts -->
   <script src="../js/include.js"></script>
+  <script src="../js/particles-hero.js" defer></script>
   <script src="../js/animation.js" defer></script>
   <script src="../js/animated-divider.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
