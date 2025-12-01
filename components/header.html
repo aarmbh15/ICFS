@@ -19,52 +19,323 @@
     }
   </script>
 
+  <script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    function openMobileMenu() {
+      // Must retrieve the menu and body elements every time for reliability, 
+      // but they are now available globally via the script being in the head.
+      const menu = document.getElementById('mobile-menu');
+      if (menu) {
+        menu.classList.remove('hidden');
+        // Allow a slight delay for smooth transition setup
+        setTimeout(() => {
+          menu.classList.add('open');
+          document.body.classList.add('menu-open');
+        }, 10);
+      }
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const submenuPages = document.querySelectorAll('.mobile-submenu-page');
+
+      if (menu) {
+        menu.classList.remove('open');
+        // Close all submenus and hide the main menu container after transition
+        setTimeout(() => {
+          menu.classList.add('hidden');
+          document.body.classList.remove('menu-open');
+          submenuPages.forEach(p => p.classList.remove('active'));
+        }, 300); // 300ms matches the CSS transition time
+      }
+    }
+
+    function openSubmenu(id) {
+      const submenu = document.getElementById('submenu-' + id);
+      if (submenu) {
+        submenu.classList.add('active');
+      }
+    }
+
+    function closeSubmenu(id) {
+      const submenu = document.getElementById('submenu-' + id);
+      // To go back, just remove 'active' class
+      if (submenu) {
+        submenu.classList.remove('active');
+      }
+    }
+
+    // Attach event listener for the menu button on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', function () {
+      const openBtn = document.getElementById('mobile-menu-btn');
+      if (openBtn) {
+        openBtn.addEventListener('click', openMobileMenu);
+      }
+    });
+  </script>
   <style>
-    .dropdown:hover > .dropdown-menu {
-      opacity: 1; visibility: visible; transform: translateY(0);
+    /* Base styles */
+    html, body { 
+      width: 100% !important; 
+      overflow-x: hidden !important; 
+      margin: 0 !important; 
+      padding: 0 !important; 
     }
-    .dropdown-menu {
-      opacity: 0; visibility: hidden; transform: translateY(10px);
-      transition: all 0.35s ease;
-    }
-    html, body { width: 100% !important; overflow-x: hidden !important; margin: 0 !important; padding: 0 !important; }
     * { box-sizing: border-box; }
 
-    /* Multi-level dropdown fix (desktop) */
-    .has-sub { position: relative; }
-    .has-sub > a {
-      display: flex !important; justify-content: space-between; align-items: center; width: 100%;
-    }
-    .has-sub > a::after {
-      content: "›"; font-weight: bold; color: #D61F26; font-size: 18px; margin-left: 8px;
-    }
-    .has-sub > ul {
-      position: absolute; left: 100%; top: 0; min-width: 280px; background: white;
-      border-left: 5px solid #D61F26; box-shadow: 8px 8px 25px rgba(0,0,0,0.15);
-      border-radius: 0 12px 12px 0; padding: 12px 0; opacity: 0; visibility: hidden;
-      transform: translateX(-12px); transition: all 0.35s ease; pointer-events: none; z-index: 9999;
-    }
-    .has-sub > ul ul { top: 0; left: 100%; }
-    .has-sub:hover > ul {
-      opacity: 1; visibility: visible; transform: translateX(0); pointer-events: auto;
-    }
-    .has-sub:hover > a {
-      background-color: #fef5f5 !important; color: #D61F26 !important;
+    /* Prevent body scroll when mobile menu is open */
+    body.menu-open {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
     }
 
-    /* Mobile accordion styling */
+    /* ==================== DESKTOP DROPDOWN STYLES ==================== */
+    @media (min-width: 1024px) {
+      .dropdown:hover > .dropdown-menu {
+        opacity: 1; 
+        visibility: visible; 
+        transform: translateY(0);
+      }
+      
+      .dropdown-menu {
+        opacity: 0; 
+        visibility: hidden; 
+        transform: translateY(10px);
+        transition: all 0.35s ease;
+      }
+
+      /* Multi-level dropdown fix (desktop) */
+      .has-sub { position: relative; }
+      
+      .has-sub > a {
+        display: flex !important; 
+        justify-content: space-between; 
+        align-items: center; 
+        width: 100%;
+      }
+      
+      .has-sub > a::after {
+        content: "›"; 
+        font-weight: bold; 
+        color: #D61F26; 
+        font-size: 18px; 
+        margin-left: 8px;
+      }
+      
+      .has-sub > ul {
+        position: absolute; 
+        left: 100%; 
+        top: 0; 
+        min-width: 280px; 
+        background: white;
+        border-left: 5px solid #D61F26; 
+        box-shadow: 8px 8px 25px rgba(0,0,0,0.15);
+        border-radius: 0 12px 12px 0; 
+        padding: 12px 0; 
+        opacity: 0; 
+        visibility: hidden;
+        transform: translateX(-12px); 
+        transition: all 0.35s ease; 
+        pointer-events: none; 
+        z-index: 9999;
+      }
+      
+      .has-sub > ul ul { 
+        top: 0; 
+        left: 100%; 
+      }
+      
+      .has-sub:hover > ul {
+        opacity: 1; 
+        visibility: visible; 
+        transform: translateX(0); 
+        pointer-events: auto;
+      }
+      
+      .has-sub:hover > a {
+        background-color: #fef5f5 !important; 
+        color: #D61F26 !important;
+      }
+    }
+ 
+    /* ==================== MOBILE STYLES ==================== */
     @media (max-width: 1023px) {
-      .mobile-submenu {
-        max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+      /* Mobile menu container - Page-like navigation */
+      #mobile-menu {
+        transition: transform 0.3s ease-in-out;
       }
-      .mobile-submenu.open {
-        max-height: 2000px; /* large enough for all items */
+
+      /* Main menu page - should only be visible when #mobile-menu is active/open, 
+         but the main container controls the visibility for all its children */
+      .mobile-main-menu {
+        display: block; /* The main page is always 'visible' within the #mobile-menu container */
       }
-      .mobile-has-sub > a::after {
-        content: "↓"; color: #D61F26; font-weight: bold;
+      
+      /* Submenu pages - hidden by default */
+      .mobile-submenu-page {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: white;
+        z-index: 70;
+        overflow-y: auto;
+        transform: translateX(100%); /* Start off-screen to the right */
+        transition: transform 0.3s ease-in-out;
       }
-      .mobile-has-sub.open > a::after {
-        content: "↑";
+
+      .mobile-submenu-page.active {
+        transform: translateX(0); /* Slide into view */
+      }
+      
+      /* Make sure the entire menu container takes up the space when open */
+      #mobile-menu.open {
+          transform: translateX(0);
+      }
+      /* This is already handled by 'hidden' and 'remove/add hidden' in the JS */
+      
+      /* Mobile menu header */
+      .mobile-menu-header {
+        position: sticky;
+        top: 0;
+        background: white;
+        z-index: 100;
+        padding: 16px 20px;
+        border-bottom: 2px solid #D61F26;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      .mobile-menu-header .back-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #f3f4f6;
+        color: #D61F26;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-menu-header .back-btn:hover {
+        background: #D61F26;
+        color: white;
+      }
+
+      .mobile-menu-header .close-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #D61F26;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: auto;
+      }
+
+      .mobile-menu-header .close-btn:hover {
+        background: #b01820;
+        transform: rotate(90deg);
+      }
+
+      .mobile-menu-header h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1f2937;
+        margin: 0;
+        flex: 1;
+      }
+
+      /* Mobile menu items */
+      .mobile-menu-item {
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .mobile-menu-item > a,
+      .mobile-menu-item > button {
+        width: 100%;
+        text-align: left;
+        padding: 18px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: white;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        color: #1f2937;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .mobile-menu-item > a:hover,
+      .mobile-menu-item > button:hover {
+        background: #fef5f5;
+        color: #D61F26;
+      }
+
+      /* Arrow for items with submenus */
+      .mobile-has-sub > button::after {
+        content: "\f054";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        margin-left: auto;
+        font-size: 14px;
+        color: #D61F26;
+      }
+
+      /* Enquiry button styling */
+      .enquiry-btn {
+        background: linear-gradient(135deg, #D61F26 0%, #b01820 100%);
+        color: white;
+        padding: 16px;
+        border-radius: 12px;
+        font-weight: 700;
+        text-align: center;
+        margin: 16px;
+        box-shadow: 0 4px 12px rgba(214, 31, 38, 0.3);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .enquiry-btn:hover {
+        box-shadow: 0 6px 16px rgba(214, 31, 38, 0.4);
+        transform: translateY(-2px);
+      }
+
+      /* Scrollbar styling */
+      #mobile-menu::-webkit-scrollbar,
+      .mobile-submenu-page::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      #mobile-menu::-webkit-scrollbar-track,
+      .mobile-submenu-page::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      #mobile-menu::-webkit-scrollbar-thumb,
+      .mobile-submenu-page::-webkit-scrollbar-thumb {
+        background: #D61F26;
+        border-radius: 10px;
       }
     }
   </style>
@@ -73,7 +344,6 @@
 
 <header class="fixed top-0 left-0 right-0 w-full z-50 backdrop-blur-md bg-gray-900/80 border-b border-icfs-red/50 shadow-lg">
 
-  <!-- Top Bar -->
   <div class="bg-icfs-red px-5 text-white py-3 text-base sm:text-sm">
     <div class="container mx-auto px-4 sm:px-6">
       <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 text-center sm:text-left">
@@ -95,19 +365,16 @@
     </div>
   </div>
 
-  <!-- Main Navigation -->
   <div class="bg-white">
     <div class="container mx-auto px-10 py-3 flex items-center justify-between">
       <a href="../index.html" class="flex-shrink-0">
         <img src="../assets/logo.jpg" alt="ICFS" class="h-9 md:h-10 w-auto">
       </a>
 
-      <!-- Desktop Nav -->
       <nav class="hidden lg:flex flex-1 justify-center">
         <ul class="flex items-center text-icfs-black font-semibold text-base uppercase tracking-wider gap-0">
           <li><a href="../index.html" class="px-3 py-5 hover:bg-icfs-red hover:text-white transition rounded-md">Home</a></li>
 
-          <!-- OUR COMPANY -->
           <li class="dropdown group relative">
             <a href="../Our-Company/about-indo-spark.html" class="px-3 py-5 hover:bg-icfs-red hover:text-white transition rounded-md flex items-center gap-0.5">
               Our Company <i class="fa fa-chevron-down"></i>
@@ -119,7 +386,6 @@
             </ul>
           </li>
 
-          <!-- PRODUCTS (Desktop) -->
           <div class="dropdown group relative">
             <a href="../Products/indo-construction-fastening-systems.html" class="px-3 py-5 hover:bg-icfs-red hover:text-white transition rounded-md flex items-center gap-0.5">PRODUCTS <i class="fa fa-chevron-down"></i></a>
             <div class="dropdown-menu absolute top-full left-0 bg-white shadow-2xl rounded-xl mt-1 w-64 border-t-4 border-icfs-red">
@@ -190,7 +456,6 @@
             <div class="dropdown-menu absolute top-full left-0 bg-white shadow-2xl rounded-xl mt-1 w-64 border-t-4 border-icfs-red">
               <ul class="text-xs">
 
-                <!-- ETA Approval Certificates -->
                 <li class="has-sub group">
                   <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">ETA Approval Certificates</a>
                   <ul>
@@ -208,36 +473,36 @@
                         <li class="has-sub group">
                           <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Pure Epoxy</a>
                           <ul>
-                            <li><a href="../downloads/ICFS-CM-385-PE-PRO-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM 385 / 585 PE-PRO COC</a></li>
-                            <li><a href="../downloads/ICFS-CM-385-PE-PRO-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM 385 / 585 PE-PRO ETA</a></li>
-                            <li><a href="../downloads/ICFS-CM-PE-PRO-rebar-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM 385 / PE-PRO Rebar COC</a></li>
-                            <li><a href="../downloads/ICFS-CM-385-PE-PRO-Rebar-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM 385 / 585 PE-PRO Rebar ETA</a></li>
-                          </ul>
-                        </li>
-                        <li class="has-sub group">
-                          <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Seismic Hybrid</a>
-                          <ul>
-                            <li><a href="../downloads/ICFS-CM-SH-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM SH COC</a></li>
-                            <li><a href="../downloads/ICFS-CM-SH-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM SH ETA</a></li>
-                            <li><a href="../downloads/ICFS-CM-SH-Rebar-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM SH Rebar COC</a></li>
-                            <li><a href="../downloads/ICFS-CM-SH-Rebar-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM SH Rebar ETA</a></li>
+                            <li><a href="../downloads/ICFS-CM-385-585-PE-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM PE COC</a></li>
+                            <li><a href="../downloads/ICFS-CM-385-585-PE-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM PE ETA</a></li>
+                            <li><a href="../downloads/ICFS-CM-385-585-PE-Rebar-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM PE Rebar ETA</a></li>
                           </ul>
                         </li>
                       </ul>
                     </li>
-
                     <li class="has-sub group">
                       <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100 font-medium">Mechanical Anchor Fasteners</a>
                       <ul>
-                        <li><a href="../downloads/ETA-IWA-approval.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ETA - Indo Wedge Anchor Approval</a></li>
-                        <li><a href="../downloads/ETA-Indo-Prime-Bolt-Zone-IPBZ-A4.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ETA - Indo Prime Bolt Zone - IPBZ A4</a></li>
-                        <li><a href="../downloads/Indo-Prime-Bolt-Zone-DP.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ETA - Indo Prime Bolt Zone - IPBZ DP</a></li>
+                        <li><a href="../downloads/Indo-Wedge-Anchor-IWA-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Indo Wedge Anchor - IWA</a></li>
+                        <li><a href="../downloads/Through-Bolt-Anchor-TBA-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Through Bolt Anchor - TBA</a></li>
+                        <li><a href="../downloads/Drop-In-Anchor-DIA-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Drop In Anchor - DIA</a></li>
+                      </ul>
+                    </li>
+                    <li class="has-sub group">
+                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100 font-medium">Nylon Anchor Fasteners</a>
+                      <ul>
+                        <li><a href="../downloads/Nylon-Frame-Plugs-NFP-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Nylon Frame Plugs - NFP</a></li>
+                      </ul>
+                    </li>
+                    <li class="has-sub group">
+                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100 font-medium">IPBZ (Prime Bolt Zone)</a>
+                      <ul>
+                        <li><a href="../downloads/Prime-Bolt-Zone-IPBZ-DP-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Prime Bolt Zone - IPBZ DP</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
 
-                <!-- Other Certificates -->
                 <li class="has-sub group">
                   <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Other Certificates</a>
                   <ul>
@@ -245,48 +510,44 @@
                     <li><a href="../downloads/CII-Membership-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CII Membership Certificate</a></li>
                     <li><a href="../downloads/Indian-Demolition-Association.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Indian Demolition Association (IDA)</a></li>
                     <li><a href="../downloads/European-Demolition-Association.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">European Demolition Association (EDA)</a></li>
-                    <li><a href="../downloads/Approval-Letter-Indospark-construction-services-pune-metro.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Pune Metro - Chemical Mortars, Wedge Anchors & Studs</a></li>
-                    <li><a href="../downloads/CENTRAL-RAILWAY.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Central Railway - Approval as Supplier of Stores</a></li>
-                    <li><a href="../downloads/EIL-STR-PAL-2022-006-ISCS.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">EIL Approval - Chemical Mortars & Wedge Anchors</a></li>
-                    <li><a href="../downloads/industrial-adhesive-class-1-certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Industrial Adhesive Certificate - Class 1</a></li>
-                    <li><a href="../downloads/ICFS-brand-registration-certificate-class-6.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS Brand Registration Certificate - Class 6</a></li>
-                    <li><a href="../downloads/Udyam-Registration-Certificate-23072024.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Udyam Registration Certificate </a></li>
+                    <li><a href="../downloads/Approval-Letter-Indospark-construction-services-pune-metro.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Pune Metro - Approval Letter</a></li>
+                    <li><a href="../downloads/CENTRAL-RAILWAY.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Central Railway - Approval</a></li>
+                    <li><a href="../downloads/EIL-STR-PAL-2022-006-ISCS.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">EIL Approval</a></li>
+                    <li><a href="../downloads/industrial-adhesive-class-1-certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Industrial Adhesive Certificate</a></li>
+                    <li><a href="../downloads/ICFS-brand-registration-certificate-class-6.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS Brand Registration</a></li>
+                    <li><a href="../downloads/Udyam-Registration-Certificate-23072024.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Udyam Registration Certificate</a></li>
                   </ul>
                 </li>
 
-                <!-- Products Catalogue -->
                 <li class="has-sub group">
                   <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Products Catalogue</a>
                   <ul>
                     <li class="has-sub group">
                       <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Anchor Fasteners</a>
                       <ul>
-                        <li><a href="../downloads/CM350P.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM350P</a></li>
-                        <li><a href="../downloads/chemical-mortars-CM350VESF.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM350VESF / CM420VESF</a></li>
-                        <li><a href="../downloads/ICFS-CM360SH.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM360SH</a></li>
-                        <li><a href="../downloads/CM-385-585-PE.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM385PE / CM585PE-PRO</a></li>
-                        <li><a href="../downloads/AGNI420.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - AGNI420 </a></li>
-                        <li><a href="../downloads/Chemical-585PE-PRO.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM585PE-PRO</a></li>
-                        <li><a href="../downloads/chemical-capsule.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Capsule - Supercap</a></li>
+                        <li><a href="../downloads/CM350P.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars CM350P</a></li>
+                        <li><a href="../downloads/CM350VESF-CM420VESF.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars CM350VESF / CM420VESF</a></li>
+                        <li><a href="../downloads/CM360SH.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars CM360SH</a></li>
+                        <li><a href="../downloads/AGNI420.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars AGNI420</a></li>
+                        <li><a href="../downloads/CM585PE-PRO.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars CM585PE-PRO</a></li>
+                        <li><a href="../downloads/CAS-Chemical-Anchor-Stud.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Anchor Studs - CAS</a></li>
+                        <li><a href="../downloads/ICFS-SUPERCAP-Chemical-Capsule.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Capsule - Supercap</a></li>
                       </ul>
                     </li>
                     <li class="has-sub group">
                       <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Mechanical Anchor Fasteners</a>
                       <ul>
-                        <li><a href="../downloads/through-bolt-anchors.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Through Bolt Anchors - TBA</a></li>
-                        <li><a href="../downloads/IWA-merged.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Indo Wedge Anchor - IWA </a></li>
-                        <li><a href="../downloads/drop-in-anchors.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Drop In Anchor - DIA</a></li>
-                        <li><a href="../downloads/indo-prime-bolt-zone-IPBZ-A4.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Indo Prime Bolt Zone - IPBZ A4 </a></li>
-                        <li><a href="../downloads/IPBZ-DP.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Indo Prime Bolt Zone - IPBZ DP </a></li>
-                        <li><a href="../downloads/LWA.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Lite Wedge Anchor - LWA </a></li>
+                        <li><a href="../downloads/INDO-WEDGE-ANCHOR-IWA.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Indo Wedge Anchor - IWA</a></li>
+                        <li><a href="../downloads/THROUGH-BOLT-ANCHOR-TBA.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Through Bolt Anchor - TBA</a></li>
+                        <li><a href="../downloads/DROP-IN-ANCHOR-DIA.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Drop In Anchor - DIA</a></li>
                       </ul>
                     </li>
                     <li class="has-sub group">
                       <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Nylon Anchor Fasteners</a>
                       <ul>
-                        <li><a href="../downloads/nylon-frame-anchors.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Nylon Frame Plug - NFP</a></li>
-                        <li><a href="downloads/nylon-frame-anchors.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Nylon Hammer Fixing  - NHF</a></li>
-                        <li><a href="downloads/nylon-frame-anchors.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">FD Plug</a></li>
+                        <li><a href="../downloads/nylon-frame-plugs.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Nylon Frame Plugs - NFP</a></li>
+                        <li><a href="../downloads/nylon-frame-anchors.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Nylon Hammer Fixing - NHF</a></li>
+                        <li><a href="../downloads/nylon-frame-anchors.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">FD Plug</a></li>
                         <li><a href="../downloads/hex-head-screw.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Hex Head Screw - HHS</a></li>
                       </ul>
                     </li>
@@ -294,71 +555,69 @@
                     <li class="has-sub group">
                       <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Polyurethane Foam</a>
                       <ul>
-                        <li><a href="downloads/PU FOAM_500 ml.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Assembly Foam - 500ml</a></li>
-                        <li><a href="downloads/1k-assembly-foam.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Assembly Foam - 750ml</a></li>
-                        <li><a href="downloads/1k-assembly-foam-pro.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Assembly Foam PRO</a></li>
-                        <li><a href="downloads/1k-fire-rated-foam-b1.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Fire Rated Foam B1</a></li>
-                        <li><a href="downloads/1k-fire-rated-foam-b1-gun-grade-pro.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Fire Rated Foam B1 Gun Grade PRO</a></li>
-                        <li><a href="downloads/gun-and-foam-cleaner.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Gun and Foam Cleaner</a></li>
+                        <li><a href="../downloads/PU FOAM_500 ml.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Assembly Foam - 500ml</a></li>
+                        <li><a href="../downloads/1k-assembly-foam.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Assembly Foam - 750ml</a></li>
+                        <li><a href="../downloads/1k-assembly-foam-pro.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Assembly Foam PRO</a></li>
+                        <li><a href="../downloads/1k-fire-rated-foam-b1.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Fire Rated Foam B1</a></li>
+                        <li><a href="../downloads/1k-fire-rated-foam-b1-gun-grade-pro.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Fire Rated Foam B1 Gun Grade PRO</a></li>
+                        <li><a href="../downloads/gun-and-foam-cleaner.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Gun and Foam Cleaner</a></li>
                       </ul>
                     </li>
                     <li class="has-sub group">
                       <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS Anchor Fasteners</a>
                       <ul>
-                        <li><a href="../downloads/all-product-range-anchor-fasteners.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">All Product Range (20p) </a></li>
+                        <li><a href="../downloads/all-product-range-anchor-fasteners.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">All Product Range (20p)</a></li>
                         <li><a href="../downloads/icfs-anchor-fasteners.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Anchor Fasteners</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
 
-                <!-- Technical Data Sheet -->
                 <li class="has-sub group">
                   <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Technical Data Sheet</a>
                   <ul>
                     <li class="has-sub group">
-                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars</a>
+                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Anchor Fasteners</a>
                       <ul>
-                        <li><a href="../downloads/ICFS-CM350-420VESF-Rebar-Connection.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CM350VESF / CM420VESF - Rebar </a></li>
-                        <li><a href="../downloads/ICFS-CM350-420VESF-galvanised-or-stainless-steel-bonded-anchor.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CM350VESF / CM420VESF - Threaded Rod </a></li>
-                        <li><a href="../downloads/CM360SH-Technical-Datasheet-for-Post-installed-rebar-connections.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CM360SH - Rebar </a></li>
-                        <li><a href="../downloads/CM360SH-Technical-Datasheet-for-Bonded-injection-type-anchor.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CM360SH - Threaded Rod </a></li>
+                        <li><a href="../downloads/ICFS-CM350-Technical-Datasheet-for-bonded-anchor.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars CM350P - Bonded Anchor</a></li>
+                        <li><a href="../downloads/ICFS-CM350VESF-CM420VESF-Technical-Datasheet-for-bonded-anchor.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CM350VESF / CM420VESF - Bonded Anchor</a></li>
+                        <li><a href="../downloads/ICFS-CM360SH-Technical-Datasheet-for-bonded-anchor.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars CM360SH - Bonded Anchor</a></li>
+                        <li><a href="../downloads/ICFS-AGNI420-Technical-Datasheet-for-bonded-anchor.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars AGNI420 - Bonded Anchor</a></li>
+                        <li><a href="../downloads/ICFS-CM585PE-PRO-Technical-Datasheet-for-bonded-anchor.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars CM585PE-PRO - Bonded Anchor</a></li>
+                        <li><a href="../downloads/ICFS-CM350-420VESF-Rebar-Connection.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CM350VESF / CM420VESF - Rebar</a></li>
+                        <li><a href="../downloads/CM360SH-Technical-Datasheet-for-Post-installed-rebar-connections.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CM360SH - Rebar</a></li>
+                        <li><a href="../downloads/ICFS-SUPERCAP-Technical-Data-Sheets-for-bonded-anchor.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Capsule - Supercap</a></li>
                       </ul>
                     </li>
-                    <li><a href="../downloads/ICFS-SUPERCAP-Technical-Data-Sheets-for-bonded-anchor.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Capsule - Supercap </a></li>
+                    <li class="has-sub group">
+                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Mechanical Anchor Fasteners</a>
+                      <ul>
+                        <li><a href="../downloads/IWA-Technical-Data-Sheet.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Indo Wedge Anchor - IWA</a></li>
+                        <li><a href="../downloads/TBA-Technical-Data-Sheet.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Through Bolt Anchor - TBA</a></li>
+                        <li><a href="../downloads/DIA-Technical-Data-Sheet.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Drop In Anchor - DIA</a></li>
+                      </ul>
+                    </li>
                   </ul>
                 </li>
 
-                <!-- Services Catalogue -->
                 <li class="has-sub group">
                   <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Services Catalogue</a>
                   <ul>
-                    <li><a href="../downloads/iscs-all-services.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100 font-medium">ISCS - All Services</a></li>
-                    <li><a href="../downloads/iscs-all-services1.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ISCS Catalogue</a></li>
-                    <li><a href="../downloads/pull-out-test.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Pull Out Test </a></li>
-                    <li class="has-sub group">
-                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Rock Anchoring </a>
-                      <ul>
-                        <li><a href="../downloads/ICFS-Chemical-Rock-Anchoring-Pull-ou-test-Report-by-COEP-1.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Rock Anchoring Report</a></li>
-                        <li><a href="../downloads/Rock-anchoring-leaflet.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Rock Anchoring Leaflet</a></li>
-                      </ul>
-                    </li>
+                    <li><a href="../downloads/iscs-catalogue.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ISCS Services Catalogue</a></li>
+                    <li><a href="../downloads/brochure-rebaring-services.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Rebaring Services</a></li>
+                    <li><a href="../downloads/brochure-grouting-services.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Grouting Services</a></li>
+                    <li><a href="../downloads/brochure-concrete-cutting-services.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Concrete Cutting Services</a></li>
+                    <li><a href="../downloads/brochure-core-drilling-services.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Core Drilling Services</a></li>
                   </ul>
                 </li>
-
               </ul>
             </div>
           </div>
 
-                    <li><a href="https://career.indospark.com/" target="_blank" class="px-3 py-5 hover:bg-icfs-red hover:text-white transition rounded-md">Career</a></li>
+          <li><a href="https://career.indospark.com/" target="_blank" class="px-3 py-5 hover:bg-icfs-red hover:text-white transition rounded-md">Career</a></li>
           <li><a href="https://blog.indospark.com/" target="_blank" class="px-3 py-5 hover:bg-icfs-red hover:text-white transition rounded-md">Blog</a></li>
           <li><a href="../testimonials.html" class="px-3 py-5 hover:bg-icfs-red hover:text-white transition rounded-md">Testimonials</a></li>
           <li><a href="../design-software.html" class="px-3 py-5 hover:bg-icfs-red hover:text-white transition rounded-md">Design Software</a></li>
-
-
-          <!-- DOWNLOADS, ACHIEVEMENTS, etc. (same structure) -->
-          <!-- ... keep your existing desktop items ... -->
-
           <li class="ml-3">
             <a href="../contact.html" class="bg-icfs-red text-white px-3 py-4 font-bold text-base uppercase tracking-widest hover:bg-black transition rounded-lg shadow-xl whitespace-nowrap">
               Enquiry Now
@@ -367,294 +626,751 @@
         </ul>
       </nav>
 
-      <!-- Mobile Menu Button -->
       <div class="flex items-center gap-3">
-        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-icfs-red">
+        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-icfs-red" aria-controls="mobile-menu" aria-expanded="false">
           <i class="fa fa-bars"></i>
         </button>
       </div>
     </div>
   </div>
-
-  <!-- MOBILE MENU - FULLY FUNCTIONAL MULTI-LEVEL ACCORDION -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t-4 border-icfs-red shadow-2xl">
-    <div class="container mx-auto px-6 py-8">
-      <a href="../contact.html" class="block text-center bg-icfs-red text-white py-4 rounded-xl font-bold text-lg mb-8">ENQUIRY NOW</a>
-
-      <ul class="space-y-4 text-lg font-semibold text-sm">
-        <li><a href="../index.html" class="block hover:text-icfs-red py-2">Home</a></li>
-
-        <!-- PRODUCTS Mobile -->
-        <li class="mobile-has-sub">
-          <a href="../Products/indo-construction-fastening-systems.html" class="block py-3 flex justify-between items-center hover:text-icfs-red">
-            Products
-          </a>
-          <ul class="mobile-submenu pl-6 space-y-3 text-base">
-            <!-- <div class="dropdown-menu absolute top-full left-0 bg-white shadow-2xl rounded-xl mt-1 w-64 border-t-4 border-icfs-red"> -->
-              <ul class="text-base">
-                <li><a href="../Products/chemical-anchor-studs-cas.html" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Chemical Anchor Studs - CAS</a></li>
-
-                <li class="has-sub group">
-                  <a href="../Products/chemical-mortars.html" class="block px-6 py-3 hover:bg-icfs-red rounded-xl hover:text-white font-medium">Chemical Mortars</a>
-                  <ul>
-                    <li><a href="../Products/Chemical-Mortars/chemical-mortars-cm350p.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM350P</a></li>
-                    <li><a href="../Products/Chemical-Mortars/chemical-mortars-cm350vesf.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM350VESF / CM420VESF</a></li>
-                    <li><a href="../Products/Chemical-Mortars/chemical-mortars-cm360sh.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM360SH </a></li>
-                    <li><a href="../Products/Chemical-Mortars/chemical-mortar-manufacturers-agni420.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortar - AGNI420 </a></li>
-                    <li><a href="../Products/Chemical-Mortars/chemical-mortar-manufacturers-cm585pe-pro.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortar - CM585PE-PRO</a></li>
-                  </ul>
-                </li>
-
-                <li class="has-sub group">
-                  <a href="../Products/pu-foam.html" class="block px-6 py-3 hover:bg-icfs-red rounded-xl hover:text-white font-medium">PU Foam</a>
-                  <ul>
-                    <li><a href="../Products/PU-Foam/1k-assembly-foam-500.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Assembly Foam - 500ml</a></li>
-                    <li><a href="../Products/PU-Foam/1k-assembly-foam.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Assembly Foam - 750ml</a></li>
-                    <li><a href="../Products/PU-Foam/1k-assembly-foam-pro.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Assembly Foam PRO</a></li>
-                    <li><a href="../Products/PU-Foam/1k-fire-rated-foam-b1.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Fire Rated Foam B1</a></li>
-                    <li><a href="../Products/PU-Foam/1k-fire-rated-foam-b1-gun-grade-pro.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Fire Rated Foam B1 Gun Grade PRO</a></li>
-                    <li><a href="../Products/PU-Foam/gun-and-foam-cleaner.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Gun and Foam Cleaner</a></li>
-                  </ul>
-                </li>
-
-                <li><a href="../Products/chemical-guns-caulking-guns.html" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Chemical Guns / Caulking Guns</a></li>
-                <li><a href="../Products/chemical-capsule-supercap.html" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Chemical Capsule - Supercap</a></li>
-
-                <li class="has-sub group">
-                  <a href="../Products/mechanical-wedge-anchor-bolts.html" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Mechanical / Wedge Anchor Bolts</a>
-                  <ul>
-                    <li><a href="../Products/Mechanical-Wedge-Anchor-Bolts/indo-wedge-anchors-iwa.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Indo Wedge Anchors - IWA</a></li>
-                    <li><a href="../Products/Mechanical-Wedge-Anchor-Bolts/through-bolt-anchors-tba.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Through Bolt Anchors - TBA</a></li>
-                    <li><a href="../Products/Mechanical-Wedge-Anchor-Bolts/drop-in-anchors-dia.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Drop In Anchors - DIA</a></li>
-                  </ul>
-                </li>
-
-                <li class="has-sub group">
-                  <a href="../Products/nylon-frame-anchors.html" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Nylon Frame Anchors</a>
-                  <ul>
-                    <li><a href="../Products/Nylon-Frame-Anchors/nylon-frame-plugs-nfp.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Nylon Frame Plugs - NFP</a></li>
-                    <li><a href="../Products/Nylon-Frame-Anchors/nylon-hammer-fixing-plugs-nhf.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Nylon Hammer Fixing Plugs - NHF</a></li>
-                    <li><a href="../Products/Nylon-Frame-Anchors/nylon-plugs-fd.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Nylon Plugs - FD</a></li>
-                    <li><a href="../Products/Nylon-Frame-Anchors/plastic-plug-pvc.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Plastic Plug - PVC </a></li>
-                    <li><a href="../Products/Nylon-Frame-Anchors/hex-head-screw.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Hex Head Screw </a></li>
-                  </ul>
-                </li>
-              </ul>
-            <!-- </div> -->
-          </ul>
-        </li>
-
-        <!-- DOWNLOADS Mobile (same structure) -->
-        <li class="mobile-has-sub">
-          <a href="#" class="block py-3 flex justify-between items-center hover:text-icfs-red">Downloads</a>
-          <ul class="mobile-submenu pl-6 space-y-3 text-base">
-            <!-- <div class="dropdown-menu absolute top-full left-0 bg-white shadow-2xl rounded-xl mt-1 w-64 border-t-4 border-icfs-red"> -->
-              <ul class="text-base">
-
-                <!-- ETA Approval Certificates -->
-                <li class="has-sub group">
-                  <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">ETA Approval Certificates</a>
-                  <ul>
-                    <li class="has-sub group">
-                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100 font-medium">Chemical Anchor Fasteners</a>
-                      <ul>
-                        <li class="has-sub group">
-                          <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">VESF</a>
-                          <ul>
-                            <li><a href="../downloads/ICFS-CM-VESF-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM VESF COC</a></li>
-                            <li><a href="../downloads/ICFS-CM-VESF-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM VESF ETA</a></li>
-                            <li><a href="../downloads/ICFS-CM-VESF-Rebar-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM VESF Rebar ETA</a></li>
-                          </ul>
-                        </li>
-                        <li class="has-sub group">
-                          <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Pure Epoxy</a>
-                          <ul>
-                            <li><a href="../downloads/ICFS-CM-385-PE-PRO-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM 385 / 585 PE-PRO COC</a></li>
-                            <li><a href="../downloads/ICFS-CM-385-PE-PRO-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM 385 / 585 PE-PRO ETA</a></li>
-                            <li><a href="../downloads/ICFS-CM-PE-PRO-rebar-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM 385 / PE-PRO Rebar COC</a></li>
-                            <li><a href="../downloads/ICFS-CM-385-PE-PRO-Rebar-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM 385 / 585 PE-PRO Rebar ETA</a></li>
-                          </ul>
-                        </li>
-                        <li class="has-sub group">
-                          <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Seismic Hybrid</a>
-                          <ul>
-                            <li><a href="../downloads/ICFS-CM-SH-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM SH COC</a></li>
-                            <li><a href="../downloads/ICFS-CM-SH-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM SH ETA</a></li>
-                            <li><a href="../downloads/ICFS-CM-SH-Rebar-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM SH Rebar COC</a></li>
-                            <li><a href="../downloads/ICFS-CM-SH-Rebar-ETA-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS CM SH Rebar ETA</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-
-                    <li class="has-sub group">
-                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100 font-medium">Mechanical Anchor Fasteners</a>
-                      <ul>
-                        <li><a href="../downloads/ETA-IWA-approval.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ETA - Indo Wedge Anchor Approval</a></li>
-                        <li><a href="../downloads/ETA-Indo-Prime-Bolt-Zone-IPBZ-A4.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ETA - Indo Prime Bolt Zone - IPBZ A4</a></li>
-                        <li><a href="../downloads/Indo-Prime-Bolt-Zone-DP.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ETA - Indo Prime Bolt Zone - IPBZ DP</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-
-                <!-- Other Certificates -->
-                <li class="has-sub group">
-                  <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Other Certificates</a>
-                  <ul>
-                    <li><a href="../downloads/imperial%20college%20pure%20epoxy%20test%20report.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Imperial College Pure Epoxy Test Report</a></li>
-                    <li><a href="../downloads/CII-Membership-Certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CII Membership Certificate</a></li>
-                    <li><a href="../downloads/Indian-Demolition-Association.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Indian Demolition Association (IDA)</a></li>
-                    <li><a href="../downloads/European-Demolition-Association.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">European Demolition Association (EDA)</a></li>
-                    <li><a href="../downloads/Approval-Letter-Indospark-construction-services-pune-metro.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Pune Metro - Chemical Mortars, Wedge Anchors & Studs</a></li>
-                    <li><a href="../downloads/CENTRAL-RAILWAY.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Central Railway - Approval as Supplier of Stores</a></li>
-                    <li><a href="../downloads/EIL-STR-PAL-2022-006-ISCS.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">EIL Approval - Chemical Mortars & Wedge Anchors</a></li>
-                    <li><a href="../downloads/industrial-adhesive-class-1-certificate.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Industrial Adhesive Certificate - Class 1</a></li>
-                    <li><a href="../downloads/ICFS-brand-registration-certificate-class-6.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS Brand Registration Certificate - Class 6</a></li>
-                    <li><a href="../downloads/Udyam-Registration-Certificate-23072024.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Udyam Registration Certificate </a></li>
-                  </ul>
-                </li>
-
-                <!-- Products Catalogue -->
-                <li class="has-sub group">
-                  <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Products Catalogue</a>
-                  <ul>
-                    <li class="has-sub group">
-                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Anchor Fasteners</a>
-                      <ul>
-                        <li><a href="../downloads/CM350P.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM350P</a></li>
-                        <li><a href="../downloads/chemical-mortars-CM350VESF.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM350VESF / CM420VESF</a></li>
-                        <li><a href="../downloads/ICFS-CM360SH.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM360SH</a></li>
-                        <li><a href="../downloads/CM-385-585-PE.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM385PE / CM585PE-PRO</a></li>
-                        <li><a href="../downloads/AGNI420.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - AGNI420 </a></li>
-                        <li><a href="../downloads/Chemical-585PE-PRO.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars - CM585PE-PRO</a></li>
-                        <li><a href="../downloads/chemical-capsule.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Capsule - Supercap</a></li>
-                      </ul>
-                    </li>
-                    <li class="has-sub group">
-                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Mechanical Anchor Fasteners</a>
-                      <ul>
-                        <li><a href="../downloads/through-bolt-anchors.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Through Bolt Anchors - TBA</a></li>
-                        <li><a href="../downloads/IWA-merged.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Indo Wedge Anchor - IWA </a></li>
-                        <li><a href="../downloads/drop-in-anchors.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Drop In Anchor - DIA</a></li>
-                        <li><a href="../downloads/indo-prime-bolt-zone-IPBZ-A4.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Indo Prime Bolt Zone - IPBZ A4 </a></li>
-                        <li><a href="../downloads/IPBZ-DP.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Indo Prime Bolt Zone - IPBZ DP </a></li>
-                        <li><a href="../downloads/LWA.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Lite Wedge Anchor - LWA </a></li>
-                      </ul>
-                    </li>
-                    <li class="has-sub group">
-                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Nylon Anchor Fasteners</a>
-                      <ul>
-                        <li><a href="../downloads/nylon-frame-anchors.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Nylon Frame Plug - NFP</a></li>
-                        <li><a href="downloads/nylon-frame-anchors.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Nylon Hammer Fixing  - NHF</a></li>
-                        <li><a href="downloads/nylon-frame-anchors.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">FD Plug</a></li>
-                        <li><a href="../downloads/hex-head-screw.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Hex Head Screw - HHS</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="../downloads/PVC-PLUG.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Plastic Frame Plug - PFP</a></li>
-                    <li class="has-sub group">
-                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Polyurethane Foam</a>
-                      <ul>
-                        <li><a href="downloads/PU FOAM_500 ml.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Assembly Foam - 500ml</a></li>
-                        <li><a href="downloads/1k-assembly-foam.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Assembly Foam - 750ml</a></li>
-                        <li><a href="downloads/1k-assembly-foam-pro.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Assembly Foam PRO</a></li>
-                        <li><a href="downloads/1k-fire-rated-foam-b1.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Fire Rated Foam B1</a></li>
-                        <li><a href="downloads/1k-fire-rated-foam-b1-gun-grade-pro.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">1K Fire Rated Foam B1 Gun Grade PRO</a></li>
-                        <li><a href="downloads/gun-and-foam-cleaner.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Gun and Foam Cleaner</a></li>
-                      </ul>
-                    </li>
-                    <li class="has-sub group">
-                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ICFS Anchor Fasteners</a>
-                      <ul>
-                        <li><a href="../downloads/all-product-range-anchor-fasteners.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">All Product Range (20p) </a></li>
-                        <li><a href="../downloads/icfs-anchor-fasteners.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Anchor Fasteners</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-
-                <!-- Technical Data Sheet -->
-                <li class="has-sub group">
-                  <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Technical Data Sheet</a>
-                  <ul>
-                    <li class="has-sub group">
-                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Mortars</a>
-                      <ul>
-                        <li><a href="../downloads/ICFS-CM350-420VESF-Rebar-Connection.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CM350VESF / CM420VESF - Rebar </a></li>
-                        <li><a href="../downloads/ICFS-CM350-420VESF-galvanised-or-stainless-steel-bonded-anchor.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CM350VESF / CM420VESF - Threaded Rod </a></li>
-                        <li><a href="../downloads/CM360SH-Technical-Datasheet-for-Post-installed-rebar-connections.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CM360SH - Rebar </a></li>
-                        <li><a href="../downloads/CM360SH-Technical-Datasheet-for-Bonded-injection-type-anchor.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">CM360SH - Threaded Rod </a></li>
-                      </ul>
-                    </li>
-                    <li><a href="../downloads/ICFS-SUPERCAP-Technical-Data-Sheets-for-bonded-anchor.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Chemical Capsule - Supercap </a></li>
-                  </ul>
-                </li>
-
-                <!-- Services Catalogue -->
-                <li class="has-sub group">
-                  <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Services Catalogue</a>
-                  <ul>
-                    <li><a href="../downloads/iscs-all-services.html" class="block px-6 py-3 rounded-xl hover:bg-gray-100 font-medium">ISCS - All Services</a></li>
-                    <li><a href="../downloads/iscs-all-services1.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ISCS Catalogue</a></li>
-                    <li><a href="../downloads/pull-out-test.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Pull Out Test </a></li>
-                    <li class="has-sub group">
-                      <a href="#" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Rock Anchoring </a>
-                      <ul>
-                        <li><a href="../downloads/ICFS-Chemical-Rock-Anchoring-Pull-ou-test-Report-by-COEP-1.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Rock Anchoring Report</a></li>
-                        <li><a href="../downloads/Rock-anchoring-leaflet.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Rock Anchoring Leaflet</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-
-              </ul>
-            <!-- </div> -->
-            <!-- Other Downloads categories -->
-          </ul>
-        </li>
-
-        <li class="mobile-has-sub">
-          <a href="../Achievements/achievement-and-approvals.html" class="block py-3 flex justify-between items-center hover:text-icfs-red">
-            Achievements
-          </a>
-          <ul class="mobile-submenu pl-6 space-y-3 text-base">
-            <li><a href="../Achievements/achievement-and-approvals.html" class="block px-6 py-4 rounded-xl hover:bg-icfs-red hover:text-white transition text-base font-semibold">Our Achievements</a></li>
-              <li><a href="../Achievements/news-and-videos.html" class="block px-6 py-4 rounded-xl hover:bg-icfs-red hover:text-white transition text-base font-semibold">News & Videos</a></li>
-            
-          </ul>
-        </li>
-
-        <li><a href="https://career.indospark.com/" target="_blank" class="block hover:text-icfs-red py-2">Career</a></li>
-        <li><a href="https://blog.indospark.com/" target="_blank" class="block hover:text-icfs-red py-2">Blog</a></li>
-        <li><a href="../testimonials.html" class="block hover:text-icfs-red py-2">Testimonials</a></li>
-        <li><a href="../design-software.html" class="block hover:text-icfs-red py-2">Design Software</a></li>
-      </ul>
-    </div>
-  </div>
 </header>
 
-<!-- Mobile Menu Toggle + Accordion Script -->
-<script>
-  // Open/close mobile menu
-  document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-  });
+<div id="mobile-menu" class="hidden lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-white z-[60] overflow-y-auto">
+  <div class="mobile-main-menu">
+    <div class="mobile-menu-header">
+      <h3>Menu</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <a href="../contact.html" class="enquiry-btn">
+      <i class="fa fa-paper-plane"></i>
+      <span>ENQUIRY NOW</span>
+    </a>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../index.html">Home</a>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('our-company')">Our Company</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('products')">Products</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('achievements')">Achievements</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('downloads')">Downloads</button>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="https://career.indospark.com/" target="_blank">Career</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="https://blog.indospark.com/" target="_blank">Blog</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../testimonials.html">Testimonials</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../design-software.html">Design Software</a>
+      </li>
+    </ul>
+  </div>
 
-  // Mobile accordion functionality
-  document.querySelectorAll('.mobile-has-sub > a').forEach(item => {
-    item.addEventListener('click', function(e) {
-      if (window.innerWidth < 1024) {
-        e.preventDefault();
-        const parent = this.parentElement;
-        const submenu = parent.querySelector('.mobile-submenu');
-        if (submenu) {
-          submenu.classList.toggle('open');
-          parent.classList.toggle('open');
-        }
-      }
-    });
-  });
-</script>
+  <div id="submenu-our-company" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('our-company')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Our Company</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../Our-Company/about-indo-spark.html">Introduction</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Our-Company/chairman-conversation.html">Chairman Conversation</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Our-Company/history.html">Our History</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-products" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('products')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Products</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../Products/indo-construction-fastening-systems.html">Indo Construction Fastening Systems</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/chemical-anchor-studs-cas.html">Chemical Anchor Studs - CAS</a>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('chemical-mortars')">Chemical Mortars</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('pu-foam')">PU Foam</button>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/chemical-guns-caulking-guns.html">Chemical Guns / Caulking Guns</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/chemical-capsule-supercap.html">Chemical Capsule - Supercap</a>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('mechanical-anchors')">Mechanical / Wedge Anchor Bolts</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('nylon-anchors')">Nylon Frame Anchors</button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-chemical-mortars" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('chemical-mortars')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Chemical Mortars</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../Products/Chemical-Mortars/chemical-mortars-cm350p.html">Chemical Mortars - CM350P</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/Chemical-Mortars/chemical-mortars-cm350vesf.html">Chemical Mortars - CM350VESF / CM420VESF</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/Chemical-Mortars/chemical-mortars-cm360sh.html">Chemical Mortars - CM360SH</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/Chemical-Mortars/chemical-mortar-manufacturers-agni420.html">Chemical Mortar - AGNI420</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/Chemical-Mortars/chemical-mortar-manufacturers-cm585pe-pro.html">Chemical Mortar - CM585PE-PRO</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-pu-foam" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('pu-foam')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>PU Foam</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../Products/PU-Foam/1k-assembly-foam-500.html">1K Assembly Foam - 500ml</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/PU-Foam/1k-assembly-foam.html">1K Assembly Foam - 750ml</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/PU-Foam/1k-assembly-foam-pro.html">1K Assembly Foam PRO</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/PU-Foam/1k-fire-rated-foam-b1.html">1K Fire Rated Foam B1</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/PU-Foam/1k-fire-rated-foam-b1-gun-grade-pro.html">1K Fire Rated Foam B1 Gun Grade PRO</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/PU-Foam/gun-and-foam-cleaner.html">Gun and Foam Cleaner</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-mechanical-anchors" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('mechanical-anchors')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Mechanical / Wedge Anchor Bolts</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../Products/Mechanical-Wedge-Anchor-Bolts/indo-wedge-anchors-iwa.html">Indo Wedge Anchors - IWA</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/Mechanical-Wedge-Anchor-Bolts/through-bolt-anchors-tba.html">Through Bolt Anchors - TBA</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/Mechanical-Wedge-Anchor-Bolts/drop-in-anchors-dia.html">Drop In Anchors - DIA</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-nylon-anchors" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('nylon-anchors')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Nylon Frame Anchors</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../Products/Nylon-Frame-Anchors/nylon-frame-plugs-nfp.html">Nylon Frame Plugs - NFP</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/Nylon-Frame-Anchors/nylon-hammer-fixing-plugs-nhf.html">Nylon Hammer Fixing Plugs - NHF</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/Nylon-Frame-Anchors/nylon-plugs-fd.html">Nylon Plugs - FD</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/Nylon-Frame-Anchors/plastic-plug-pvc.html">Plastic Plug - PVC</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Products/Nylon-Frame-Anchors/hex-head-screw.html">Hex Head Screw</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-achievements" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('achievements')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Achievements</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../Achievements/achievement-and-approvals.html">Our Achievements</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../Achievements/news-and-videos.html">News & Videos</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-downloads" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('downloads')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Downloads</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('eta-certificates')">ETA Approval Certificates</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('other-certificates')">Other Certificates</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('products-catalogue')">Products Catalogue</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('technical-data-sheet')">Technical Data Sheet</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('services-catalogue')">Services Catalogue</button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-eta-certificates" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('eta-certificates')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>ETA Approval Certificates</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('eta-chemical-anchors')">Chemical Anchor Fasteners</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('eta-mechanical-anchors')">Mechanical Anchor Fasteners</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('eta-nylon-anchors')">Nylon Anchor Fasteners</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('eta-ipbz')">IPBZ (Prime Bolt Zone)</button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-eta-chemical-anchors" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('eta-chemical-anchors')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Chemical Anchor Fasteners</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('eta-vesf')">VESF</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('eta-pure-epoxy')">Pure Epoxy</button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-eta-vesf" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('eta-vesf')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>VESF</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-CM-VESF-Certificate.pdf" target="_blank">ICFS CM VESF COC</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-CM-VESF-ETA-Certificate.pdf" target="_blank">ICFS CM VESF ETA</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-CM-VESF-Rebar-ETA-Certificate.pdf" target="_blank">ICFS CM VESF Rebar ETA</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-eta-pure-epoxy" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('eta-pure-epoxy')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Pure Epoxy</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-CM-385-585-PE-Certificate.pdf" target="_blank">ICFS CM PE COC</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-CM-385-585-PE-ETA-Certificate.pdf" target="_blank">ICFS CM PE ETA</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-CM-385-585-PE-Rebar-ETA-Certificate.pdf" target="_blank">ICFS CM PE Rebar ETA</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-eta-mechanical-anchors" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('eta-mechanical-anchors')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Mechanical Anchor Fasteners</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/Indo-Wedge-Anchor-IWA-ETA-Certificate.pdf" target="_blank">Indo Wedge Anchor - IWA</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/Through-Bolt-Anchor-TBA-ETA-Certificate.pdf" target="_blank">Through Bolt Anchor - TBA</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/Drop-In-Anchor-DIA-ETA-Certificate.pdf" target="_blank">Drop In Anchor - DIA</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-eta-nylon-anchors" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('eta-nylon-anchors')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Nylon Anchor Fasteners</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/Nylon-Frame-Plugs-NFP-ETA-Certificate.pdf" target="_blank">Nylon Frame Plugs - NFP</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-eta-ipbz" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('eta-ipbz')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>IPBZ (Prime Bolt Zone)</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/Prime-Bolt-Zone-IPBZ-DP-ETA-Certificate.pdf" target="_blank">Prime Bolt Zone - IPBZ DP</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-other-certificates" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('other-certificates')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Other Certificates</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/imperial%20college%20pure%20epoxy%20test%20report.pdf" target="_blank">Imperial College Test Report</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/CII-Membership-Certificate.pdf" target="_blank">CII Membership Certificate</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/Indian-Demolition-Association.pdf" target="_blank">Indian Demolition Association</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/European-Demolition-Association.pdf" target="_blank">European Demolition Association</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/Approval-Letter-Indospark-construction-services-pune-metro.pdf" target="_blank">Pune Metro - Approval Letter</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/CENTRAL-RAILWAY.pdf" target="_blank">Central Railway - Approval</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/EIL-STR-PAL-2022-006-ISCS.pdf" target="_blank">EIL Approval</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/industrial-adhesive-class-1-certificate.pdf" target="_blank">Industrial Adhesive Certificate</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-brand-registration-certificate-class-6.pdf" target="_blank">ICFS Brand Registration</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/Udyam-Registration-Certificate-23072024.pdf" target="_blank">Udyam Registration Certificate</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-products-catalogue" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('products-catalogue')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Products Catalogue</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('catalogue-chemical-anchors')">Chemical Anchor Fasteners</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('catalogue-mechanical-anchors')">Mechanical Anchor Fasteners</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('catalogue-nylon-anchors')">Nylon Anchor Fasteners</button>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/PVC-PLUG.pdf" target="_blank">Plastic Frame Plug - PFP</a>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('catalogue-pu-foam')">Polyurethane Foam</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('catalogue-icfs-anchors')">ICFS Anchor Fasteners</button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-catalogue-chemical-anchors" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('catalogue-chemical-anchors')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Chemical Anchor Fasteners</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/CM350P.pdf" target="_blank">Chemical Mortars CM350P</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/CM350VESF-CM420VESF.pdf" target="_blank">Chemical Mortars CM350VESF / CM420VESF</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/CM360SH.pdf" target="_blank">Chemical Mortars CM360SH</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/AGNI420.pdf" target="_blank">Chemical Mortars AGNI420</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/CM585PE-PRO.pdf" target="_blank">Chemical Mortars CM585PE-PRO</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/CAS-Chemical-Anchor-Stud.pdf" target="_blank">Chemical Anchor Studs - CAS</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-SUPERCAP-Chemical-Capsule.pdf" target="_blank">Chemical Capsule - Supercap</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-catalogue-mechanical-anchors" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('catalogue-mechanical-anchors')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Mechanical Anchor Fasteners</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/INDO-WEDGE-ANCHOR-IWA.pdf" target="_blank">Indo Wedge Anchor - IWA</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/THROUGH-BOLT-ANCHOR-TBA.pdf" target="_blank">Through Bolt Anchor - TBA</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/DROP-IN-ANCHOR-DIA.pdf" target="_blank">Drop In Anchor - DIA</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-catalogue-nylon-anchors" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('catalogue-nylon-anchors')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Nylon Anchor Fasteners</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/nylon-frame-plugs.pdf" target="_blank">Nylon Frame Plugs - NFP</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/nylon-frame-anchors.pdf" target="_blank">Nylon Hammer Fixing - NHF</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/nylon-frame-anchors.pdf" target="_blank">FD Plug</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/hex-head-screw.pdf" target="_blank">Hex Head Screw - HHS</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-catalogue-pu-foam" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('catalogue-pu-foam')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Polyurethane Foam</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/PU FOAM_500 ml.pdf" target="_blank">1K Assembly Foam - 500ml</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/1k-assembly-foam.pdf" target="_blank">1K Assembly Foam - 750ml</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/1k-assembly-foam-pro.pdf" target="_blank">1K Assembly Foam PRO</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/1k-fire-rated-foam-b1.pdf" target="_blank">1K Fire Rated Foam B1</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/1k-fire-rated-foam-b1-gun-grade-pro.pdf" target="_blank">1K Fire Rated Foam B1 Gun Grade PRO</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/gun-and-foam-cleaner.pdf" target="_blank">Gun and Foam Cleaner</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-catalogue-icfs-anchors" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('catalogue-icfs-anchors')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>ICFS Anchor Fasteners</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/all-product-range-anchor-fasteners.pdf" target="_blank">All Product Range (20p)</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/icfs-anchor-fasteners.pdf" target="_blank">Anchor Fasteners</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-technical-data-sheet" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('technical-data-sheet')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Technical Data Sheet</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('tds-chemical-anchors')">Chemical Anchor Fasteners</button>
+      </li>
+      <li class="mobile-menu-item mobile-has-sub">
+        <button type="button" onclick="openSubmenu('tds-mechanical-anchors')">Mechanical Anchor Fasteners</button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-tds-chemical-anchors" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('tds-chemical-anchors')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Chemical Anchor Fasteners</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-CM350-Technical-Datasheet-for-bonded-anchor.pdf" target="_blank">Chemical Mortars CM350P - Bonded Anchor</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-CM350VESF-CM420VESF-Technical-Datasheet-for-bonded-anchor.pdf" target="_blank">CM350VESF / CM420VESF - Bonded Anchor</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-CM360SH-Technical-Datasheet-for-bonded-anchor.pdf" target="_blank">Chemical Mortars CM360SH - Bonded Anchor</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-AGNI420-Technical-Datasheet-for-bonded-anchor.pdf" target="_blank">Chemical Mortars AGNI420 - Bonded Anchor</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-CM585PE-PRO-Technical-Datasheet-for-bonded-anchor.pdf" target="_blank">Chemical Mortars CM585PE-PRO - Bonded Anchor</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-CM350-420VESF-Rebar-Connection.pdf" target="_blank">CM350VESF / CM420VESF - Rebar</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/CM360SH-Technical-Datasheet-for-Post-installed-rebar-connections.pdf" target="_blank">CM360SH - Rebar</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/ICFS-SUPERCAP-Technical-Data-Sheets-for-bonded-anchor.pdf" target="_blank">Chemical Capsule - Supercap</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-tds-mechanical-anchors" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('tds-mechanical-anchors')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Mechanical Anchor Fasteners</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/IWA-Technical-Data-Sheet.pdf" target="_blank">Indo Wedge Anchor - IWA</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/TBA-Technical-Data-Sheet.pdf" target="_blank">Through Bolt Anchor - TBA</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/DIA-Technical-Data-Sheet.pdf" target="_blank">Drop In Anchor - DIA</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="submenu-services-catalogue" class="mobile-submenu-page">
+    <div class="mobile-menu-header">
+      <button class="back-btn" onclick="closeSubmenu('services-catalogue')">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3>Services Catalogue</h3>
+      <button class="close-btn" onclick="closeMobileMenu()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <ul class="pb-8">
+      <li class="mobile-menu-item">
+        <a href="../downloads/iscs-catalogue.pdf" target="_blank">ISCS Services Catalogue</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/brochure-rebaring-services.pdf" target="_blank">Rebaring Services</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/brochure-grouting-services.pdf" target="_blank">Grouting Services</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/brochure-concrete-cutting-services.pdf" target="_blank">Concrete Cutting Services</a>
+      </li>
+      <li class="mobile-menu-item">
+        <a href="../downloads/brochure-core-drilling-services.pdf" target="_blank">Core Drilling Services</a>
+      </li>
+    </ul>
+  </div>
 
 </body>
 </html>
