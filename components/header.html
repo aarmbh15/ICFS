@@ -159,6 +159,27 @@
         background-color: #fef5f5 !important; 
         color: #D61F26 !important;
       }
+
+      /* FIX: Prevent Downloads dropdown from going outside screen */
+      /* Position Downloads submenu to open on the LEFT side instead of right */
+      .has-sub.open-right > ul {
+        left: auto;
+        right: 100%;
+        border-left: none;
+        border-right: 5px solid #D61F26;
+        border-radius: 12px 0 0 12px;
+        transform: translateX(12px);
+      }
+
+      .has-sub.open-left:hover > ul {
+        transform: translateX(0);
+      }
+
+      /* Nested submenus of Downloads should also open left */
+      .has-sub.open-left .has-sub > ul {
+        left: auto;
+        right: 100%;
+      }
     }
  
     /* ==================== MOBILE STYLES ==================== */
@@ -456,7 +477,7 @@
             <div class="dropdown-menu absolute top-full left-0 bg-white shadow-2xl rounded-xl mt-1 w-64 border-t-4 border-icfs-red">
               <ul class="text-xs">
 
-                <li class="has-sub group">
+                <li class="has-sub group open-left">
                   <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">ETA Approval Certificates</a>
                   <ul>
                     <li class="has-sub group">
@@ -503,7 +524,7 @@
                   </ul>
                 </li>
 
-                <li class="has-sub group">
+                <li class="has-sub group open-left">
                   <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Other Certificates</a>
                   <ul>
                     <li><a href="../downloads/imperial%20college%20pure%20epoxy%20test%20report.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">Imperial College Pure Epoxy Test Report</a></li>
@@ -519,7 +540,7 @@
                   </ul>
                 </li>
 
-                <li class="has-sub group">
+                <li class="has-sub group open-left">
                   <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Products Catalogue</a>
                   <ul>
                     <li class="has-sub group">
@@ -573,7 +594,7 @@
                   </ul>
                 </li>
 
-                <li class="has-sub group">
+                <li class="has-sub group open-left">
                   <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Technical Data Sheet</a>
                   <ul>
                     <li class="has-sub group">
@@ -600,7 +621,7 @@
                   </ul>
                 </li>
 
-                <li class="has-sub group">
+                <li class="has-sub group open-left">
                   <a href="#" class="block px-6 py-3 rounded-xl hover:bg-icfs-red hover:text-white font-medium">Services Catalogue</a>
                   <ul>
                     <li><a href="../downloads/iscs-catalogue.pdf" target="_blank" class="block px-6 py-3 rounded-xl hover:bg-gray-100">ISCS Services Catalogue</a></li>
